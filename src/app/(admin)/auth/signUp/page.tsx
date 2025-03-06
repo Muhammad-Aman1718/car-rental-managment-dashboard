@@ -23,7 +23,7 @@ const SignUp = () => {
     <div className="dark:bg-[#1F2128] p-2 ">
       <div className=" max-w-[510px] min-w-[250px] mx-auto ">
         <h1 className="dark:text-white   text-[#242731] text-[30px] leading-[39.06px] font-bold mb-4 ">
-          Get's started
+          Get&apos;s started
         </h1>
         <p className="text-[18px] text-[#7c7c8d] leading-[23.44px] font-medium mb-10 max-xs:text-[16px] ">
           I have already an account?

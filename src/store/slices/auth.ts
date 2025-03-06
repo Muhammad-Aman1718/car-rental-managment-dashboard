@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 export const users = createAsyncThunk(
   "users/addUser",
@@ -16,18 +16,22 @@ export const users = createAsyncThunk(
       );
       console.log("postApi Response:", response.data);
       return response.data;
-    } catch (error: any) {
-      throw new Error(error.response?.data?.message || "Something went wrong!");
+    } catch (error) {
+      const errorAxios = error as AxiosError;
+      const errorMessage =
+        (errorAxios.response?.data as { message?: string })?.message ||
+        "Something went wrong!";
+      throw new Error(errorMessage);
     }
   }
 );
 
-const userSlice = createSlice({
+const auth = createSlice({
   name: "users",
   initialState: {
     user: null,
     loading: false,
-    error: null,
+    error: null as string | null,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -40,11 +44,11 @@ const userSlice = createSlice({
         state.loading = false;
         state.user = action.payload;
       })
-      .addCase(users.rejected, (state: any, action) => {
+      .addCase(users.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to add user!";
       });
   },
 });
 
-export default userSlice.reducer;
+export default auth.reducer;

@@ -21,7 +21,12 @@ const PerformanceCard: React.FC<PerformanceCardPropsTypes> = ({
     >
       <div className="flex flex-col justify-between items-center gap-y-[10px] ">
         <span>
-          <Image src={src!} alt="performanceCardImg1 does not show" />
+          <Image
+            src={src!}
+            alt="performanceCardImg1 does not show"
+            fill
+            className="object-cover"
+          />
         </span>
         <h3
           className={` ${className2} text-[24px] leading-[31.25px] font-bold text-nowrap `}
@@ -29,7 +34,12 @@ const PerformanceCard: React.FC<PerformanceCardPropsTypes> = ({
           {heading}
         </h3>
       </div>
-      <Image src={pieChart} alt="pie chart does not show" />
+      <Image
+        src={pieChart}
+        alt="pie chart does not show"
+        fill
+        className="object-cover"
+      />
     </div>
   );
 };

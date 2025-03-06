@@ -1,6 +1,5 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import AvatorImg1 from "../../../public/assets/calendar/avator.png";
 
 interface EventCardCalenderPropsTypes {
   className?: string;

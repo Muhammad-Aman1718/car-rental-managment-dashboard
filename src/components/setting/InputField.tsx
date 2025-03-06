@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { FiHome } from "react-icons/fi";
 
 interface InputFieldPropsTypes {
   icon?: ReactNode;

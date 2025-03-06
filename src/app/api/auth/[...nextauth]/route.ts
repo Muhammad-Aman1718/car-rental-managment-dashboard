@@ -73,6 +73,7 @@ import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
+import { AxiosError } from "axios";
 
 const prisma = new PrismaClient();
 
@@ -119,10 +120,11 @@ const authOptions: AuthOptions = {
           }
 
           return { id: user.id, email: user.email };
-        } catch (error: any) {
+        } catch (error) {
+          const errorAxois = error as AxiosError;
           console.error("Authorization Error:", error);
           throw new Error(
-            error.message || "Something went wrong during authentication."
+            errorAxois.message || "Something went wrong during authentication."
           );
         }
       },

@@ -1,5 +1,5 @@
 "use client";
-import { users } from "@/store/slices/userSlice";
+import { users } from "@/store/slices/auth";
 import { useAppDispatch } from "@/store/store";
 import { useState } from "react";
 

@@ -38,10 +38,11 @@ const SignIn = () => {
     <div className="dark:bg-[#1F2128] p-2 border  ">
       <div className="border max-w-[510px] min-w-[250px] m-auto ">
         <h1 className="dark:text-white text-[#242731] text-[30px] leading-[39.06px] font-bold mb-4 ">
-          Get's started
+          Get&apos;s started
         </h1>
         <p className="text-[18px] text-[#7c7c8d] leading-[23.44px] font-medium mb-10 max-xs:text-[16px] ">
-          Don't have an account?<span className="text-[#a162f7] ">Sign up</span>
+          Don&apos;t have an account?
+          <span className="text-[#a162f7] ">Sign up</span>
         </p>
         <div className="flex items-center gap-[14px]   max-xs:flex-col ">
           <SignInWithGoogleBtn />
@@ -69,7 +70,7 @@ const SignIn = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        {/* {error && } */}
+        {error}
         <div className="flex items-center justify-between my-6 ">
           <div className="flex  items-center gap-x-[13px]  ">
             <input type="checkbox" className="text-[#B1B5C3]  " />

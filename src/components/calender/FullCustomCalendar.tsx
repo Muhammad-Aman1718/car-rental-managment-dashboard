@@ -114,10 +114,9 @@
 import React, { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGridPlugin from "@fullcalendar/timegrid";
 import timeGridWeek from "@fullcalendar/timegrid";
 import timeGridDay from "@fullcalendar/timegrid";
-import interactionPlugin from "@fullcalendar/interaction";
+import interactionPlugin, { DateClickArg } from "@fullcalendar/interaction";
 import { EventClickArg } from "@fullcalendar/core";
 
 const CustomCalendar = () => {
@@ -136,12 +135,17 @@ const CustomCalendar = () => {
     },
   ]);
 
-  const handleDateClick = (arg: any) => {
+  const handleDateClick = (arg: DateClickArg) => {
     const title = prompt("Enter event title:");
     if (title) {
       setEvents([
         ...events,
-        { id: Date.now().toString(), title, start: arg.date, color: "#4CAF50" },
+        {
+          id: Date.now().toString(),
+          title,
+          start: arg.date.toISOString(),
+          color: "#4CAF50",
+        },
       ]);
     }
   };

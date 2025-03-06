@@ -1,12 +1,18 @@
 import { prisma } from "@/config/prisma";
+import { AxiosError } from "axios";
 import bcrypt from "bcryptjs";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-// const prisma = new PrismaClient();
+interface SignUpRequestBody {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
 
-export const POST = async (req: any) => {
+export const POST = async (req: NextRequest) => {
   try {
-    const body = await req.json();
+    const body: SignUpRequestBody = await req.json();
     console.log("Body:", body);
 
     if (!body.firstName || !body.lastName || !body.email || !body.password) {
@@ -32,12 +38,13 @@ export const POST = async (req: any) => {
       message: "User data saved successfully",
       student: userData,
     });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error:", error);
+    const errorAxois = error as AxiosError;
     return NextResponse.json({
       success: false,
       message: "Something went wrong",
-      error: error.message || "Unknown error",
+      error: errorAxois.message || "Unknown error",
     });
   } finally {
     await prisma.$disconnect();

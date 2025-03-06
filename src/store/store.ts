@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import counterSlice from "@/store/slices/counterSlice";
-import studentSlice from "@/store/slices/studentSlice";
+// import studentSlice from "@/store/slices/studentSlice";
+import auth from "@/store/slices/auth";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
+      authReducer: auth,
       countReducer: counterSlice,
-      studentReducer: studentSlice,
+      // studentReducer: studentSlice,
     },
   });
 };

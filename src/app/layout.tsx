@@ -4,6 +4,7 @@ import "./globals.css";
 import StoreProvider from "./storeProvider";
 import { ThemeProvider } from "@/context/themeProvider";
 import { AuthProvider } from "./authProviders";
+import { ToastContainer } from "react-toastify";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
         className={`${dmSans.className}  antialiased`}
         cz-shortcut-listen="true"
       >
+        <ToastContainer />
         <StoreProvider>
           <AuthProvider>
             <ThemeProvider>{children}</ThemeProvider>

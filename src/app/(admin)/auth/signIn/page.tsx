@@ -6,6 +6,7 @@ import SignInWithFacebookBtn from "@/components/auth/SignInWithFacebookBtn";
 import SignInWithGoogleBtn from "@/components/auth/SignInWithGoogleBtn";
 import useSignIn from "@/hooks/useSignIn";
 import Modal from "@/components/modal";
+import Link from "next/link";
 
 const SignIn = () => {
   const { email, setEmail, password, setPassword, error, handleSubmit } =
@@ -19,7 +20,9 @@ const SignIn = () => {
         </h1>
         <p className="text-[18px] text-[#7c7c8d] leading-[23.44px] font-medium mb-10 max-xs:text-[16px] ">
           Don&apos;t have an account?
-          <span className="text-[#a162f7] ">Sign up</span>
+          <Link href="/auth/signUp">
+            <span className="text-[#a162f7]  underline ">Sign up</span>
+          </Link>
         </p>
         <div className="flex items-center gap-[14px]   max-xs:flex-col ">
           <SignInWithGoogleBtn />
@@ -49,9 +52,6 @@ const SignIn = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-
-        <Modal />
-
         <p className="">{error}</p>
         <div className="flex items-center justify-between my-6 ">
           <div className="flex  items-center gap-x-[13px]  ">

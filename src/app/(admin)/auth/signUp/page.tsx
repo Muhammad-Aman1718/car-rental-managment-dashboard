@@ -1,11 +1,11 @@
 "use client";
+import React from "react";
 import InputField from "@/components/auth/InputField";
 import AuthButton from "@/components/AuthButton";
 import SignInWithFacebookBtn from "@/components/auth/SignInWithFacebookBtn";
 import SignInWithGoogleBtn from "@/components/auth/SignInWithGoogleBtn";
 import useSignUp from "@/hooks/useSignUp";
-import React from "react";
-import Modal from "@/components/modal";
+import Link from "next/link";
 
 const SignUp = () => {
   const {
@@ -22,14 +22,15 @@ const SignUp = () => {
 
   return (
     <div className="dark:bg-[#1F2128] p-2 ">
-      {/* <Modal /> */}
       <div className=" max-w-[510px] min-w-[250px] mx-auto ">
         <h1 className="dark:text-white   text-[#242731] text-[30px] leading-[39.06px] font-bold mb-4 ">
           Get&apos;s started
         </h1>
         <p className="text-[18px] text-[#7c7c8d] leading-[23.44px] font-medium mb-10 max-xs:text-[16px] ">
           I have already an account?
-          <span className="text-[#a162f7] ">Sign in</span>
+          <Link href="/auth/signIn">
+            <span className="text-[#a162f7] underline ">Sign in</span>
+          </Link>
         </p>
         <div className="flex items-center gap-[14px] max-xs:flex-col ">
           <SignInWithGoogleBtn />

@@ -58,6 +58,7 @@ import { useAppDispatch } from "@/store/store";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import useModal from "./useModal";
+import { showToast } from "@/utils/toast";
 
 const useSignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -81,6 +82,8 @@ const useSignUp = () => {
       const response = await dispatch(users(user)).unwrap();
 
       setTimeout(() => {
+        showToast("success", "User sign-up successfully!");
+
         router.push("/auth/signIn");
       }, 2000);
     } catch (error) {

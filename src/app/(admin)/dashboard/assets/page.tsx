@@ -82,7 +82,8 @@ const Assets = () => {
             <Image
               src={IMAGES.CAR}
               alt="car img does not show"
-              fill
+              width={30}
+              height={30}
               className="object-cover w-full max-w-[300px] xl:max-w-[350px]"
             />
           </div>

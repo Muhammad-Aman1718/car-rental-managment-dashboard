@@ -26,13 +26,15 @@ export const users = createAsyncThunk(
   }
 );
 
+const initialState = {
+  user: null,
+  loading: false,
+  error: null as string | null,
+};
+
 const auth = createSlice({
   name: "users",
-  initialState: {
-    user: null,
-    loading: false,
-    error: null as string | null,
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder

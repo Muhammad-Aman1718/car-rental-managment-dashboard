@@ -19,7 +19,7 @@ const Reminder = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center dark:bg-[#242731] bg-white py-4 px-5 rounded-[14px] ">
+    <div className="flex flex-col justify-center dark:bg-[#242731] bg-white py-4 px-5 rounded-[14px] max-lg:hidden ">
       <div className="flex items-center justify-between ">
         <h1 className="dark:text-white text-black leading-[23.44px] text-[18px] font-medium  ">
           Reminder

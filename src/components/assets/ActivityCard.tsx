@@ -13,7 +13,13 @@ const ActivityCard = () => {
           View All
         </h4>
       </div>
-      <Image src={IMAGES.GRAPH} alt="graph img does not show" />
+      <Image
+        src={IMAGES.GRAPH}
+        alt="graph img does not show"
+        width={591}
+        height={190}
+        className=" max-lg:w-[500px]  "
+      />
     </div>
   );
 };

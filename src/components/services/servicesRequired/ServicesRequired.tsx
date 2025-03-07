@@ -13,6 +13,8 @@ const ServicesRequired = () => {
         <Image
           src={IMAGES.SERVICES_REQUIRED}
           alt="SERVICES_REQUIRED img does not show"
+          width={30}
+          height={30}
           className="max-sm:hidden "
         />
         <div className="flex flex-col items-center gap-y-[45px] ">

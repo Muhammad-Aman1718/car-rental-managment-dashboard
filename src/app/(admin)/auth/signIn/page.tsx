@@ -1,38 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import InputField from "@/components/auth/InputField";
-import SignInButton from "@/components/auth/SignInButton";
+import AuthButton from "@/components/AuthButton";
 import SignInWithFacebookBtn from "@/components/auth/SignInWithFacebookBtn";
 import SignInWithGoogleBtn from "@/components/auth/SignInWithGoogleBtn";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import useSignIn from "@/hooks/useSignIn";
+
 const SignIn = () => {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const handleSubmit = async () => {
-    try {
-      console.log("Button was clicked");
-
-      const res = await signIn("credentials", {
-        email,
-        password,
-        redirect: false,
-      });
-      console.log("this is res ========>", res);
-
-      if (res?.error) {
-        setError("Invalid credential");
-        return;
-      }
-
-      router.replace("/dashboard");
-    } catch (error) {
-      console.log("Error", error);
-    }
-  };
+  const { email, setEmail, password, setPassword, error, handleSubmit } =
+    useSignIn();
 
   return (
     <div className="dark:bg-[#1F2128] p-2 border  ">
@@ -58,12 +34,14 @@ const SignIn = () => {
 
         <div className="dark:bg-[#242731] bg-white border dark:border-none border-[#F4F5F6] rounded-[10px] py-5 pr-10 pl-5 flex flex-col gap-y-[14px] shadow-[0px_10px_110px_1px_rgba(59,59,59,0.08)] max-xs:p-4 ">
           <InputField
+            value={email}
             type="email"
             placeholder="uistore@gmail.com"
             title="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
           <InputField
+            value={password}
             type="password"
             placeholder="**********"
             title="Password"
@@ -83,7 +61,7 @@ const SignIn = () => {
           </h3>
         </div>
 
-        <SignInButton onClick={handleSubmit} title="Sign in" />
+        <AuthButton onClick={handleSubmit} title="Sign in" />
       </div>
     </div>
   );

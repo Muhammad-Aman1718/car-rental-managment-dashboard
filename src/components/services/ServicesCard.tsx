@@ -18,7 +18,12 @@ const ServicesCard: React.FC<ServicesCardPropsTypes> = ({
 }) => {
   return (
     <div className="w-[180px] flex-1 flex flex-col items-start ">
-      <Image src={imgSrc!} alt="oil img does not show" />
+      <Image
+        src={imgSrc!}
+        alt="oil img does not show"
+        width={148}
+        height={153}
+      />
       <h2 className="dark:text-white text-black text-[20px] leading-[26.04px] font-bold mt-5 ">
         {title}
       </h2>

@@ -1,6 +1,6 @@
 "use client";
 import InputField from "@/components/auth/InputField";
-import SignInButton from "@/components/auth/SignInButton";
+import AuthButton from "@/components/AuthButton";
 import SignInWithFacebookBtn from "@/components/auth/SignInWithFacebookBtn";
 import SignInWithGoogleBtn from "@/components/auth/SignInWithGoogleBtn";
 import useSignUp from "@/hooks/useSignUp";
@@ -83,7 +83,7 @@ const SignUp = () => {
           </h3>
         </div>
 
-        <SignInButton onClick={handleSignUp} title="Sign up" />
+        <AuthButton onClick={handleSignUp} title="Sign up" />
       </div>
     </div>
   );

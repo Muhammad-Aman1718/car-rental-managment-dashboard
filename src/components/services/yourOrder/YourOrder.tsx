@@ -11,7 +11,12 @@ const YourOrder = () => {
           <h1 className="dark:text-white  text-[#242731] leading-[31.25px] text-[24px] font-bold ">
             Your Order
           </h1>
-          <Image src={IMAGES.YOUR_ORDER} alt="your order img does not show" />
+          <Image
+            src={IMAGES.YOUR_ORDER}
+            alt="your order img does not show"
+            width={148}
+            height={153}
+          />
         </div>
         <div className="flex-1 flex flex-col gap-y-2.5 ">
           <YourOrderCard

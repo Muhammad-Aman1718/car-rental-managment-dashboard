@@ -24,7 +24,9 @@ const SideBar: React.FC<SideBarPropsTypes> = ({ className }) => {
         <div className="flex items-center p-6">
           <Image
             src={IMAGES.NAVBAR_MAIN_LOGO}
-            className="hidden md:block"
+            width={100}
+            height={60}
+            className="  hidden md:block"
             alt="Navbar Logo does not show"
           />
         </div>

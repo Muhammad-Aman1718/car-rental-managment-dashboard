@@ -13,19 +13,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model StudentModel {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  cnic      String
-  firstName String
-  lastName  String
-  email     String
-  address   String
+model User {
+  id            String  @id @default(auto()) @map("_id") @db.ObjectId
+  firstName     String
+  lastName      String
+  email         String  @unique
+  password      String
+  role          Role    @default(USER)
+  liveIn        String?
+  streetAddress String?
+  dateOfBirth   String?
+  gender        String?
+  profilePic    String?
 }
 
-model User {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  firstName String
-  lastName  String
-  email     String @unique     
-  password  String
+enum Role {
+  USER
+  ADMIN
 }

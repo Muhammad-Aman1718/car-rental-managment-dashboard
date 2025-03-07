@@ -67,6 +67,7 @@ const Dashboard = () => {
   return (
     <div className="">
       {/* Performance Cards */}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[30px]">
         <PerformanceCard
           className1="bg-primary"
@@ -77,6 +78,7 @@ const Dashboard = () => {
         <PerformanceCard
           className1="bg-white"
           className2="text-[#242731]"
+        
           heading="Range"
           src={IMAGES.PERFORMANCE_CARD_IMG_2}
         />

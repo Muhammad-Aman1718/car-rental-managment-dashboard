@@ -17,14 +17,14 @@ const useSignUp = () => {
       return;
     }
 
-    await dispatch(
-      users({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password,
-      })
-    );
+    const user = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+    };
+
+    await dispatch(users(user));
 
     alert("data is submitted");
   };

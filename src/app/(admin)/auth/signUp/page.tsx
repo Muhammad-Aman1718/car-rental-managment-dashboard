@@ -5,6 +5,7 @@ import SignInWithFacebookBtn from "@/components/auth/SignInWithFacebookBtn";
 import SignInWithGoogleBtn from "@/components/auth/SignInWithGoogleBtn";
 import useSignUp from "@/hooks/useSignUp";
 import React from "react";
+import Modal from "@/components/modal";
 
 const SignUp = () => {
   const {
@@ -21,6 +22,7 @@ const SignUp = () => {
 
   return (
     <div className="dark:bg-[#1F2128] p-2 ">
+      {/* <Modal /> */}
       <div className=" max-w-[510px] min-w-[250px] mx-auto ">
         <h1 className="dark:text-white   text-[#242731] text-[30px] leading-[39.06px] font-bold mb-4 ">
           Get&apos;s started

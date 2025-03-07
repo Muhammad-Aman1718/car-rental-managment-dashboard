@@ -1,18 +1,12 @@
 import { useState } from "react";
 
-const useModel = () => {
+const useModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleIsOpen = () => {
+  const handleOpen = () => {
     setIsOpen(!isOpen);
   };
-
-  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target instanceof HTMLDivElement && e.target.id === "modalRemove") {
-      setIsOpen(false);
-    }
-  };
-  return { isOpen, handleIsOpen, handleOverlayClick };
+  return { isOpen, setIsOpen, handleOpen };
 };
 
-export default useModel;
+export default useModal;

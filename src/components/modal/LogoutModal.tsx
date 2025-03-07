@@ -1,10 +1,10 @@
 "use client";
 import { TbLogout2 } from "react-icons/tb";
 // import LogoutBtn from "../button/LogoutBtn";
-import useModel from "@/hooks/useModal";
+import useModal from "@/hooks/useModal";
 
 const LogoutModal = () => {
-  const { isOpen, handleIsOpen, handleOverlayClick } = useModel();
+  const { isOpen, handleIsOpen, handleOverlayClick } = useModal();
 
   return (
     <>

@@ -68,14 +68,14 @@
 // const handler = NextAuth(authOptions);
 // export { handler as GET, handler as POST };
 
-// import { prisma } from "@/config/prisma";
+import { prisma } from "@/config/prisma";
 import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
 import { AxiosError } from "axios";
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
 const authOptions: AuthOptions = {
   providers: [
@@ -116,7 +116,7 @@ const authOptions: AuthOptions = {
           );
 
           if (!passwordsMatch) {
-            throw new Error("Invalid credentials. the password is nit same");
+            throw new Error("Invalid credentials. the password is not same");
           }
 
           return { id: user.id, email: user.email };

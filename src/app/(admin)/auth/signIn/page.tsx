@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import InputField from "@/components/auth/InputField";
 import AuthButton from "@/components/AuthButton";
 import SignInWithFacebookBtn from "@/components/auth/SignInWithFacebookBtn";
 import SignInWithGoogleBtn from "@/components/auth/SignInWithGoogleBtn";
 import useSignIn from "@/hooks/useSignIn";
+import Modal from "@/components/modal";
 
 const SignIn = () => {
   const { email, setEmail, password, setPassword, error, handleSubmit } =
@@ -48,7 +49,10 @@ const SignIn = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        {error}
+
+        <Modal />
+
+        <p className="">{error}</p>
         <div className="flex items-center justify-between my-6 ">
           <div className="flex  items-center gap-x-[13px]  ">
             <input type="checkbox" className="text-[#B1B5C3]  " />

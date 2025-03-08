@@ -17,6 +17,7 @@ const SignUp = () => {
     setEmail,
     password,
     setPassword,
+    loading,
     handleSignUp,
   } = useSignUp();
 
@@ -86,7 +87,7 @@ const SignUp = () => {
           </h3>
         </div>
 
-        <AuthButton onClick={handleSignUp} title="Sign up" />
+        <AuthButton onClick={handleSignUp} title="Sign up" loading={loading} />
       </div>
     </div>
   );

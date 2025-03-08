@@ -9,7 +9,7 @@ import Modal from "@/components/modal";
 import Link from "next/link";
 
 const SignIn = () => {
-  const { email, setEmail, password, setPassword, error, handleSubmit } =
+  const { email, setEmail, password, setPassword, loading, handleSubmit } =
     useSignIn();
 
   return (
@@ -52,7 +52,6 @@ const SignIn = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <p className="">{error}</p>
         <div className="flex items-center justify-between my-6 ">
           <div className="flex  items-center gap-x-[13px]  ">
             <input type="checkbox" className="text-[#B1B5C3]  " />
@@ -65,7 +64,7 @@ const SignIn = () => {
           </h3>
         </div>
 
-        <AuthButton onClick={handleSubmit} title="Sign in" />
+        <AuthButton onClick={handleSubmit} title="Sign in" loading={loading} />
       </div>
     </div>
   );

@@ -54,7 +54,7 @@
 
 "use client";
 import { users } from "@/store/slices/auth";
-import { useAppDispatch } from "@/store/store";
+import { useAppDispatch, useAppSelector } from "@/store/store";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import useModal from "./useModal";
@@ -68,7 +68,7 @@ const useSignUp = () => {
 
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const { isOpen, setIsOpen } = useModal();
+  const loading = useAppSelector((state) => state.authReducer.loading);
 
   const handleSignUp = async () => {
     if (!firstName || !lastName || !email || !password) {
@@ -101,6 +101,7 @@ const useSignUp = () => {
     setEmail,
     password,
     setPassword,
+    loading,
     handleSignUp,
   };
 };

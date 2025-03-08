@@ -42,7 +42,7 @@
 
 // export default useSignIn;
 
-import { showToast } from "@/utils/toast";
+import { showToast } from "@/utils/showToast";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -55,9 +55,7 @@ const useSignIn = () => {
 
   const handleSubmit = async () => {
     try {
-      setLoading(true); // ✅ Show Loader
-      console.log("Button was clicked");
-
+      setLoading(true);
       const res = await signIn("credentials", {
         email,
         password,
@@ -67,16 +65,16 @@ const useSignIn = () => {
       console.log("this is res ========>", res);
 
       if (res?.error) {
-        // setError("Invalid credentials");
         showToast("error", "Please, Enter your correct user name and password");
-        setLoading(false); // ❌ Stop Loader
+        setLoading(false);
         return;
       }
 
       router.replace("/dashboard");
+      showToast("success", "User sign-in successfully");
     } catch (error) {
       console.log("Error", error);
-      setLoading(false); // ❌ Stop Loader on Error
+      setLoading(false);
     }
   };
 

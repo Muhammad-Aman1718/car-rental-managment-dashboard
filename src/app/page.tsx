@@ -5,6 +5,7 @@ import {
   incrementByAmmount,
 } from "@/store/slices/counterSlice";
 import { useAppDispatch, useAppSelector } from "@/store/store";
+import Link from "next/link";
 // import { prisma } from "@/utils/prisma";
 
 function Home() {
@@ -34,6 +35,9 @@ function Home() {
           +5
         </button>
       </div>
+      <Link href="/auth/signIn">
+        <button>click to go sign-in page</button>
+      </Link>
     </div>
   );
 }

@@ -1,24 +1,36 @@
 import React from "react";
 import Loaders from "./Loaders";
+import Image, { StaticImageData } from "next/image";
+
 interface ButtonPropstypes {
   title?: string;
   className?: string;
+  src?: string | StaticImageData;
+  imgSrcClassName?: string;
+  titleClassName?: string;
   onClick?: () => void;
-  loading?: boolean; // ✅ Add Loading Prop
+  loading?: boolean;
 }
 
 const AuthButton: React.FC<ButtonPropstypes> = ({
   title,
   className,
+  imgSrcClassName,
+  titleClassName,
+  src,
   onClick,
   loading,
 }) => {
   return (
-    <button
-      onClick={onClick}
-      className={` ${className} bg-[#A162F7] py-[18px] w-full rounded-[10px] mt-[6px] text-[#FFFAF7] leading-[24.2px] font-bold text-[20px]  `}
-    >
-      {loading ? <Loaders /> : title} {/* ✅ Show Loader */}
+    <button onClick={onClick} className={` ${className}`}>
+      <Image
+        src={src!}
+        alt="logo does not show"
+        className={imgSrcClassName}
+        width={30}
+        height={30}
+      />
+      <h3 className={`${titleClassName} `}>{loading ? <Loaders /> : title}</h3>
     </button>
   );
 };

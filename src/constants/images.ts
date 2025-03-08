@@ -38,4 +38,6 @@ export const IMAGES = {
   BRAKE_PADS: "/assets/services/brakePads.png",
   CAR: "/assets/assets/car.png",
   GRAPH: "/assets/assets/graph.png",
+  GOOGLE_BTN: "/assets/auth/googleLogo.png",
+  FACEBOOK_BTN: "/assets/auth/facebookLogo.png",
 };

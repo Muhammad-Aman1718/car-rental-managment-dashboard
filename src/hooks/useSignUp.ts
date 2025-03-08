@@ -58,7 +58,7 @@ import { useAppDispatch, useAppSelector } from "@/store/store";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import useModal from "./useModal";
-import { showToast } from "@/utils/toast";
+import { showToast } from "@/utils/showToast";
 
 const useSignUp = () => {
   const [firstName, setFirstName] = useState("");

@@ -57,7 +57,6 @@ import { users } from "@/store/slices/auth";
 import { useAppDispatch, useAppSelector } from "@/store/store";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import useModal from "./useModal";
 import { showToast } from "@/utils/showToast";
 
 const useSignUp = () => {
@@ -79,7 +78,7 @@ const useSignUp = () => {
     const user = { firstName, lastName, email, password };
 
     try {
-      const response = await dispatch(users(user)).unwrap();
+      await dispatch(users(user)).unwrap();
 
       setTimeout(() => {
         showToast("success", "User sign-up successfully!");

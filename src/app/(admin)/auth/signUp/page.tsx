@@ -2,8 +2,6 @@
 import React from "react";
 import InputField from "@/components/auth/InputField";
 import AuthButton from "@/components/AuthButton";
-import SignInWithFacebookBtn from "@/components/auth/SignInWithFacebookBtn";
-import SignInWithGoogleBtn from "@/components/auth/SignInWithGoogleBtn";
 import useSignUp from "@/hooks/useSignUp";
 import Link from "next/link";
 import { IMAGES } from "@/constants/images";

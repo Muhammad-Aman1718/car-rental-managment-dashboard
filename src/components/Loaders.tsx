@@ -2,7 +2,7 @@ import React from "react";
 interface LoaderPropsTypes {
   className?: string;
 }
-const Loaders = () => {
+const Loaders: React.FC<LoaderPropsTypes> = ({ className }) => {
   return (
     <div className="flex justify-center items-center ">
       <div

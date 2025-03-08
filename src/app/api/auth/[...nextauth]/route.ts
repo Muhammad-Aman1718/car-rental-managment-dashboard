@@ -72,7 +72,6 @@ import { prisma } from "@/config/prisma";
 import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import { PrismaClient } from "@prisma/client";
 import { AxiosError } from "axios";
 
 // const prisma = new PrismaClient();

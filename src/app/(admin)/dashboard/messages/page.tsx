@@ -62,14 +62,14 @@
 // };
 
 // export default StudentsTable;
-import Loaders from "@/components/Loaders";
+import Loader from "@/components/Loader";
 import React from "react";
 
 const Messages = () => {
   return (
     <div>
       Messages
-      <Loaders />
+      <Loader />
     </div>
   );
 };

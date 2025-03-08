@@ -2,7 +2,7 @@ import React from "react";
 interface LoaderPropsTypes {
   className?: string;
 }
-const Loaders: React.FC<LoaderPropsTypes> = ({ className }) => {
+const Loader: React.FC<LoaderPropsTypes> = ({ className }) => {
   return (
     <div className="flex justify-center items-center ">
       <div
@@ -14,4 +14,4 @@ const Loaders: React.FC<LoaderPropsTypes> = ({ className }) => {
   );
 };
 
-export default Loaders;
+export default Loader;

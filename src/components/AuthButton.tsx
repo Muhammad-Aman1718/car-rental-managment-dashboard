@@ -1,5 +1,5 @@
 import React from "react";
-import Loaders from "./Loaders";
+import Loader from "./Loader";
 import Image, { StaticImageData } from "next/image";
 
 interface ButtonPropstypes {
@@ -30,7 +30,7 @@ const AuthButton: React.FC<ButtonPropstypes> = ({
         width={30}
         height={30}
       />
-      <h3 className={`${titleClassName} `}>{loading ? <Loaders /> : title}</h3>
+      <h3 className={`${titleClassName} `}>{loading ? <Loader /> : title}</h3>
     </button>
   );
 };

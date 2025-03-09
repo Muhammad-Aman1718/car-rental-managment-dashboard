@@ -64,11 +64,15 @@ const useSignUp = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   const router = useRouter();
   const dispatch = useAppDispatch();
   const loading = useAppSelector((state) => state.authReducer.loading);
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsChecked(event.target.checked);
+  };
   const handleSignUp = async () => {
     if (!firstName || !lastName || !email || !password) {
       showToast("error", "All fields are requried");
@@ -95,6 +99,10 @@ const useSignUp = () => {
       return;
     }
 
+    if (isChecked) {
+      showToast("error", "Please, Check the remember");
+    }
+
     const user = { firstName, lastName, email, password };
 
     try {
@@ -107,7 +115,6 @@ const useSignUp = () => {
       }, 2000);
     } catch (error) {
       console.error("Signup Failed:", error);
-      alert(error);
     }
   };
 
@@ -121,6 +128,9 @@ const useSignUp = () => {
     password,
     setPassword,
     loading,
+    isChecked,
+    setIsChecked,
+    handleChange,
     handleSignUp,
   };
 };

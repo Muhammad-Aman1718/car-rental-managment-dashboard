@@ -17,6 +17,9 @@ const SignUp = () => {
     password,
     setPassword,
     loading,
+    isChecked,
+    setIsChecked,
+    handleChange,
     handleSignUp,
   } = useSignUp();
 
@@ -86,7 +89,12 @@ const SignUp = () => {
         </div>
         <div className="flex items-center justify-between my-6 ">
           <div className="flex  items-center gap-x-[13px]  ">
-            <input type="checkbox" className="text-[#B1B5C3]  " />
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleChange}
+              className="text-[#B1B5C3] "
+            />
             <h3 className="text-[#B1B5C3] leading-[20.83px] font-medium  max-xs:text-[13px] ">
               Remember me
             </h3>

@@ -74,7 +74,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { AxiosError } from "axios";
 
-// const prisma = new PrismaClient();
 
 const authOptions: AuthOptions = {
   providers: [
@@ -85,7 +84,6 @@ const authOptions: AuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        console.log("This is credentials", credentials);
 
         if (!credentials?.email || !credentials?.password) {
           throw new Error("Email and password are required.");
@@ -96,8 +94,6 @@ const authOptions: AuthOptions = {
             where: { email: credentials?.email },
           });
 
-          console.log("this is user ", user);
-
           if (!user) {
             throw new Error("User not found.");
           }
@@ -106,14 +102,7 @@ const authOptions: AuthOptions = {
             credentials.password,
             user.password
           );
-          console.log(
-            "this is password Match ==== >",
-            credentials.password,
-            user.password,
-            passwordsMatch,
-            bcrypt.compare(credentials.password, user.password)
-          );
-
+        
           if (!passwordsMatch) {
             throw new Error("Invalid credentials. the password is not same");
           }
@@ -121,7 +110,6 @@ const authOptions: AuthOptions = {
           return { id: user.id, email: user.email };
         } catch (error) {
           const errorAxois = error as AxiosError;
-          console.error("Authorization Error:", error);
           throw new Error(
             errorAxois.message || "Something went wrong during authentication."
           );

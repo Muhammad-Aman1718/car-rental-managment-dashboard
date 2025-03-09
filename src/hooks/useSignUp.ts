@@ -70,38 +70,35 @@ const useSignUp = () => {
   const dispatch = useAppDispatch();
   const loading = useAppSelector((state) => state.authReducer.loading);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(event.target.checked);
-  };
   const handleSignUp = async () => {
     if (!firstName || !lastName || !email || !password) {
       showToast("error", "All fields are requried");
       return;
     }
-    if (
-      !/^[A-Za-z]+$/.test(firstName) ||
-      !/^[A-Za-z]+$/.test(lastName) ||
-      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) ||
-      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-        password
-      )
-    ) {
-      showToast(
-        "error",
-        !/^[A-Za-z]+$/.test(firstName)
-          ? "First name should only contain alphabets!"
-          : !/^[A-Za-z]+$/.test(lastName)
-          ? "Last name should only contain alphabets!"
-          : !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
-          ? "Please enter a valid email address!"
-          : "Password must be at least 8 characters long, contain uppercase, lowercase, number, and a special character!"
-      );
+    if (!isChecked) {
+      showToast("error", "Please, check the remember me");
       return;
     }
-
-    if (isChecked) {
-      showToast("error", "Please, Check the remember");
-    }
+    // if (
+    //   !/^[A-Za-z]+$/.test(firstName) ||
+    //   !/^[A-Za-z]+$/.test(lastName) ||
+    //   !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) ||
+    //   !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+    //     password
+    //   )
+    // ) {
+    //   showToast(
+    //     "error",
+    //     !/^[A-Za-z]+$/.test(firstName)
+    //       ? "First name should only contain alphabets!"
+    //       : !/^[A-Za-z]+$/.test(lastName)
+    //       ? "Last name should only contain alphabets!"
+    //       : !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
+    //       ? "Please enter a valid email address!"
+    //       : "Password must be at least 8 characters long, contain uppercase, lowercase, number, and a special character!"
+    //   );
+    //   return;
+    // }
 
     const user = { firstName, lastName, email, password };
 
@@ -130,7 +127,6 @@ const useSignUp = () => {
     loading,
     isChecked,
     setIsChecked,
-    handleChange,
     handleSignUp,
   };
 };

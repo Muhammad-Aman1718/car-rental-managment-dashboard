@@ -19,7 +19,6 @@ const SignUp = () => {
     loading,
     isChecked,
     setIsChecked,
-    handleChange,
     handleSignUp,
   } = useSignUp();
 
@@ -92,7 +91,7 @@ const SignUp = () => {
             <input
               type="checkbox"
               checked={isChecked}
-              onChange={handleChange}
+              onChange={() => setIsChecked(!isChecked)}
               className="text-[#B1B5C3] "
             />
             <h3 className="text-[#B1B5C3] leading-[20.83px] font-medium  max-xs:text-[13px] ">

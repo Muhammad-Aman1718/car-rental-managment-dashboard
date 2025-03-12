@@ -7,8 +7,16 @@ import Link from "next/link";
 import { IMAGES } from "@/constants/images";
 
 const SignIn = () => {
-  const { email, setEmail, password, setPassword, loading, handleSubmit } =
-    useSignIn();
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    loading,
+    isChecked,
+    setIsChecked,
+    handleSubmit,
+  } = useSignIn();
 
   return (
     <div className="dark:bg-[#1F2128] p-2 border  ">
@@ -62,7 +70,12 @@ const SignIn = () => {
         </div>
         <div className="flex items-center justify-between my-6 ">
           <div className="flex  items-center gap-x-[13px]  ">
-            <input type="checkbox" className="text-[#B1B5C3]  " />
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={() => setIsChecked(!isChecked)}
+              className="text-[#B1B5C3] cursor-pointer "
+            />
             <h3 className="text-[#B1B5C3] leading-[20.83px] font-medium text-nowrap max-xs:text-[13px] ">
               Remember me
             </h3>
@@ -77,7 +90,7 @@ const SignIn = () => {
           onClick={handleSubmit}
           title="Sign in"
           imgSrcClassName="hidden"
-          loading={loading}
+          isChecked={loading}
         />
       </div>
     </div>

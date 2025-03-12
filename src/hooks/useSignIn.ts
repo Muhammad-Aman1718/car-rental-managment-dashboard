@@ -51,7 +51,8 @@ const useSignIn = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false); // ✅ Add Loading State
+  const [loading, setLoading] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleSubmit = async () => {
     if (!email || !password) {
@@ -59,21 +60,26 @@ const useSignIn = () => {
       return;
     }
 
-    if (
-      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) ||
-      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-        password
-      )
-    ) {
-      showToast(
-        "error",
-
-        !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
-          ? "Please enter a valid email address!"
-          : "Password must be at least 8 characters long, contain uppercase, lowercase, number, and a special character!"
-      );
+    if (!isChecked) {
+      showToast("error", "Please, check the remember box");
       return;
     }
+
+    // if (
+    //   !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) ||
+    //   !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+    //     password
+    //   )
+    // ) {
+    //   showToast(
+    //     "error",
+
+    //     !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
+    //       ? "Please enter a valid email address!"
+    //       : "Password must be at least 8 characters long, contain uppercase, lowercase, number, and a special character!"
+    //   );
+    //   return;
+    // }
 
     try {
       setLoading(true);
@@ -104,9 +110,10 @@ const useSignIn = () => {
     setEmail,
     password,
     setPassword,
-
-    handleSubmit,
     loading,
+    isChecked,
+    setIsChecked,
+    handleSubmit,
   };
 };
 

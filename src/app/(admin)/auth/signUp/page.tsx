@@ -92,7 +92,7 @@ const SignUp = () => {
               type="checkbox"
               checked={isChecked}
               onChange={() => setIsChecked(!isChecked)}
-              className="text-[#B1B5C3] "
+              className="text-[#B1B5C3] cursor-pointer "
             />
             <h3 className="text-[#B1B5C3] leading-[20.83px] font-medium  max-xs:text-[13px] ">
               Remember me
@@ -108,7 +108,7 @@ const SignUp = () => {
           title="Sign up"
           imgSrcClassName="hidden"
           className=" bg-[#A162F7] py-[18px] w-full rounded-[10px] mt-[6px] text-[#FFFAF7] leading-[24.2px] font-bold text-[20px]"
-          loading={loading}
+          isChecked={loading}
         />
       </div>
     </div>

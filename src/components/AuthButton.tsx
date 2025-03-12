@@ -9,7 +9,7 @@ interface ButtonPropstypes {
   imgSrcClassName?: string;
   titleClassName?: string;
   onClick?: () => void;
-  loading?: boolean;
+  isChecked?: boolean;
 }
 
 const AuthButton: React.FC<ButtonPropstypes> = ({
@@ -19,7 +19,7 @@ const AuthButton: React.FC<ButtonPropstypes> = ({
   titleClassName,
   src,
   onClick,
-  loading,
+  isChecked,
 }) => {
   return (
     <button onClick={onClick} className={` ${className}`}>
@@ -30,7 +30,7 @@ const AuthButton: React.FC<ButtonPropstypes> = ({
         width={30}
         height={30}
       />
-      <h3 className={`${titleClassName} `}>{loading ? <Loader /> : title}</h3>
+      <h3 className={`${titleClassName} `}>{isChecked ? <Loader /> : title}</h3>
     </button>
   );
 };

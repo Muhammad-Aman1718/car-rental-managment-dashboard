@@ -13,8 +13,6 @@ interface SignUpRequestBody {
 export const POST = async (req: NextRequest) => {
   try {
     const body: SignUpRequestBody = await req.json();
-    console.log("Body:", body);
-
     if (!body.firstName || !body.lastName || !body.email || !body.password) {
       return NextResponse.json(
         { success: false, message: "All fields are required" },
@@ -36,10 +34,9 @@ export const POST = async (req: NextRequest) => {
     return NextResponse.json({
       success: true,
       message: "User data saved successfully",
-      student: userData,
+      user: userData,
     });
   } catch (error) {
-    console.error("Error:", error);
     const errorAxois = error as AxiosError;
     return NextResponse.json({
       success: false,

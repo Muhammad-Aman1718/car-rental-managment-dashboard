@@ -1,6 +1,6 @@
 import axiosInstance from "@/lib/axiosInstance";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 
 export const users = createAsyncThunk(
   "users/addUser",

@@ -1,3 +1,4 @@
+"use client";
 // import React from "react";
 // import PerformanceCard from "@/components/dashboard/PerformanceCard";
 // import StatisticsCard from "@/components/dashboard/StatisticsCard";
@@ -67,7 +68,6 @@ const Dashboard = () => {
   return (
     <div className="">
       {/* Performance Cards */}
-
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[30px]">
         <PerformanceCard
           className1="bg-primary"
@@ -78,7 +78,6 @@ const Dashboard = () => {
         <PerformanceCard
           className1="bg-white"
           className2="text-[#242731]"
-        
           heading="Range"
           src={IMAGES.PERFORMANCE_CARD_IMG_2}
         />
@@ -95,7 +94,6 @@ const Dashboard = () => {
           src={IMAGES.PERFORMANCE_CARD_IMG_4}
         />
       </div>
-
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-[30px] mt-4">
         <StatisticsCard heading="Miles" para="256 Miles" />
@@ -107,7 +105,6 @@ const Dashboard = () => {
           className3="focus:bg-[#FF764C]"
         />
       </div>
-
       {/* Recommend Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-[30px] mt-4">
         <RecommendCard className="bg-[#E1DFA4]" heading="Mini Cooper" />

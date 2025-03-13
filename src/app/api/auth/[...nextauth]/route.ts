@@ -74,7 +74,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { AxiosError } from "axios";
 
-
 const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
@@ -83,8 +82,8 @@ const authOptions: AuthOptions = {
         email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
 
+      async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
           throw new Error("Email and password are required.");
         }
@@ -102,7 +101,7 @@ const authOptions: AuthOptions = {
             credentials.password,
             user.password
           );
-        
+
           if (!passwordsMatch) {
             throw new Error("Invalid credentials. the password is not same");
           }

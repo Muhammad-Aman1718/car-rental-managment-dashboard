@@ -97,7 +97,7 @@ const useSignIn = () => {
         return;
       }
 
-      router.replace("/dashboard");
+      router.push("/dashboard");
       showToast("success", "User sign-in successfully");
     } catch (error) {
       console.log("Error", error);

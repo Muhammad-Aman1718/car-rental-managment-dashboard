@@ -58,15 +58,18 @@
 
 // export default Dashboard;
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PerformanceCard from "@/components/dashboard/PerformanceCard";
 import StatisticsCard from "@/components/dashboard/StatisticsCard";
 import RecommendCard from "@/components/dashboard/RecommendCard";
 import { IMAGES } from "@/constants/images";
 
 const Dashboard = () => {
+
+
   return (
     <div className="">
+
       {/* Performance Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[30px]">
         <PerformanceCard

@@ -5,6 +5,7 @@ import AuthButton from "@/components/AuthButton";
 import useSignIn from "@/hooks/useSignIn";
 import Link from "next/link";
 import { IMAGES } from "@/constants/images";
+import { useSession } from "next-auth/react";
 
 const SignIn = () => {
   const {
@@ -17,6 +18,10 @@ const SignIn = () => {
     setIsChecked,
     handleSubmit,
   } = useSignIn();
+
+  const { data: session } = useSession();
+
+  console.log("User Session Data:", session);
 
   return (
     <div className="dark:bg-[#1F2128] p-2 border  ">

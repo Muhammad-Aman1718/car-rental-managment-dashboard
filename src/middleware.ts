@@ -21,6 +21,24 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
+  const role = token?.role;
+
+  console.log("this is role ", role);
+
+  if (role === "ADMIN") {
+    return NextResponse.next();
+  }
+
+  const allowedPagesForUser = [
+    "/dashboard",
+    "/dashboard/profile",
+    "/dashboard/settings",
+  ];
+
+  if (role === "USER" && !allowedPagesForUser.includes(pathname)) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  }
+
   return NextResponse.next();
 }
 

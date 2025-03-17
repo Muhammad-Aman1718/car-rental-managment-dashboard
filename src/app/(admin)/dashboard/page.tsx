@@ -63,14 +63,16 @@ import PerformanceCard from "@/components/dashboard/PerformanceCard";
 import StatisticsCard from "@/components/dashboard/StatisticsCard";
 import RecommendCard from "@/components/dashboard/RecommendCard";
 import { IMAGES } from "@/constants/images";
+import { useSession } from "next-auth/react";
 
 const Dashboard = () => {
-
+  const { data: session } = useSession();
 
   return (
     <div className="">
-
       {/* Performance Cards */}
+
+      {/* {session?.user?.role === "admin" ? "Admin" : "User"} */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[30px]">
         <PerformanceCard
           className1="bg-primary"

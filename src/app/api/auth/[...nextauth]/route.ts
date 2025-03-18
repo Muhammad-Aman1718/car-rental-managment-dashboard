@@ -106,6 +106,7 @@ const authOptions: AuthOptions = {
           if (!passwordsMatch) {
             throw new Error("Invalid credentials. the password is not same");
           }
+          console.log("this is return : ", user.id, user.email, user.role);
 
           return { id: user.id, email: user.email, role: user.role };
         } catch (error) {
@@ -120,23 +121,21 @@ const authOptions: AuthOptions = {
   session: {
     strategy: "jwt",
   },
-  // callbacks: {
-  //   async jwt({ token, user }) {
-  //     console.log("JWT CALLBACK CHAL RAHA HAI:", { token, user });
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.role = user.role;
+      }
+      return token;
+    },
 
-  //     if (user) {
-  //       token.role = user.role;
-  //     }
-  //     return token;
-  //   },
-
-  //   async session({ session, token }) {
-  //     console.log("SESSION CALLBACK CHAL RAHA HAI:", { session, token });
-
-  //     session?.user.role = token.role;
-  //     return session;
-  //   },
-  // },
+    async session({ session, token }) {
+      if (session?.user && typeof token.role === "string") {
+        session.user.role = token.role;
+      }
+      return session;
+    },
+  },
 
   secret: process.env.NEXTAUTH_SECRET,
   pages: {

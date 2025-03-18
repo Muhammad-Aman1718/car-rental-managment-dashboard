@@ -20,3 +20,16 @@ export const MENU_ITEMS = [
   { href: "/dashboard/calender", icon: HiOutlineCalendar, label: "Calendar" },
   { href: "/dashboard/messages", icon: LuMessageSquareText, label: "Messages" },
 ];
+
+export const USER_MENU_ITEMS = [
+  { href: "/dashboard/assets", icon: TbSteeringWheel, label: "Assets" },
+  { href: "/dashboard/booking", icon: BiCar, label: "Booking" },
+  {
+    href: "/dashboard/sellCars",
+    icon: HiOutlineShoppingBag,
+    label: "Sell Cars",
+  },
+  { href: "/dashboard/buyCars", icon: BsCart2, label: "Buy Cars" },
+  { href: "/dashboard/services", icon: GiCrossedSabres, label: "Services" },
+  { href: "/dashboard/messages", icon: LuMessageSquareText, label: "Messages" },
+];

@@ -23,15 +23,14 @@ export async function middleware(request: NextRequest) {
 
   const role = token?.role;
 
-  console.log("this is role ", role);
-
   if (role === "ADMIN") {
     return NextResponse.next();
   }
 
   const allowedPagesForUser = [
-    "/dashboard",
-    "/dashboard/profile",
+    "/dashboard/messages",
+    "/dashboard/services",
+    "/dashboard/settings",
     "/dashboard/settings",
   ];
 

@@ -30,12 +30,13 @@ export async function middleware(request: NextRequest) {
   const allowedPagesForUser = [
     "/dashboard/messages",
     "/dashboard/services",
-    "/dashboard/settings",
+    "/dashboard/booking",
+    "/dashboard/sellCars",
     "/dashboard/settings",
   ];
 
   if (role === "USER" && !allowedPagesForUser.includes(pathname)) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+    return NextResponse.redirect(new URL("/dashboard/booking", request.url));
   }
 
   return NextResponse.next();

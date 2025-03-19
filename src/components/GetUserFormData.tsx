@@ -10,7 +10,7 @@ import { IMAGES } from "@/constants/images";
 
 const GetUserFormData = () => {
   return (
-    <div className="mt-12 px-4 md:px-8">
+    <div className=" absolute  mt-12 px-4 md:px-8">
       {/* Header */}
       <div className="mb-6">
         <h1 className="dark:text-white text-[#242731] text-xl font-bold mb-2">
@@ -37,13 +37,6 @@ const GetUserFormData = () => {
             placeholder="2445 Crosswind Drive"
           />
         </div>
-
-        <InputField
-          icon={<HiOutlineMail className="w-6 h-6 text-[#5F6165]" />}
-          title="Email Address"
-          placeholder="uihutofficial@gmail.com"
-        />
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <InputField
             icon={<LiaBirthdayCakeSolid className="w-6 h-6 text-[#5F6165]" />}

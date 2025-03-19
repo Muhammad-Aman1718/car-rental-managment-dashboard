@@ -2,24 +2,19 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { TbLogout2 } from "react-icons/tb";
 import { SlSettings } from "react-icons/sl";
 import { IMAGES } from "@/constants/images";
-import { MENU_ITEMS, USER_MENU_ITEMS } from "@/constants/constant";
-import { signOut, useSession } from "next-auth/react";
+import { MENU_ITEMS, USER_MENU_ITEMS } from "@/constants/data";
+import { signOut } from "next-auth/react";
+import useSideBar from "@/hooks/useSideBar";
 
 interface SideBarPropsTypes {
   className?: string;
 }
 
 const SideBar: React.FC<SideBarPropsTypes> = ({ className }) => {
-  const pathname = usePathname(); // Get current active route
-  const { data: session } = useSession();
-
-  const userRole = session?.user?.role;
-
-  console.log("this is role of dash ", userRole);
+  const { pathname, userRole } = useSideBar();
 
   return (
     <aside
@@ -37,39 +32,6 @@ const SideBar: React.FC<SideBarPropsTypes> = ({ className }) => {
         </div>
         <div className="px-3 pb-4 pt-5">
           <ul className="space-y-2 font-medium">
-            {/* {MENU_ITEMS?.map(({ href, icon: Icon, label }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className={`flex items-center gap-x-2 p-2 rounded-lg 
-                    ${
-                      pathname === href
-                        ? "dark:bg-[#292E3D] bg-[#F3F5F8]"
-                        : "dark:hover:bg-[#292E3D] hover:bg-[#F3F5F8]"
-                    }`}
-                >
-                  <span>
-                    <Icon
-                      className={`${
-                        pathname === href
-                          ? "dark:text-white"
-                          : "text-[#72767C] "
-                      }  text-[#72767C]  h-5 w-5 `}
-                    />
-                  </span>
-                  <span
-                    className={`   ${
-                      pathname === href
-                        ? "dark:text-white "
-                        : "dark:hover:bg-[#292E3D] "
-                    } text-[#5F6165] text-[14px] leading-[18.23px] font-medium md:block hidden`}
-                  >
-                    {label}
-                  </span>
-                </Link>
-              </li>
-            ))} */}
-
             {userRole === "USER"
               ? USER_MENU_ITEMS?.map(({ href, icon: Icon, label }) => (
                   <li key={href}>

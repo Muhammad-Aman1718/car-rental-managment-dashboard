@@ -125,7 +125,7 @@ const authOptions: AuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.role = user.role;
-      }
+      }``
       return token;
     },
 

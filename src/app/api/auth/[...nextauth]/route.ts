@@ -106,8 +106,6 @@ const authOptions: AuthOptions = {
           if (!passwordsMatch) {
             throw new Error("Invalid credentials. the password is not same");
           }
-          console.log("this is return : ", user.id, user.email, user.role);
-
           return { id: user.id, email: user.email, role: user.role };
         } catch (error) {
           const errorAxois = error as AxiosError;
@@ -125,7 +123,8 @@ const authOptions: AuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.role = user.role;
-      }``
+      }
+      ``;
       return token;
     },
 

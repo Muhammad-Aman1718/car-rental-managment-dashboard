@@ -4,12 +4,16 @@ interface InputFieldPropsTypes {
   icon?: ReactNode;
   title?: string;
   placeholder?: string;
+  value?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const InputField: React.FC<InputFieldPropsTypes> = ({
   icon,
   title,
   placeholder,
+  value,
+  onChange,
 }) => {
   return (
     <div className="">
@@ -19,7 +23,9 @@ const InputField: React.FC<InputFieldPropsTypes> = ({
       <div className=" border border-[#E9EAEC] dark:border-[#2C303D] py-3 px-[14px] rounded-[10px] flex items-center gap-x-2.5  ">
         {icon}
         <input
-          className=" outline-none placeholder:text-[14px] dark:placeholder:text-[#7C7C8D] dark:bg-[#242731] placeholder:text-[#5F6165] placeholder:leading-[18.23px] placeholder:font-medium      "
+          value={value}
+          onChange={onChange}
+          className=" outline-none placeholder:text-[14px] dark:text-white dark:placeholder:text-[#7C7C8D] dark:bg-[#242731] placeholder:text-[#5F6165] placeholder:leading-[18.23px] placeholder:font-medium      "
           type="text"
           placeholder={placeholder}
         />

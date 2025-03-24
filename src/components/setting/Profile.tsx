@@ -109,11 +109,22 @@ import { LiaBirthdayCakeSolid } from "react-icons/lia";
 import { IoIosMale } from "react-icons/io";
 import ProfileImg from "../../../public/assets/setting/profileImg.png";
 import Button from "./profileComponent/Button";
+import useProfile from "@/hooks/setting/useProfile";
 
 const Profile = () => {
+  const {
+    livesIn,
+    setLivesIn,
+    streetAddress,
+    setStreetAddress,
+    dateOfBirth,
+    setDateOfBirth,
+    gender,
+    setGender,
+  } = useProfile();
+
   return (
     <div className="mt-12 px-4 md:px-8">
-      {/* Header */}
       <div className="mb-6">
         <h1 className="dark:text-white text-[#242731] text-xl font-bold mb-2">
           Profile
@@ -129,11 +140,15 @@ const Profile = () => {
       <div className="max-w-3xl flex flex-col gap-y-6 my-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <InputField
+            value={livesIn}
+            onChange={(e) => setLivesIn(e.target.value)}
             icon={<FiHome className=" max-sm:hidden w-6 h-6 text-[#5F6165]" />}
             title="Live in"
             placeholder="Zuichi, Switzerland"
           />
           <InputField
+            value={streetAddress}
+            onChange={(e) => setStreetAddress(e.target.value)}
             icon={<FiHome className="max-sm:hidden w-6 h-6 text-[#5F6165]" />}
             title="Street Address"
             placeholder="2445 Crosswind Drive"
@@ -148,11 +163,15 @@ const Profile = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <InputField
+            value={dateOfBirth}
+            onChange={(e) => setDateOfBirth(e.target.value)}
             icon={<LiaBirthdayCakeSolid className="w-6 h-6 text-[#5F6165]" />}
             title="Date Of Birth"
             placeholder="07.12.195"
           />
           <InputField
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
             icon={<IoIosMale className="w-6 h-6 text-[#5F6165]" />}
             title="Gender"
             placeholder="Male"
@@ -178,6 +197,7 @@ const Profile = () => {
           />
         </div>
         <div className="flex gap-4">
+          <Button title="Add" />
           <Button title="Delete" />
           <Button title="Update" />
         </div>

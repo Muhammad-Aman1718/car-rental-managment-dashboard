@@ -2,7 +2,7 @@
 import React from "react";
 import InputField from "@/components/auth/InputField";
 import AuthButton from "@/components/AuthButton";
-import useSignUp from "@/hooks/useSignUp";
+import useSignUp from "@/hooks/auth/useSignUp";
 import Link from "next/link";
 import { IMAGES } from "@/constants/images";
 

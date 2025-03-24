@@ -2,7 +2,7 @@
 import React from "react";
 import InputField from "@/components/auth/InputField";
 import AuthButton from "@/components/AuthButton";
-import useSignIn from "@/hooks/useSignIn";
+import useSignIn from "@/hooks/auth/useSignIn";
 import Link from "next/link";
 import { IMAGES } from "@/constants/images";
 import { useSession } from "next-auth/react";

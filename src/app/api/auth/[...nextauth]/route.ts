@@ -74,7 +74,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { AxiosError } from "axios";
 
-const authOptions: AuthOptions = {
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -120,11 +120,10 @@ const authOptions: AuthOptions = {
     strategy: "jwt",
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ session, token, user }) {
       if (user) {
         token.role = user.role;
       }
-      ``;
       return token;
     },
 

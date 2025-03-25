@@ -1,10 +1,44 @@
 import { prisma } from "@/config/prisma";
-import { showToast } from "@/utils/showToast";
 import { AxiosError } from "axios";
-import { getServerSession } from "next-auth";
-import { useSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
 import { NextRequest, NextResponse } from "next/server";
 import { authOptions } from "../auth/[...nextauth]/route";
+
+export const GET = async () => {
+  try {
+    const session = await getServerSession(authOptions);
+    console.log("this is session ======>", session);
+
+    if (!session) {
+      return NextResponse.json({ session, authOptions });
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { id: session?.user?.id },
+    });
+
+    console.log("this is user =====>", user);
+
+    if (!user) {
+      return NextResponse.json({ message: "User not found" }, { status: 404 });
+    }
+    return NextResponse.json(
+      {
+        message: "Successfully retrieved user info",
+        user,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      {
+        success: false,
+        message: error instanceof Error ? error.message : "An error occurred",
+      },
+      { status: 500 }
+    );
+  }
+};
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
   try {
@@ -21,22 +55,6 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         { status: 400 }
       );
     }
-
-    const session = await getServerSession(authOptions);
-    console.log("Session Data: ", session); // 👈 Check if session is null
-
-    if (!session) {
-      return NextResponse.json(
-        { success: false, message: "User is not authenticated" },
-        { status: 401 }
-      );
-    }
-
-    console.log("User Email from Session: ", session.user?.email);
-
-    const userEmail = session?.user?.email;
-
-    console.log("this is user email ======>", userEmail);
 
     const userData = await prisma.user.update({
       where: { email: userEmail },

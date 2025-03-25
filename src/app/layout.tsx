@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./providers/storeProvider";
-import SessionProviderWrapper from "./providers/SessionProviderWrapper";
 import { ThemeProvider } from "@/context/themeProvider";
 import { AuthProvider } from "./authProviders";
 import { ToastContainer } from "react-toastify";
@@ -32,9 +31,7 @@ export default function RootLayout({
         <ToastContainer />
         <StoreProvider>
           <AuthProvider>
-            <ThemeProvider>
-              <SessionProviderWrapper>{children}</SessionProviderWrapper>
-            </ThemeProvider>
+            <ThemeProvider>{children}</ThemeProvider>
           </AuthProvider>
         </StoreProvider>
       </body>

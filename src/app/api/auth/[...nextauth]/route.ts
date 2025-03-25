@@ -70,11 +70,31 @@
 
 import { prisma } from "@/config/prisma";
 import NextAuth, { AuthOptions } from "next-auth";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { AxiosError } from "axios";
 
+declare module "next-auth" {
+  interface User {
+    id: string;
+    email?: string;
+    role?: "ADMIN" | "USER";
+  }
+
+  interface Session {
+    user: User;
+  }
+
+  interface JWT {
+    id: string;
+    email?: string;
+    role?: "ADMIN" | "USER";
+  }
+}
+
 export const authOptions: AuthOptions = {
+  adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -91,7 +111,6 @@ export const authOptions: AuthOptions = {
         try {
           const user = await prisma.user.findUnique({
             where: { email: credentials?.email },
-            // select: { id: true, email: true, password: true, role: true },
           });
 
           if (!user) {
@@ -116,28 +135,42 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
+  cookies: {
+    sessionToken: {
+      name: `next-auth.session-token`, //    `__Secure-next-auth.session-token`      in production time
+      options: {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        secure: false, //     process.env.NODE_ENV === "production" // Ye automatically false ho jayega
+      },
+    },
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: "/",
+  },
   session: {
     strategy: "jwt",
   },
   callbacks: {
-    async jwt({ session, token, user }) {
+    async jwt({ token, user }) {
       if (user) {
+        token.id = user.id;
+        token.email = user.email;
         token.role = user.role;
       }
       return token;
     },
 
     async session({ session, token }) {
-      if (session?.user && typeof token.role === "string") {
-        session.user.role = token.role;
+      if (session.user) {
+        session.user.id = token.id as string;
+        session.user.email = token.email ?? undefined;
+        session.user.role = token.role as "ADMIN" | "USER";
       }
       return session;
     },
-  },
-
-  secret: process.env.NEXTAUTH_SECRET,
-  pages: {
-    signIn: "/",
   },
 };
 

@@ -70,7 +70,6 @@
 
 import { prisma } from "@/config/prisma";
 import NextAuth, { AuthOptions } from "next-auth";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { AxiosError } from "axios";
@@ -94,7 +93,6 @@ declare module "next-auth" {
 }
 
 export const authOptions: AuthOptions = {
-  adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       name: "credentials",

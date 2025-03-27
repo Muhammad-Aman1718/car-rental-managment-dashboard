@@ -1,8 +1,9 @@
 import { prisma } from "@/config/prisma";
+import authOptions from "@/lib/auth";
 import { AxiosError } from "axios";
 import { getServerSession } from "next-auth/next";
+import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-import { authOptions } from "../auth/[...nextauth]/route";
 
 export const GET = async () => {
   try {
@@ -20,15 +21,13 @@ export const GET = async () => {
     console.log("this is user =====>", user);
 
     if (!user) {
-      return NextResponse.json({ message: "User not found" }, { status: 404 });
+      return NextResponse.json({ status: 404, message: "User not found" });
     }
-    return NextResponse.json(
-      {
-        message: "Successfully retrieved user info",
-        user,
-      },
-      { status: 200 }
-    );
+    return NextResponse.json({
+      status: 200,
+      message: "Successfully retrieved user info",
+      user,
+    });
   } catch (error) {
     return NextResponse.json(
       {
@@ -40,7 +39,7 @@ export const GET = async () => {
   }
 };
 
-export const POST = async (req: NextRequest, res: NextResponse) => {
+export const PUT = async (req: NextRequest, res: NextResponse) => {
   try {
     const body = await req.json();
 
@@ -57,7 +56,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     }
 
     const userData = await prisma.user.update({
-      where: { email: userEmail },
+      where: { id },
       data: {
         liveIn: body.liveIn,
         streetAddress: body.streetAddress,

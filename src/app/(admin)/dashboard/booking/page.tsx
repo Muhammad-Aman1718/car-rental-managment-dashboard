@@ -76,7 +76,7 @@ const Booking = async () => {
           </span>
           <span className="bg-[#A162F7] h-11 w-11 grid place-items-center rounded-full shadow-md">
             <VscSettings className="w-6 h-6 text-white" />
-          </span>
+          </span>e
         </div>
       </div>
 

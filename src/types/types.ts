@@ -1,13 +1,13 @@
-export type UserData = {
+export interface UserData {
   id?: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  password?: string;
   role?: "USER" | "ADMIN"; // Prisma enum type
   liveIn?: string | null;
   streetAddress?: string | null;
   dateOfBirth?: string | null;
   gender?: string | null;
   profilePic?: string | null;
-};
+}

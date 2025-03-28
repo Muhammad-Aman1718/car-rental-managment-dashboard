@@ -121,6 +121,7 @@ const Profile = () => {
     setDateOfBirth,
     gender,
     setGender,
+    handleUpdateData,
   } = useProfile();
 
   return (
@@ -197,7 +198,7 @@ const Profile = () => {
           />
         </div>
         <div className="flex gap-4">
-          <Button title="Add" />
+          <Button title="Add" onClick={handleUpdateData} />
           <Button title="Delete" />
           <Button title="Update" />
         </div>

@@ -4,47 +4,13 @@ import { AxiosError } from "axios";
 import { getServerSession } from "next-auth/next";
 import { NextRequest, NextResponse } from "next/server";
 
-// export const GET = async () => {
-//   try {
-//     const session = await getServerSession(authOptions);
-//     console.log("this is session ======>", session);
-
-//     if (!session) {
-//       return NextResponse.json({ session, authOptions });
-//     }
-
-//     const user = await prisma.user.findUnique({
-//       where: { id: session?.user.id },
-//     });
-
-//     console.log("this is user =====>", user);
-
-//     if (!user) {
-//       return NextResponse.json({ status: 404, message: "User not found" });
-//     }
-//     return NextResponse.json({
-//       status: 200,
-//       message: "Successfully retrieved user info",
-//       user,
-//     });
-//   } catch (error) {
-//     return NextResponse.json(
-//       {
-//         success: false,
-//         message: error instanceof Error ? error.message : "An error occurred",
-//       },
-//       { status: 500 }
-//     );
-//   }
-// };
-
-export const PUT = async (req: NextRequest, res: NextResponse) => {
+export const PUT = async (req: NextRequest) => {
   try {
     const body = await req.json();
-    // const { liveIn, streetAddress, dateOfBirth, gender } = body;
+    const { liveIn, streetAddress, dateOfBirth, gender } = body;
     console.log("this is body : ", body);
 
-    if (body.liveIn || body.streetAddress || body.dateOfBirth || body.gender) {
+    if (!liveIn || !streetAddress || !dateOfBirth || !gender) {
       return NextResponse.json(
         { success: false, message: "All fields are required" },
         { status: 400 }
@@ -53,20 +19,20 @@ export const PUT = async (req: NextRequest, res: NextResponse) => {
 
     const session = await getServerSession(authOptions);
 
-    const userData = await prisma.user.update({
+    const userDataUpdate = await prisma.user.update({
       where: { id: session?.user?.id },
       data: {
-        liveIn: body.liveIn,
-        streetAddress: body.streetAddress,
-        dateOfBirth: body.dateOfBirth,
-        gender: body.gender,
+        liveIn: liveIn,
+        streetAddress: streetAddress,
+        dateOfBirth: dateOfBirth,
+        gender: gender,
       },
     });
 
     return NextResponse.json({
       success: true,
       message: "User data saved successfully",
-      user: userData,
+      user: userDataUpdate,
     });
   } catch (error) {
     const errorAxois = error as AxiosError;

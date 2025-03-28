@@ -3,12 +3,15 @@ import { useDispatch, useSelector, useStore } from "react-redux";
 import counterSlice from "@/store/slices/counterSlice";
 // import studentSlice from "@/store/slices/studentSlice";
 import auth from "@/store/slices/auth";
+import userDataSlice from "@/store/slices/userData";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       authReducer: auth,
+      userDataReducer: userDataSlice,
       countReducer: counterSlice,
+
       // studentReducer: studentSlice,
     },
   });

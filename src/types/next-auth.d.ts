@@ -1,17 +1,19 @@
-// import NextAuth from "next-auth";
+import NextAuth from "next-auth";
 
-// declare module "next-auth" {
-//   interface User {
-//     role?: string;  // 👈 User object mein role add kar diya
-//   }
+declare module "next-auth" {
+  interface User {
+    id: string;
+    email?: string;
+    role?: "ADMIN" | "USER";
+  }
 
-//   interface Session {
-//     user?: {
-//       role?: string;  // 👈 Session user ke andar bhi role define kiya
-//     };
-//   }
+  interface Session {
+    user: User;
+  }
 
-//   interface JWT {
-//     role?: string; // 👈 JWT token mein bhi role define kiya
-//   }
-// }
+  interface JWT {
+    id: string;
+    email?: string;
+    role?: "ADMIN" | "USER";
+  }
+}

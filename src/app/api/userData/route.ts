@@ -2,8 +2,7 @@ import { prisma } from "@/config/prisma";
 import authOptions from "@/lib/auth";
 import { AxiosError } from "axios";
 import { getServerSession } from "next-auth/next";
-import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+ import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async () => {
   try {
@@ -18,7 +17,7 @@ export const GET = async () => {
       where: { id: session?.user?.id },
     });
 
-    console.log("this is user =====>", user);
+    console.log("this is user =====>", user );
 
     if (!user) {
       return NextResponse.json({ status: 404, message: "User not found" });

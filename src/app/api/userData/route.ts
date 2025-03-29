@@ -7,10 +7,10 @@ import { NextRequest, NextResponse } from "next/server";
 export const PUT = async (req: NextRequest) => {
   try {
     const body = await req.json();
-    const { liveIn, streetAddress, dateOfBirth, gender } = body;
+    const { livesIn, streetAddress, dateOfBirth, gender } = body;
     console.log("this is body : ", body);
 
-    if (!liveIn || !streetAddress || !dateOfBirth || !gender) {
+    if (!livesIn || !streetAddress || !dateOfBirth || !gender) {
       return NextResponse.json(
         { success: false, message: "All fields are required" },
         { status: 400 }
@@ -22,7 +22,7 @@ export const PUT = async (req: NextRequest) => {
     const userDataUpdate = await prisma.user.update({
       where: { id: session?.user?.id },
       data: {
-        liveIn: liveIn,
+        liveIn: livesIn,
         streetAddress: streetAddress,
         dateOfBirth: dateOfBirth,
         gender: gender,

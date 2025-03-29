@@ -19,6 +19,13 @@ const useProfile = () => {
     const userData = { livesIn, streetAddress, dateOfBirth, gender };
     console.log("handle update data ====>  is clicked");
     await dispatch(usersData(userData)).unwrap();
+
+    showToast("success", "User data added successfully!");
+
+    setLivesIn("");
+    setStreetAddress("");
+    setDateOfBirth("");
+    setGender("");
   };
 
   return {

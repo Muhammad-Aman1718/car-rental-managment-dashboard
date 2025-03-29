@@ -1,7 +1,7 @@
-import { usersData } from "@/store/slices/userData";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/store/store";
 import { showToast } from "@/utils/showToast";
-import React, { useState } from "react";
+import { getUsersData, updateUsersData } from "@/store/slices/userData";
 
 const useProfile = () => {
   const [livesIn, setLivesIn] = useState("");
@@ -11,6 +11,10 @@ const useProfile = () => {
 
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(getUsersData());
+  });
+
   const handleUpdateData = async () => {
     if (!livesIn || !streetAddress || !dateOfBirth || !gender) {
       showToast("error", "All fields are requried");
@@ -18,7 +22,7 @@ const useProfile = () => {
     }
     const userData = { livesIn, streetAddress, dateOfBirth, gender };
     console.log("handle update data ====>  is clicked");
-    await dispatch(usersData(userData)).unwrap();
+    await dispatch(updateUsersData(userData)).unwrap();
 
     showToast("success", "User data added successfully!");
 

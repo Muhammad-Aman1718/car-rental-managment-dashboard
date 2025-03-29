@@ -110,6 +110,7 @@ import { IoIosMale } from "react-icons/io";
 import ProfileImg from "../../../public/assets/setting/profileImg.png";
 import Button from "./profileComponent/Button";
 import useProfile from "@/hooks/setting/useProfile";
+import { useAppSelector } from "@/store/store";
 
 const Profile = () => {
   const {
@@ -123,6 +124,8 @@ const Profile = () => {
     setGender,
     handleUpdateData,
   } = useProfile();
+
+  const userData = useAppSelector((state) => state.userDataReducer.userData);
 
   return (
     <div className="mt-12 px-4 md:px-8">
@@ -145,7 +148,8 @@ const Profile = () => {
             onChange={(e) => setLivesIn(e.target.value)}
             icon={<FiHome className=" max-sm:hidden w-6 h-6 text-[#5F6165]" />}
             title="Live in"
-            placeholder="Zuichi, Switzerland"
+            // placeholder="Zuichi, Switzerland"
+            placeholder={userData?.liveIn}
           />
           <InputField
             value={streetAddress}

@@ -1,8 +1,47 @@
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/config/prisma";
-import authOptions from "@/lib/auth";
 import { AxiosError } from "axios";
 import { getServerSession } from "next-auth/next";
-import { NextRequest, NextResponse } from "next/server";
+import authOptions from "@/lib/auth";
+
+export const GET = async () => {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      return NextResponse.json(
+        { success: false, message: "Seesion not found" },
+        { status: 400 }
+      );
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { id: session?.user?.id },
+    });
+    console.log("this is get user =======> ", user);
+
+    if (!user) {
+      return NextResponse.json(
+        { success: false, message: "User not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: "User data get successfully",
+      user,
+    });
+  } catch (error) {
+    const errorAxois = error as AxiosError;
+    return NextResponse.json({
+      success: false,
+      message: "Data not get",
+      error: errorAxois.message || "Unknown error",
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
+};
 
 export const PUT = async (req: NextRequest) => {
   try {

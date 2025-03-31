@@ -17,7 +17,7 @@ export const GET = async () => {
     const user = await prisma.user.findUnique({
       where: { id: session?.user?.id },
     });
-    console.log("this is get user =======> ", user);
+    console.log("this is api get user =======> ", user);
 
     if (!user) {
       return NextResponse.json(
@@ -48,13 +48,6 @@ export const PUT = async (req: NextRequest) => {
     const body = await req.json();
     const { livesIn, streetAddress, dateOfBirth, gender } = body;
     console.log("this is body : ", body);
-
-    if (!livesIn || !streetAddress || !dateOfBirth || !gender) {
-      return NextResponse.json(
-        { success: false, message: "All fields are required" },
-        { status: 400 }
-      );
-    }
 
     const session = await getServerSession(authOptions);
 

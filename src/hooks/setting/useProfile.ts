@@ -16,10 +16,6 @@ const useProfile = () => {
   }, []);
 
   const handleUpdateData = async () => {
-    if (!livesIn || !streetAddress || !dateOfBirth || !gender) {
-      showToast("error", "All fields are requried");
-      return;
-    }
     const userData = { livesIn, streetAddress, dateOfBirth, gender };
     console.log("handle update data ====>  is clicked");
     await dispatch(updateUsersData(userData)).unwrap();
@@ -30,6 +26,8 @@ const useProfile = () => {
     setStreetAddress("");
     setDateOfBirth("");
     setGender("");
+
+    dispatch(getUsersData());
   };
 
   return {

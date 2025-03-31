@@ -6,8 +6,8 @@ import { AxiosError } from "axios";
 export const getUsersData = createAsyncThunk("userData/get", async () => {
   try {
     const response = await axiosInstance.get("/userData");
-    console.log("this is get slice of user data =====> ", response.data);
-    return response.data;
+    console.log("this is get slice of user data =====> ", response.data.user);
+    return response.data.user;
   } catch (error) {
     const errorAxios = error as AxiosError;
     const errorMessage =
@@ -34,7 +34,7 @@ export const updateUsersData = createAsyncThunk(
   }
 );
 const initialState = {
-  userData: {} as UserData | null,
+  userData: null as UserData | null,
   loading: false,
   error: null as string | null,
 };
@@ -45,18 +45,6 @@ const userData = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(updateUsersData.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(updateUsersData.fulfilled, (state, action) => {
-        state.loading = false;
-        state.userData = action.payload;
-      })
-      .addCase(updateUsersData.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || "Failed to add user!";
-      })
       .addCase(getUsersData.pending, (state) => {
         state.loading = true;
       })
@@ -67,6 +55,17 @@ const userData = createSlice({
       .addCase(getUsersData.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to fetch all user data!";
+      })
+      .addCase(updateUsersData.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateUsersData.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(updateUsersData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Failed to add user!";
       });
   },
 });

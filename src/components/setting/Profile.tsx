@@ -127,6 +127,9 @@ const Profile = () => {
 
   const userData = useAppSelector((state) => state.userDataReducer.userData);
 
+  console.log("this is  userData ,", userData);
+  console.log("this is profile userData ,", userData?.liveIn);
+
   return (
     <div className="mt-12 px-4 md:px-8">
       <div className="mb-6">

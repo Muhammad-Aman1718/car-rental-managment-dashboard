@@ -13,7 +13,7 @@ const useProfile = () => {
 
   useEffect(() => {
     dispatch(getUsersData());
-  });
+  }, []);
 
   const handleUpdateData = async () => {
     if (!livesIn || !streetAddress || !dateOfBirth || !gender) {

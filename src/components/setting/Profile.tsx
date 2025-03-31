@@ -149,7 +149,7 @@ const Profile = () => {
             icon={<FiHome className=" max-sm:hidden w-6 h-6 text-[#5F6165]" />}
             title="Live in"
             // placeholder="Zuichi, Switzerland"
-            placeholder={userData?.liveIn}
+            placeholder={userData?.liveIn as string | undefined}
           />
           <InputField
             value={streetAddress}

@@ -151,7 +151,6 @@ const Profile = () => {
             onChange={(e) => setLivesIn(e.target.value)}
             icon={<FiHome className=" max-sm:hidden w-6 h-6 text-[#5F6165]" />}
             title="Live in"
-            // placeholder="Zuichi, Switzerland"
             placeholder={userData?.liveIn as string | undefined}
           />
           <InputField

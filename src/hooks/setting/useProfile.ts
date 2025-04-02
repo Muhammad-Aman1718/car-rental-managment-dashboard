@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAppDispatch } from "@/store/store";
+import { useAppDispatch, useAppSelector } from "@/store/store";
 import { showToast } from "@/utils/showToast";
 import { getUsersData, updateUsersData } from "@/store/slices/userData";
 
@@ -10,6 +10,7 @@ const useProfile = () => {
   const [gender, setGender] = useState("");
 
   const dispatch = useAppDispatch();
+  const userData = useAppSelector((state) => state.userDataReducer.userData);
 
   useEffect(() => {
     dispatch(getUsersData());
@@ -39,6 +40,7 @@ const useProfile = () => {
     setDateOfBirth,
     gender,
     setGender,
+    userData,
     handleUpdateData,
   };
 };

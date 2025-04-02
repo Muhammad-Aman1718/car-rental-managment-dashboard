@@ -145,13 +145,11 @@ const InputFields = () => {
   const postApi = async () => {
     try {
       const studentData = { cnic, firstName, lastName, email, address };
-      console.log("Sending Data: ", studentData); // Debugging purpose
 
       const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
 
       const raw = JSON.stringify(studentData);
-      console.log("raw data", raw);
 
       const requestOptions: RequestInit = {
         method: "POST",
@@ -166,15 +164,12 @@ const InputFields = () => {
         requestOptions
       );
       const result = await response.json();
-      console.log("Response from API:", result);
     } catch (error) {
-      console.log("Error: Data is not sent", error);
     }
   };
 
   const handleForm = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("Handle form called");
     await postApi();
   };
 

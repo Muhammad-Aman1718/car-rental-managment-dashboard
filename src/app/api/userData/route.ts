@@ -17,7 +17,6 @@ export const GET = async () => {
     const user = await prisma.user.findUnique({
       where: { id: session?.user?.id },
     });
-    console.log("this is api get user =======> ", user);
 
     if (!user) {
       return NextResponse.json(
@@ -47,8 +46,6 @@ export const PUT = async (req: NextRequest) => {
   try {
     const body = await req.json();
     const { livesIn, streetAddress, dateOfBirth, gender } = body;
-    console.log("this is body : ", body);
-
     const session = await getServerSession(authOptions);
 
     const userDataUpdate = await prisma.user.update({

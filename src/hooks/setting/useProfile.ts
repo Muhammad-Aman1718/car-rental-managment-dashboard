@@ -18,7 +18,6 @@ const useProfile = () => {
 
   const handleUpdateData = async () => {
     const userData = { livesIn, streetAddress, dateOfBirth, gender };
-    console.log("handle update data ====>  is clicked");
     await dispatch(updateUsersData(userData)).unwrap();
 
     showToast("success", "User data added successfully!");

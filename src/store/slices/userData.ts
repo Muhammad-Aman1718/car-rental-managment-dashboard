@@ -6,7 +6,6 @@ import { AxiosError } from "axios";
 export const getUsersData = createAsyncThunk("userData/get", async () => {
   try {
     const response = await axiosInstance.get("/userData");
-    console.log("this is get slice of user data =====> ", response.data.user);
     return response.data.user;
   } catch (error) {
     const errorAxios = error as AxiosError;
@@ -22,7 +21,6 @@ export const updateUsersData = createAsyncThunk(
   async (userData: UserData) => {
     try {
       const response = await axiosInstance.put("/userData", userData);
-      console.log("putApi Response:", response.data);
       return response.data;
     } catch (error) {
       const errorAxios = error as AxiosError;

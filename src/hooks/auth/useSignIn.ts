@@ -89,7 +89,6 @@ const useSignIn = () => {
         redirect: false,
       });
 
-      console.log("this is res ========>", res);
 
       if (res?.error) {
         showToast("error", "Please, Enter your correct user name and password");

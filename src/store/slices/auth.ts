@@ -8,7 +8,6 @@ export const users = createAsyncThunk(
   async (userData: UserData) => {
     try {
       const response = await axiosInstance.post("/signUp", userData);
-      console.log("postApi Response:", response.data);
       return response.data;
     } catch (error) {
       const errorAxios = error as AxiosError;

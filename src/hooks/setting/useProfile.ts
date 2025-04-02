@@ -17,8 +17,18 @@ const useProfile = () => {
   }, []);
 
   const handleUpdateData = async () => {
-    const userData = { livesIn, streetAddress, dateOfBirth, gender };
-    await dispatch(updateUsersData(userData)).unwrap();
+    const updatedData: Record<string, string> = {};
+
+    if (livesIn) updatedData.livesIn = livesIn;
+    if (streetAddress) updatedData.streetAddress = streetAddress;
+    if (dateOfBirth) updatedData.dateOfBirth = dateOfBirth;
+    if (gender) updatedData.gender = gender;
+
+    if (Object.keys(updatedData).length === 0) {
+      showToast("error", "Please fill at least one field to update.");
+      return;
+    }
+    await dispatch(updateUsersData(updatedData)).unwrap();
 
     showToast("success", "User data added successfully!");
 

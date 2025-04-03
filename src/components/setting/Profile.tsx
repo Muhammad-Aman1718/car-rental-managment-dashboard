@@ -98,9 +98,8 @@ const Profile = () => {
           />
         </div>
         <div className="flex gap-4">
-          <Button title="Add" onClick={handleUpdateData} />
           <Button title="Delete" />
-          <Button title="Update" />
+          <Button title="Update" onClick={handleUpdateData} />
         </div>
       </div>
 

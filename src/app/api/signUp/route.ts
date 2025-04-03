@@ -8,14 +8,15 @@ interface SignUpRequestBody {
   lastName: string;
   email: string;
   password: string;
+  selectedRole: string;
 }
 
 export const POST = async (req: NextRequest) => {
   try {
     const body: SignUpRequestBody = await req.json();
-    const { firstName, lastName, email, password } = body;
+    const { firstName, lastName, email, password, selectedRole } = body;
 
-    if (!firstName || !lastName || !email || !password) {
+    if (!firstName || !lastName || !email || !password || !selectedRole) {
       return NextResponse.json(
         { success: false, message: "All fields are required" },
         { status: 400 }
@@ -40,6 +41,7 @@ export const POST = async (req: NextRequest) => {
         lastName: body.lastName,
         email: body.email,
         password: hashedPassword,
+        role: body.selectedRole,
         liveIn: null,
         streetAddress: null,
         dateOfBirth: null,

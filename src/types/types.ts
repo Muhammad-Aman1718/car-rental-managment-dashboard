@@ -4,7 +4,7 @@ export interface UserData {
   lastName?: string;
   email?: string;
   password?: string;
-  role?: "USER" | "ADMIN"; // Prisma enum type
+  role?: string;
   liveIn?: string | null;
   streetAddress?: string | null;
   dateOfBirth?: string | null;

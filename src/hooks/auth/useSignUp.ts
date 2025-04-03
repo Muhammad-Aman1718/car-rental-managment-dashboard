@@ -64,6 +64,8 @@ const useSignUp = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [selectedRole, setSelectedRole] = useState<"USER" | "ADMIN">("USER");
+  const [isRoleOpen, setIsRoleOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
   const router = useRouter();
@@ -79,6 +81,7 @@ const useSignUp = () => {
       showToast("error", "Please, check the remember me");
       return;
     }
+    setIsRoleOpen(true);
     // if (
     //   !/^[A-Za-z]+$/.test(firstName) ||
     //   !/^[A-Za-z]+$/.test(lastName) ||
@@ -100,7 +103,7 @@ const useSignUp = () => {
     //   return;
     // }
 
-    const user = { firstName, lastName, email, password };
+    const user = { firstName, lastName, email, password, selectedRole };
 
     try {
       await dispatch(users(user)).unwrap();
@@ -125,6 +128,10 @@ const useSignUp = () => {
     password,
     setPassword,
     loading,
+    selectedRole,
+    setSelectedRole,
+    isRoleOpen,
+    setIsRoleOpen,
     isChecked,
     setIsChecked,
     handleSignUp,

@@ -19,8 +19,6 @@ const SignUp = () => {
     loading,
     selectedRole,
     setSelectedRole,
-    isRoleOpen,
-    setIsRoleOpen,
     isChecked,
     setIsChecked,
     handleSignUp,
@@ -28,46 +26,6 @@ const SignUp = () => {
 
   return (
     <div className="dark:bg-[#1F2128] p-2 ">
-      {isRoleOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 ">
-          <div className="bg-white w-[300px] p-6 rounded-lg shadow-lg">
-            <h2 className="text-lg font-bold mb-4">Select Your Role</h2>
-            <div className="flex gap-4">
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="role"
-                  value="USER"
-                  checked={selectedRole === "USER"}
-                  onChange={() => setSelectedRole("USER")}
-                  className="mr-2"
-                />
-                USER
-              </label>
-              <label className="flex items-center">
-                <input
-                  type="radio"
-                  name="role"
-                  value="ADMIN"
-                  checked={selectedRole === "ADMIN"}
-                  onChange={() => setSelectedRole("ADMIN")}
-                  className="mr-2"
-                />
-                ADMIN
-              </label>
-            </div>
-            <div className="flex justify-end mt-4">
-              <button
-                onClick={() => setIsRoleOpen(false)}
-                className="px-4 py-2 bg-green-500 text-white rounded-md"
-              >
-                Confirm
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       <div className=" max-w-[510px] min-w-[250px] mx-auto ">
         <h1 className="dark:text-white   text-[#242731] text-[30px] leading-[39.06px] font-bold mb-4 ">
           Get&apos;s started
@@ -129,6 +87,48 @@ const SignUp = () => {
             placeholder="**********"
             title="Password"
           />
+          <h2 className="mt-[30px] leading-[20.83px] dark:text-[#E0E4E7] text-[#242731] font-medium ">
+            Select Your Role
+          </h2>
+          <div className="flex gap-4">
+            <label
+              className={`flex items-center leading-[20.83px] dark:text-[#E0E4E7] text-[14px] text-[#242731] font-medium mb-3 cursor-pointer
+              ${
+                selectedRole === "USER"
+                  ? "text-white bg-[#A162F7] px-3 py-1 rounded"
+                  : "text-[#242731] dark:text-[#E0E4E7] px-3 py-1 rounded"
+              }`}
+            >
+              <input
+                type="radio"
+                name="role"
+                value="USER"
+                checked={selectedRole === "USER"}
+                onChange={() => setSelectedRole("USER")}
+                className="mr-2 hidden"
+              />
+              User
+            </label>
+
+            <label
+              className={`flex items-center leading-[20.83px] dark:text-[#E0E4E7] text-[14px] text-[#242731] font-medium mb-3 cursor-pointer 
+                ${
+                  selectedRole === "ADMIN"
+                    ? "text-white bg-[#A162F7] px-3 py-1 rounded"
+                    : "text-[#242731] dark:text-[#E0E4E7] px-3 py-1 rounded"
+                }`}
+            >
+              <input
+                type="radio"
+                name="role"
+                value="ADMIN"
+                checked={selectedRole === "ADMIN"}
+                onChange={() => setSelectedRole("ADMIN")}
+                className="mr-2 hidden"
+              />
+              Admin
+            </label>
+          </div>
         </div>
         <div className="flex items-center justify-between my-6 ">
           <div className="flex  items-center gap-x-[13px]  ">

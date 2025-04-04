@@ -41,12 +41,11 @@ const Profile = () => {
       <div className="max-w-3xl flex flex-col gap-y-6 my-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <InputField
-            value={livesIn}
-            onChange={(e) => setLivesIn(e.target.value)}
-            icon={<FiHome className=" max-sm:hidden w-6 h-6 text-[#5F6165]" />}
-            title="Live in"
-            placeholder={userData?.liveIn as string}
+            icon={<HiOutlineMail className="w-6 h-6 text-[#5F6165]" />}
+            title="Email Address"
+            placeholder={userData?.email as string}
           />
+
           <InputField
             value={streetAddress}
             onChange={(e) => setStreetAddress(e.target.value)}
@@ -54,15 +53,19 @@ const Profile = () => {
             title="Street Address"
             placeholder={userData?.streetAddress as string}
           />
-        </div>
+          <InputField
+            value={livesIn}
+            onChange={(e) => setLivesIn(e.target.value)}
+            icon={<FiHome className=" max-sm:hidden w-6 h-6 text-[#5F6165]" />}
+            title="Live in"
+            placeholder={userData?.liveIn as string}
+          />
+          <InputField
+            icon={<HiOutlineMail className="w-6 h-6 text-[#5F6165]" />}
+            title="Postal code"
+            // placeholder={userData?.email as string}
+          />
 
-        <InputField
-          icon={<HiOutlineMail className="w-6 h-6 text-[#5F6165]" />}
-          title="Email Address"
-          placeholder={userData?.email as string}
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <InputField
             value={dateOfBirth}
             onChange={(e) => setDateOfBirth(e.target.value)}

@@ -8,6 +8,7 @@ const useProfile = () => {
   const [streetAddress, setStreetAddress] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [gender, setGender] = useState("");
+  const [postalcode, setPostalcode] = useState("");
 
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.userDataReducer.userData);
@@ -49,6 +50,8 @@ const useProfile = () => {
     setDateOfBirth,
     gender,
     setGender,
+    postalcode,
+    setPostalcode,
     userData,
     handleUpdateData,
   };

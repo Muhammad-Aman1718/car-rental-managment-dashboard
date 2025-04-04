@@ -7,6 +7,7 @@ export interface UserData {
   role?: string;
   liveIn?: string | null;
   streetAddress?: string | null;
+  postalCode?: string | null;
   dateOfBirth?: string | null;
   gender?: string | null;
   profilePic?: string | null;

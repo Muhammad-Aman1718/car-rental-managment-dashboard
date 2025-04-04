@@ -16,6 +16,8 @@ const Profile = () => {
     setLivesIn,
     streetAddress,
     setStreetAddress,
+    postalCode,
+    setPostalCode,
     dateOfBirth,
     setDateOfBirth,
     gender,
@@ -44,6 +46,7 @@ const Profile = () => {
             icon={<HiOutlineMail className="w-6 h-6 text-[#5F6165]" />}
             title="Email Address"
             placeholder={userData?.email as string}
+            disabled={true}
           />
 
           <InputField
@@ -61,9 +64,11 @@ const Profile = () => {
             placeholder={userData?.liveIn as string}
           />
           <InputField
+            value={postalCode}
             icon={<HiOutlineMail className="w-6 h-6 text-[#5F6165]" />}
+            onChange={(e) => setPostalCode(e.target.value)}
             title="Postal code"
-            // placeholder={userData?.email as string}
+            placeholder={userData?.postalCode as string}
           />
 
           <InputField

@@ -58,6 +58,7 @@ import { useAppDispatch, useAppSelector } from "@/store/store";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { showToast } from "@/utils/showToast";
+import { AxiosError } from "axios";
 
 const useSignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -113,6 +114,15 @@ const useSignUp = () => {
         router.push("/auth/signIn");
       }, 2000);
     } catch (error) {
+      const axiosError = error as AxiosError;
+      let errorMessage = "Something went wrong. Please try again.";
+
+      // API error response ko check karna
+      if (axiosError?.message) {
+        errorMessage = axiosError.message; // Jo bhi API se message aaye
+      }
+
+      showToast("error", errorMessage);
       console.error("Signup Failed:", error);
     }
   };

@@ -6,9 +6,9 @@ import { getUsersData, updateUsersData } from "@/store/slices/userData";
 const useProfile = () => {
   const [livesIn, setLivesIn] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [gender, setGender] = useState("");
-  const [postalcode, setPostalcode] = useState("");
 
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.userDataReducer.userData);
@@ -22,6 +22,7 @@ const useProfile = () => {
 
     if (livesIn) updatedData.livesIn = livesIn;
     if (streetAddress) updatedData.streetAddress = streetAddress;
+    if (postalCode) updatedData.postalCode = postalCode;
     if (dateOfBirth) updatedData.dateOfBirth = dateOfBirth;
     if (gender) updatedData.gender = gender;
 
@@ -35,6 +36,7 @@ const useProfile = () => {
 
     setLivesIn("");
     setStreetAddress("");
+    setPostalCode("");
     setDateOfBirth("");
     setGender("");
 
@@ -50,8 +52,8 @@ const useProfile = () => {
     setDateOfBirth,
     gender,
     setGender,
-    postalcode,
-    setPostalcode,
+    postalCode,
+    setPostalCode,
     userData,
     handleUpdateData,
   };

@@ -5,6 +5,7 @@ interface InputFieldPropsTypes {
   title?: string;
   placeholder?: string;
   value?: string;
+  disabled?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
@@ -13,6 +14,7 @@ const InputField: React.FC<InputFieldPropsTypes> = ({
   title,
   placeholder,
   value,
+  disabled,
   onChange,
 }) => {
   return (
@@ -28,6 +30,7 @@ const InputField: React.FC<InputFieldPropsTypes> = ({
           className="outline-none w-full placeholder:text-[14px] dark:text-white dark:placeholder:text-[#7C7C8D] dark:bg-[#242731] placeholder:text-[#5F6165] placeholder:leading-[18.23px] placeholder:font-medium      "
           type="text"
           placeholder={placeholder}
+          disabled={disabled}
         />
       </div>
     </div>

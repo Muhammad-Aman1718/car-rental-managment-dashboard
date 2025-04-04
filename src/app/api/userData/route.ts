@@ -45,7 +45,7 @@ export const GET = async () => {
 export const PUT = async (req: NextRequest) => {
   try {
     const body = await req.json();
-    const { livesIn, streetAddress, dateOfBirth, gender } = body;
+    const { livesIn, streetAddress, postalCode, dateOfBirth, gender } = body;
     const session = await getServerSession(authOptions);
 
     const userDataUpdate = await prisma.user.update({
@@ -53,6 +53,7 @@ export const PUT = async (req: NextRequest) => {
       data: {
         liveIn: livesIn,
         streetAddress: streetAddress,
+        postalCode: postalCode,
         dateOfBirth: dateOfBirth,
         gender: gender,
       },

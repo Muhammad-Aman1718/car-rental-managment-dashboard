@@ -22,6 +22,7 @@ model User {
   role          Role
   liveIn        String?
   streetAddress String?
+  postalCode    String?
   dateOfBirth   String?
   gender        String?
   profilePic    String?

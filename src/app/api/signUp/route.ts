@@ -45,6 +45,7 @@ export const POST = async (req: NextRequest) => {
         role: body.selectedRole as Role,
         liveIn: null,
         streetAddress: null,
+        postalCode: null,
         dateOfBirth: null,
         gender: null,
         profilePic: null,

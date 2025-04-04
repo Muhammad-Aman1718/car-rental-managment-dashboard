@@ -1,4 +1,5 @@
 import { prisma } from "@/config/prisma";
+import { Role } from "@prisma/client";
 import { AxiosError } from "axios";
 import bcrypt from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
@@ -41,7 +42,7 @@ export const POST = async (req: NextRequest) => {
         lastName: body.lastName,
         email: body.email,
         password: hashedPassword,
-        role: body.selectedRole,
+        role: body.selectedRole as Role,
         liveIn: null,
         streetAddress: null,
         dateOfBirth: null,

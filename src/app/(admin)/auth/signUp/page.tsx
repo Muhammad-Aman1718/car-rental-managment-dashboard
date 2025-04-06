@@ -84,7 +84,7 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
-            placeholder="**********"
+            placeholder="*************"
             title="Password"
           />
           <h2 className="mt-[30px] leading-[20.83px] dark:text-[#E0E4E7] text-[#242731] font-medium ">

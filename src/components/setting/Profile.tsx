@@ -8,7 +8,6 @@ import { IoIosMale } from "react-icons/io";
 import ProfileImg from "../../../public/assets/setting/profileImg.png";
 import Button from "./profileComponent/Button";
 import useProfile from "@/hooks/setting/useProfile";
-import { useAppSelector } from "@/store/store";
 
 const Profile = () => {
   const {
@@ -23,6 +22,7 @@ const Profile = () => {
     gender,
     setGender,
     userData,
+    loading,
     handleUpdateData,
   } = useProfile();
 

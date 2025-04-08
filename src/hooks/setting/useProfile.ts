@@ -12,6 +12,7 @@ const useProfile = () => {
 
   const dispatch = useAppDispatch();
   const userData = useAppSelector((state) => state.userDataReducer.userData);
+  const loading = useAppSelector((state) => state.userDataReducer.loading);
 
   useEffect(() => {
     dispatch(getUsersData());
@@ -55,6 +56,7 @@ const useProfile = () => {
     postalCode,
     setPostalCode,
     userData,
+    loading,
     handleUpdateData,
   };
 };

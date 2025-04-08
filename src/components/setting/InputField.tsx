@@ -31,7 +31,7 @@ const InputField: React.FC<InputFieldPropsTypes> = ({
         <input
           value={value}
           onChange={onChange}
-          className="outline-none w-full bg-white placeholder:text-[14px] dark:text-white dark:placeholder:text-[#7C7C8D] dark:bg-[#242731] placeholder:text-[#5F6165] placeholder:leading-[18.23px] placeholder:font-medium      "
+          className="outline-none w-full bg-white  placeholder:text-[14px] dark:text-white dark:placeholder:text-[#7C7C8D] dark:bg-[#242731] placeholder:text-[#5F6165] placeholder:leading-[18.23px] placeholder:font-medium      "
           type="text"
           placeholder={placeholder}
           disabled={disabled}

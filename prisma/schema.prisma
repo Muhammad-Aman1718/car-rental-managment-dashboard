@@ -32,3 +32,16 @@ enum Role {
   USER
   ADMIN
 }
+
+model Car {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  brand     String
+  model     String
+  year      String
+  fuelType  String
+  mileage   String
+  price     String
+  imageUrl  String
+  createdAt DateTime @default(now())
+}

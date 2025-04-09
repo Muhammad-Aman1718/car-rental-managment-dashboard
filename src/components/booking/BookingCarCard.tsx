@@ -1,8 +1,8 @@
-// import Image from "next/image";
+import Image from "next/image";
 // import React from "react";
 // import { SlHeart } from "react-icons/sl";
 // import { LuUserRound } from "react-icons/lu";
-// import BookingCar from "../../../public/assets/bookingImgs/bookingCar.png";
+import BookingCar from "../../../public/assets/bookingImgs/bookingCar.png";
 // import SquareArrow from "../../../public/assets/bookingImgs/icon.png";
 
 // const BookingCarCard = () => {
@@ -53,19 +53,17 @@
 
 // export default BookingCarCard;
 
-
-
-const carImages = [
-  "/car1.jpg",
-  "/car2.jpg",
-  "/car3.jpg",
-  "/car4.jpg",
-];
-
 export default function CarCard() {
   return (
     <div className="w-full max-w-md bg-white shadow-xl rounded-2xl overflow-hidden">
-
+      <div className="w-full h-[300px] bg-gray-300 flex justify-center items-center">
+        {/* Placeholder image or static image */}
+        <Image
+          src={BookingCar}
+          alt="Car image"
+          className="w-full h-full object-cover"
+        />
+      </div>
       <div className="p-4 space-y-3">
         <h2 className="text-xl font-bold">Toyota Corolla 2022</h2>
         <p className="text-sm text-gray-600">Fuel Type: Petrol</p>
@@ -75,8 +73,12 @@ export default function CarCard() {
         <p className="text-sm text-gray-600">Price: $22,000</p>
 
         <div className="flex gap-4 pt-4">
-          <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">View Details</button>
-          <button className="w-full border border-blue-600 text-blue-600 py-2 px-4 rounded-lg hover:bg-blue-50 transition">Book Now</button>
+          <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+            View Details
+          </button>
+          <button className="w-full border border-blue-600 text-blue-600 py-2 px-4 rounded-lg hover:bg-blue-50 transition">
+            Book Now
+          </button>
         </div>
       </div>
     </div>

@@ -52,7 +52,6 @@ import FilterBtn from "@/components/booking/FilterBtn";
 import { RxDashboard } from "react-icons/rx";
 import { VscSettings } from "react-icons/vsc";
 import BookingCarCard from "@/components/booking/BookingCarCard";
-import { getServerSession } from "next-auth";
 
 const Booking = async () => {
   return (
@@ -76,7 +75,7 @@ const Booking = async () => {
           </span>
           <span className="bg-[#A162F7] h-11 w-11 grid place-items-center rounded-full shadow-md">
             <VscSettings className="w-6 h-6 text-white" />
-          </span>e
+          </span>
         </div>
       </div>
 

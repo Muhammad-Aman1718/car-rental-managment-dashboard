@@ -1,10 +1,8 @@
-
-
 // import Image from "next/image";
 // import React from "react";
 // import { SlHeart } from "react-icons/sl";
 // import { LuUserRound } from "react-icons/lu";
-import BookingCar from "../../../public/assets/bookingImgs/bookingCar.png";
+// import BookingCar from "../../../public/assets/bookingImgs/bookingCar.png";
 // import SquareArrow from "../../../public/assets/bookingImgs/icon.png";
 
 // const BookingCarCard = () => {
@@ -55,56 +53,32 @@ import BookingCar from "../../../public/assets/bookingImgs/bookingCar.png";
 
 // export default BookingCarCard;
 
-// components/CarCard.tsx
-import React from "react";
-import Image from "next/image";
 
-interface CarCardProps {
-  name: string;
-  brand: string;
-  model: string;
-  year: number;
-  fuelType: string;
-  mileage: number;
-  price: number;
-  imageUrl: string;
-}
 
-const BookingCarCard: React.FC<CarCardProps> = ({
-  // name,
-  // brand,
-  // model,
-  // year,
-  // fuelType,
-  // mileage,
-  // price,
-  // imageUrl,
-}) => {
+const carImages = [
+  "/car1.jpg",
+  "/car2.jpg",
+  "/car3.jpg",
+  "/car4.jpg",
+];
+
+export default function CarCard() {
   return (
-    <div className="bg-white dark:bg-[#1E1E2F] shadow-md rounded-2xl overflow-hidden max-w-sm w-full">
-      <Image
-        src={BookingCar}
-        alt={`this is not show `}
-        width={400}
-        height={250}
-        className="w-full h-48 object-cover"
-      />
-      <div className="p-4">
-        <h2 className="text-xl font-bold text-[#242731] dark:text-white">
-          fdsafdsadsa   dfsafdsa
-        </h2>
-        <p className="text-sm text-gray-600 dark:text-[#B0B3BF]">
-          Model: vigo | Year:  2034
-        </p>
-        <p className="text-sm text-gray-600 dark:text-[#B0B3BF]">
-          Fuel: 4 wheel | Mileage: 360 km
-        </p>
-        <p className="mt-2 text-lg font-semibold text-green-600 dark:text-green-400">
-          {/* ${price.toLocaleString()} */} hfkjsal
-        </p>
+    <div className="w-full max-w-md bg-white shadow-xl rounded-2xl overflow-hidden">
+
+      <div className="p-4 space-y-3">
+        <h2 className="text-xl font-bold">Toyota Corolla 2022</h2>
+        <p className="text-sm text-gray-600">Fuel Type: Petrol</p>
+        <p className="text-sm text-gray-600">Transmission: Automatic</p>
+        <p className="text-sm text-gray-600">Mileage: 18 km/l</p>
+        <p className="text-sm text-gray-600">Top Speed: 180 km/h</p>
+        <p className="text-sm text-gray-600">Price: $22,000</p>
+
+        <div className="flex gap-4 pt-4">
+          <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">View Details</button>
+          <button className="w-full border border-blue-600 text-blue-600 py-2 px-4 rounded-lg hover:bg-blue-50 transition">Book Now</button>
+        </div>
       </div>
     </div>
   );
-};
-
-export default BookingCarCard;
+}

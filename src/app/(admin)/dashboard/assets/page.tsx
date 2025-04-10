@@ -1,52 +1,4 @@
 "use client";
-// // import <
-
-// import ActivityCard from "@/components/assets/ActivityCard";
-// import AvailableSensors from "@/components/assets/AvailableSensors";
-// import BlueCard from "@/components/assets/BlueCard";
-// import Noties from "@/components/assets/Noties";
-// import Reminder from "@/components/assets/Reminder";
-// import { IMAGES } from "@/constants/images";
-// import Image from "next/image";
-
-// const Assets = () => {
-//   return (
-//     <div>
-//       <h1 className="text-[#242731] leading-[39.06px] text-[30px] font-bold  ">
-//         Assets
-//       </h1>
-//       <div className="flex gap-x-6 ">
-//         <div className="flex flex-col justify-center bg-[#438FFE] rounded-[14px] w-[361px] ">
-//           <div className=" flex  flex-col justify-between mt-[30px] mx-[25px] ">
-//             <BlueCard
-//               title1="Fuel Usage"
-//               amount1="2903.89 Ltr"
-//               title2="KM Driven"
-//               amount2="2903.89 Ltr"
-//             />
-//             <BlueCard
-//               title1="Total Cost"
-//               amount1="$3,00,290.00"
-//               title2="Top Speed"
-//               amount2="$5.2K"
-//             />
-//           </div>
-//           <Image src={IMAGES.CAR} alt="car img does not show" />
-//         </div>
-//         <div className="flex-1 flex flex-col gap-5 ">
-//           <ActivityCard />
-//           <div className="flex  gap-x-[25px] ">
-//             <Noties />
-//             <AvailableSensors />
-//           </div>
-//           <Reminder />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Assets;
 import ActivityCard from "@/components/assets/ActivityCard";
 import AvailableSensors from "@/components/assets/AvailableSensors";
 import BlueCard from "@/components/assets/BlueCard";
@@ -98,12 +50,9 @@ const Assets = () => {
             <Noties />
             <AvailableSensors />
           </div>
-          {/* <div className="  max-lg:hidden  "> */}
-          <Reminder />
-          <button onClick={handleOpenForm}>click this button</button>
-          {/* </div> */}
+          <Reminder onClick={handleOpenForm} />
         </div>
-        {openForm ? <CarDataForm /> : `${openForm} data not true`}
+        {openForm && <CarDataForm />}
       </div>
     </div>
   );

@@ -1,9 +1,10 @@
 import React from "react";
-import useAssets from "@/hooks/setting/useAssets";
 
-const Reminder = () => {
-  const { handleOpenForm } = useAssets();
+interface ReminderPropsTypes {
+  onClick?: () => void;
+}
 
+const Reminder: React.FC<ReminderPropsTypes> = ({ onClick }) => {
   const data = [
     {
       description: "Urgent Safety Recall",
@@ -28,7 +29,7 @@ const Reminder = () => {
           Reminder
         </h1>
         <button
-          onClick={handleOpenForm}
+          onClick={onClick}
           className=" text-white py-[6px] px-3 bg-[#A162F7] rounded-[6px]  "
         >
           + Add New

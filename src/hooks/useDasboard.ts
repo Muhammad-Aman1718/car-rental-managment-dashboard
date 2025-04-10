@@ -1,11 +1,8 @@
 import { useState } from "react";
 
-const useAssets = () => {
+const useDasboard = () => {
   const [openForm, setOpenForm] = useState(false);
   const handleOpenForm = () => {
-    console.log("button click");
-    console.log("button click", openForm);
-
     setOpenForm(!openForm);
   };
 
@@ -16,4 +13,4 @@ const useAssets = () => {
   };
 };
 
-export default useAssets;
+export default useDasboard;

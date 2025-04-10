@@ -1,17 +1,12 @@
-"use client";
 import ActivityCard from "@/components/assets/ActivityCard";
 import AvailableSensors from "@/components/assets/AvailableSensors";
 import BlueCard from "@/components/assets/BlueCard";
 import Noties from "@/components/assets/Noties";
 import Reminder from "@/components/assets/Reminder";
-import CarDataForm from "@/components/carDataForm";
 import { IMAGES } from "@/constants/images";
-import useAssets from "@/hooks/setting/useAssets";
 import Image from "next/image";
 
 const Assets = () => {
-  const { openForm, handleOpenForm } = useAssets();
-
   return (
     <div className=" ">
       <h1 className="dark:text-white text-[#242731] leading-[39.06px] text-[24px] sm:text-[28px] md:text-[30px] font-bold">
@@ -50,9 +45,8 @@ const Assets = () => {
             <Noties />
             <AvailableSensors />
           </div>
-          <Reminder onClick={handleOpenForm} />
+          <Reminder />
         </div>
-        {openForm && <CarDataForm />}
       </div>
     </div>
   );

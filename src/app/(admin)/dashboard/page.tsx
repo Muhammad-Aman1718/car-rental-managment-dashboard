@@ -58,21 +58,34 @@
 
 // export default Dashboard;
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PerformanceCard from "@/components/dashboard/PerformanceCard";
 import StatisticsCard from "@/components/dashboard/StatisticsCard";
 import RecommendCard from "@/components/dashboard/RecommendCard";
 import { IMAGES } from "@/constants/images";
-import { useSession } from "next-auth/react";
+import Button from "@/components/dashboard/button";
+import CarDataForm from "@/components/carDataForm";
+import useDasboard from "@/hooks/useDasboard";
 
 const Dashboard = () => {
-  const { data: session } = useSession();
+  const { openForm, handleOpenForm } = useDasboard();
 
   return (
     <div className="">
-      {/* Performance Cards */}
-
-      {/* {session?.user?.role === "admin" ? "Admin" : "User"} */}
+      <div className="flex justify-between items-center dark:bg-[#242731] bg-white dark:text-white my-[30px] p-[20px] rounded-xl ">
+        <h2 className="text-[#242731] text-[24px] font-bold dark:text-white ">
+          Add Car details and update also
+        </h2>
+        <div className="flex gap-x-5">
+          <Button title="Add Car" onClick={handleOpenForm} />
+          <Button title="Update Car" />
+        </div>
+      </div>
+      {openForm && (
+        <div className="absolute ">
+          <CarDataForm />
+        </div>
+      )}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[30px]">
         <PerformanceCard
           className1="bg-primary"

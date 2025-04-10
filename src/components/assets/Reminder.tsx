@@ -1,6 +1,9 @@
 import React from "react";
+import useAssets from "@/hooks/setting/useAssets";
 
 const Reminder = () => {
+  const { handleOpenForm } = useAssets();
+
   const data = [
     {
       description: "Urgent Safety Recall",
@@ -24,7 +27,10 @@ const Reminder = () => {
         <h1 className="dark:text-white text-black leading-[23.44px] text-[18px] font-medium  ">
           Reminder
         </h1>
-        <button className=" text-white py-[6px] px-3 bg-[#A162F7] rounded-[6px]  ">
+        <button
+          onClick={handleOpenForm}
+          className=" text-white py-[6px] px-3 bg-[#A162F7] rounded-[6px]  "
+        >
           + Add New
         </button>
       </div>

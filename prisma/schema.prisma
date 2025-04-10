@@ -34,16 +34,21 @@ enum Role {
 }
 
 model Car {
-  adminId      String   @id @default(auto()) @map("_id") @db.ObjectId
-  name         String
-  brand        String
-  year         String
-  fuelType     String
-  topSpeed     String
-  transmission String
-  mileage      String
-  price        String
-  imageUrl     String
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  adminId        String
+  name           String
+  brand          String
+  year           String
+  color          String
+  hasAC          String
+  engineCapacity String
+  fuelType       String
+  topSpeed       String
+  transmission   String
+  mileage        String
+  price          String
+  imageUrl       String
+  purpose        String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }

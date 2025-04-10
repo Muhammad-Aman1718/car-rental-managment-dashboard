@@ -56,19 +56,14 @@ import BookingCar from "../../../public/assets/bookingImgs/bookingCar.png";
 export default function CarCard() {
   return (
     <div className="w-full max-w-md bg-white shadow-xl rounded-2xl overflow-hidden">
-      {/* <div className="w-full h-[300px] bg-gray-300 flex justify-center items-center"> */}
-        {/* Placeholder image or static image */}
         <Image
           src={BookingCar}
           alt="Car image"
           // className="w-full h-full object-cover"
         />
-      {/* </div> */}
       <div className="p-4 space-y-3">
         <h2 className="text-xl font-bold">Toyota Corolla </h2>
         <p className="text-sm text-gray-600">Year: 2022</p>
-        <p className="text-sm text-gray-600">Fuel Type: Petrol</p>
-        <p className="text-sm text-gray-600">Transmission: Automatic</p>
         <p className="text-sm text-gray-600">Mileage: 18 km/l</p>
         <p className="text-sm text-gray-600">Top Speed: 180 km/h</p>
         <p className="text-sm text-gray-600">Price: $22,000</p>

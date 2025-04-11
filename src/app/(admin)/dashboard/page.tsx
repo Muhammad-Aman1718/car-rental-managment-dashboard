@@ -68,7 +68,7 @@ import CarDataForm from "@/components/carDataForm";
 import useDasboard from "@/hooks/useDasboard";
 
 const Dashboard = () => {
-  const { openForm, handleOpenForm } = useDasboard();
+  const { openForm, setOpenForm } = useDasboard();
 
   return (
     <div className="">
@@ -77,15 +77,11 @@ const Dashboard = () => {
           Add Car details and update also
         </h2>
         <div className="flex gap-x-5">
-          <Button title="Add Car" onClick={handleOpenForm} />
+          <Button title="Add Car" onClick={() => setOpenForm(!openForm)} />
           <Button title="Update Car" />
         </div>
       </div>
-      {openForm && (
-        <div className="relative  ">
-          <CarDataForm />
-        </div>
-      )}
+      {openForm && <CarDataForm onClick={() => setOpenForm(!openForm)} />}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[30px]">
         <PerformanceCard
           className1="bg-primary"

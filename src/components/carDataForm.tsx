@@ -1,98 +1,112 @@
 import React from "react";
+import CarDataFormInput from "./inputs/CarDataFormInput";
 
 const CarDataForm = () => {
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-xl rounded-xl mt-8">
+    <div className="w-full h-[700px] overflow-scroll mx-auto p-6 bg-white shadow-xl rounded-xl ">
       <h2 className="text-2xl font-bold mb-6">Add New Car</h2>
-      <form className="space-y-4">
-        <input
+      <form className=" grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5  ">
+        <CarDataFormInput
+          label="Car Name"
           type="text"
           name="name"
-          placeholder="Car Name"
+          placeholder="Enter your Car Name"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Fuel Type"
           type="text"
           name="fuelType"
-          placeholder="Fuel Type"
+          placeholder="Enter your Fuel Type"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Transmission"
           type="text"
           name="transmission"
-          placeholder="Transmission"
+          placeholder="Enter your Transmission"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Mileage (km/l)"
           type="number"
           name="mileage"
-          placeholder="Mileage (km/l)"
+          placeholder="Enter your Mileage (km/l)"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Top Speed (km/h)"
           type="number"
           name="topSpeed"
-          placeholder="Top Speed (km/h)"
+          placeholder="Enter your Top speed (km/h)"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Price ($)"
           type="number"
           name="price"
-          placeholder="Price ($)"
+          placeholder="Enter your price ($)"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Color"
           type="text"
           name="color"
-          placeholder="Color"
+          placeholder="Enter your color"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Engine Capacity (cc)"
           type="number"
           name="engineCapacity"
-          placeholder="Engine Capacity (cc)"
+          placeholder="Enter your Engine Capacity (cc)"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Seating Capacity"
           type="number"
           name="seatingCapacity"
-          placeholder="Seating Capacity"
+          placeholder="Enter your Seating Capacity"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Registration Number"
           type="text"
           name="registrationNo"
-          placeholder="Registration Number"
+          placeholder=" Enter your car registration number"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Car Type"
           type="text"
           name="carType"
-          placeholder="Car Type"
+          placeholder="Enter your Car Type"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Model Year"
           type="number"
           name="year"
-          placeholder="Model Year"
+          placeholder="Enter your Model Year"
           className="w-full border p-2 rounded"
           required
         />
-        <input
+        <CarDataFormInput
+          label="Doors"
           type="number"
           name="doors"
-          placeholder="Doors"
+          placeholder="Enter number of Doors"
           className="w-full border p-2 rounded"
           required
         />

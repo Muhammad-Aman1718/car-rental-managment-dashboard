@@ -63,7 +63,7 @@ import PerformanceCard from "@/components/dashboard/PerformanceCard";
 import StatisticsCard from "@/components/dashboard/StatisticsCard";
 import RecommendCard from "@/components/dashboard/RecommendCard";
 import { IMAGES } from "@/constants/images";
-import Button from "@/components/dashboard/button";
+import Button from "@/components/dashboard/Button";
 import CarDataForm from "@/components/carDataForm";
 import useDasboard from "@/hooks/useDasboard";
 

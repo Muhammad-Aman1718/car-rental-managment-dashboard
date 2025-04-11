@@ -21,12 +21,12 @@ const CarDataFormInput: React.FC<carDataFormInputPropsTypes> = ({
 }) => {
   return (
     <div className={divStyle}>
-      <label htmlFor="">{label}</label>
+      <label htmlFor="" className="dark:text-white ">{label}</label>
       <input
         type={type}
         name={name}
         placeholder={placeholder}
-        className={` ${className} w-full border p-2 rounded `}
+        className={` ${className} w-full border p-2 rounded  `}
         required={required}
       />
     </div>

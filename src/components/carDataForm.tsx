@@ -3,8 +3,8 @@ import CarDataFormInput from "./inputs/CarDataFormInput";
 
 const CarDataForm = () => {
   return (
-    <div className="w-full h-[700px] overflow-scroll mx-auto p-6 bg-white shadow-xl rounded-xl ">
-      <h2 className="text-2xl font-bold mb-6">Add New Car</h2>
+    <div className="w-full dark:bg-[#242731] overflow-y-auto mx-auto p-6 bg-white shadow-xl rounded-xl ">
+      <h2 className="text-2xl font-bold mb-6 dark:text-white">Add New Car</h2>
       <form className=" grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5  ">
         <CarDataFormInput
           label="Car Name"

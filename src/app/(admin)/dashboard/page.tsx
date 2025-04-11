@@ -82,7 +82,7 @@ const Dashboard = () => {
         </div>
       </div>
       {openForm && (
-        <div className="absolute ">
+        <div className="relative  ">
           <CarDataForm />
         </div>
       )}

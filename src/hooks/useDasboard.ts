@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const useDasboard = () => {
   const [openForm, setOpenForm] = useState(false);
+  const [carName, setCarName] = useState("");
   const [fuelType, setFuelType] = useState("");
   const [transmission, setTransmission] = useState("");
   const [mileage, setMileage] = useState("");
@@ -14,6 +15,7 @@ const useDasboard = () => {
   const [carType, setCarType] = useState("");
   const [modelYear, setModelYear] = useState("");
   const [doors, setDoors] = useState("");
+  const [hasAC, setHasAC] = useState("");
 
   return {
     openForm,

@@ -23,7 +23,7 @@ const CarDataFormInput: React.FC<carDataFormInputPropsTypes> = ({
     <div className={divStyle}>
       <label
         htmlFor=""
-        className="dark:text-[#E0E4E7] text-[#7C7C8D] text-[14px] leading-[18.23px] font-medium mb-2.5  "
+        className="dark:text-[#E0E4E7] text-[#7C7C8D] text-[14px] leading-[18.23px] font-medium mb-2.5"
       >
         {label}
       </label>

@@ -81,7 +81,11 @@ const Dashboard = () => {
           <Button title="Update Car" />
         </div>
       </div>
-      {openForm && <CarDataForm onClick={() => setOpenForm(!openForm)} />}
+      {openForm && (
+        <div className="absolute  w-full min-w-[300px] max-w-[800px]">
+          <CarDataForm onClick={() => setOpenForm(!openForm)} />
+        </div>
+      )}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[30px]">
         <PerformanceCard
           className1="bg-primary"

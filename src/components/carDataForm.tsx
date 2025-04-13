@@ -40,6 +40,7 @@ const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
     setHasAC,
     purpose,
     setPurpose,
+    handleCarData,
   } = useDasboard();
   return (
     <div className=" dark:bg-[#242731] overflow-y-auto mx-auto p-6 bg-white shadow-xl rounded-xl ">
@@ -201,6 +202,7 @@ const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
 
         <div className="flex gap-x-4">
           <button
+            onClick={handleCarData}
             type="submit"
             className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
           >

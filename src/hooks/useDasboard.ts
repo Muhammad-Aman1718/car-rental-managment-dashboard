@@ -1,3 +1,5 @@
+import { carData } from "@/store/slices/carData";
+import { useAppDispatch } from "@/store/store";
 import { useState } from "react";
 
 const useDasboard = () => {
@@ -17,6 +19,37 @@ const useDasboard = () => {
   const [doors, setDoors] = useState("");
   const [hasAC, setHasAC] = useState(false);
   const [purpose, setPurpose] = useState("RENT");
+
+  const dispatch = useAppDispatch();
+
+  const handleCarData = async () => {
+    console.log("handle car data is click");
+
+    const carData = {
+      carName,
+      fuelType,
+      transmission,
+      mileage,
+      topSpeed,
+      price,
+      color,
+      engineCapacity,
+      seatingCapacity,
+      registrationNumber,
+      carType,
+      modelYear,
+      doors,
+      hasAC,
+      purpose,
+    };
+
+    try {
+      await dispatch(carData(carData)).unwrap();
+      console.log("Car data submitted successfully");
+    } catch (error) {
+      console.error("Error submitting car data:", error);
+    }
+  };
 
   return {
     openForm,
@@ -51,6 +84,7 @@ const useDasboard = () => {
     setHasAC,
     purpose,
     setPurpose,
+    handleCarData,
   };
 };
 

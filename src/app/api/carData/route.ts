@@ -3,7 +3,7 @@ import { AxiosError } from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
 interface carDataRequestBody {
-  adminId: string;
+  //   adminId: string;
   carName: string;
   fuelType: string;
   transmission: string;
@@ -17,16 +17,16 @@ interface carDataRequestBody {
   carType: string;
   modelYear: string;
   doors: string;
-  hasAC: boolean;
-  imageUrl: string;
-  purpose: string;
+  //   hasAC: boolean;
+  //   imageUrl: string;
+  //   purpose: string;
 }
 
 export const POST = async (req: NextRequest) => {
   try {
     const body: carDataRequestBody = await req.json();
     const {
-      adminId,
+      //   adminId,
       carName,
       fuelType,
       transmission,
@@ -40,9 +40,9 @@ export const POST = async (req: NextRequest) => {
       carType,
       modelYear,
       doors,
-      hasAC,
-      imageUrl,
-      purpose,
+      //   hasAC,
+      //   imageUrl,
+      //   purpose,
     } = body;
 
     console.log("this is car data body ===========>", body);
@@ -60,14 +60,14 @@ export const POST = async (req: NextRequest) => {
       !registrationNumber ||
       !carType ||
       !modelYear ||
-      !doors ||
+      !doors
       // !hasAC ||
-      !purpose
+      //   !purpose
     ) {
       return NextResponse.json(
         {
           success: false,
-          message: "This user is already exist.",
+          message: "requried all feilds",
         },
         { status: 400 }
       );
@@ -75,7 +75,7 @@ export const POST = async (req: NextRequest) => {
 
     const carData = await prisma.car.create({
       data: {
-        adminId: null,
+        // adminId: null,
         carName: body.carName,
         fuelType: body.fuelType,
         transmission: body.transmission,
@@ -89,9 +89,9 @@ export const POST = async (req: NextRequest) => {
         carType: body.carType,
         modelYear: body.modelYear,
         doors: body.doors,
-        hasAC: null,
-        imageUrl: null,
-        purpose: null,
+        // hasAC: null,
+        // imageUrl: null,
+        // purpose: null,
       },
     });
 

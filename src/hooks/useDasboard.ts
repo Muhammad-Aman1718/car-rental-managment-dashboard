@@ -25,7 +25,7 @@ const useDasboard = () => {
   const handleCarData = async () => {
     console.log("handle car data is click");
 
-    const carData = {
+    const payload = {
       carName,
       fuelType,
       transmission,
@@ -39,12 +39,12 @@ const useDasboard = () => {
       carType,
       modelYear,
       doors,
-      hasAC,
-      purpose,
+      // hasAC,
+      // purpose,
     };
 
     try {
-      await dispatch(carData(carData)).unwrap();
+      await dispatch(carData(payload)).unwrap();
       console.log("Car data submitted successfully");
     } catch (error) {
       console.error("Error submitting car data:", error);

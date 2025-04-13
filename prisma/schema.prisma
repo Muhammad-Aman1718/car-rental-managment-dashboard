@@ -35,7 +35,7 @@ enum Role {
 
 model Car {
   id                 String   @id @default(auto()) @map("_id") @db.ObjectId
-  adminId            String
+  // adminId            String
   carName            String
   fuelType           String
   transmission       String
@@ -49,9 +49,9 @@ model Car {
   carType            String
   modelYear          String
   doors              String
-  hasAC              String
-  imageUrl           String[]
-  purpose            String
+  // hasAC              String
+  // imageUrl           String[]
+  // purpose            String
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
 }

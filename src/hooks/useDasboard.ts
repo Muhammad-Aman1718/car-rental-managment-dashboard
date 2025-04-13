@@ -15,7 +15,8 @@ const useDasboard = () => {
   const [carType, setCarType] = useState("");
   const [modelYear, setModelYear] = useState("");
   const [doors, setDoors] = useState("");
-  const [hasAC, setHasAC] = useState("");
+  const [hasAC, setHasAC] = useState(false);
+  const [purpose, setPurpose] = useState("RENT");
 
   return {
     openForm,
@@ -48,6 +49,8 @@ const useDasboard = () => {
     setDoors,
     hasAC,
     setHasAC,
+    purpose,
+    setPurpose,
   };
 };
 

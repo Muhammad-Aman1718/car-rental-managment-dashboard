@@ -38,6 +38,8 @@ const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
     setDoors,
     hasAC,
     setHasAC,
+    purpose,
+    setPurpose,
   } = useDasboard();
   return (
     <div className=" dark:bg-[#242731] overflow-y-auto mx-auto p-6 bg-white shadow-xl rounded-xl ">
@@ -74,89 +76,6 @@ const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
             className="w-full border p-2 rounded"
             required
           />
-          {/* <CarDataFormInput
-            value={carName}
-            onChange={(e) => setCarName(e.target.value)}
-            label="Mileage (km/l)"
-            type="text"
-            name="mileage"
-            placeholder="Enter your Mileage (km/l)"
-            className="w-full border p-2 rounded"
-            required
-          />
-          <CarDataFormInput
-            label="Top Speed (km/h)"
-            type="text"
-            name="topSpeed"
-            placeholder="Enter your Top speed (km/h)"
-            className="w-full border p-2 rounded"
-            required
-          />
-          <CarDataFormInput
-            label="Price ($)"
-            type="text"
-            name="price"
-            placeholder="Enter your price ($)"
-            className="w-full border p-2 rounded"
-            required
-          />
-          <CarDataFormInput
-            label="Color"
-            type="text"
-            name="color"
-            placeholder="Enter your color"
-            className="w-full border p-2 rounded"
-            required
-          />
-          <CarDataFormInput
-            label="Engine Capacity (cc)"
-            type="text"
-            name="engineCapacity"
-            placeholder="Enter your Engine Capacity (cc)"
-            className="w-full border p-2 rounded"
-            required
-          />
-          <CarDataFormInput
-            label="Seating Capacity"
-            type="text"
-            name="seatingCapacity"
-            placeholder="Enter your Seating Capacity"
-            className="w-full border p-2 rounded"
-            required
-          />
-          <CarDataFormInput
-            label="Registration Number"
-            type="text"
-            name="registrationNo"
-            placeholder=" Enter your car registration number"
-            className="w-full border p-2 rounded"
-            required
-          />
-          <CarDataFormInput
-            label="Car Type"
-            type="text"
-            name="carType"
-            placeholder="Enter your Car Type"
-            className="w-full border p-2 rounded"
-            required
-          />
-          <CarDataFormInput
-            label="Model Year"
-            type="text"
-            name="year"
-            placeholder="Enter your Model Year"
-            className="w-full border p-2 rounded"
-            required
-          />
-          <CarDataFormInput
-            label="Doors"
-            type="text"
-            name="doors"
-            placeholder="Enter number of Doors"
-            className="w-full border p-2 rounded"
-            required
-          /> */}
-
           <CarDataFormInput
             value={mileage}
             onChange={(e) => setMileage(e.target.value)}
@@ -260,11 +179,21 @@ const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-y-5 my-[20px] ">
           <div className="flex items-center gap-2">
-            <input type="checkbox" name="hasAC" />
+            <input
+              type="checkbox"
+              name="hasAC"
+              checked={hasAC}
+              onChange={(e) => setHasAC(e.target.checked)}
+            />
             <label className="dark:text-white ">Has AC</label>
           </div>
 
-          <select name="purpose" className="w-full border p-2 rounded">
+          <select
+            name="purpose"
+            value={purpose}
+            onChange={(e) => setPurpose(e.target.value)}
+            className="w-full border p-2 rounded"
+          >
             <option value="RENT">Rent</option>
             <option value="SELL">Sell</option>
           </select>

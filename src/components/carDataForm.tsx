@@ -36,8 +36,6 @@ const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
     setModelYear,
     doors,
     setDoors,
-    hasAC,
-    setHasAC,
     purpose,
     setPurpose,
     handleCarData,
@@ -179,16 +177,6 @@ const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
           />
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-y-5 my-[20px] ">
-          <div className="flex items-center gap-2">
-            <input
-              type="checkbox"
-              name="hasAC"
-              checked={hasAC}
-              onChange={(e) => setHasAC(e.target.checked)}
-            />
-            <label className="dark:text-white ">Has AC</label>
-          </div>
-
           <select
             name="purpose"
             value={purpose}

@@ -1,9 +1,10 @@
-import { prisma } from "@/config/prisma";
-import { AxiosError } from "axios";
 import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/config/prisma";
+import { getServerSession } from "next-auth";
+import { AxiosError } from "axios";
+import authOptions from "@/lib/auth";
 
 interface carDataRequestBody {
-  //   adminId: string;
   carName: string;
   fuelType: string;
   transmission: string;
@@ -17,16 +18,24 @@ interface carDataRequestBody {
   carType: string;
   modelYear: string;
   doors: string;
-  //   hasAC: boolean;
   //   imageUrl: string;
-  //   purpose: string;
+  purpose: string;
 }
 
 export const POST = async (req: NextRequest) => {
   try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Unauthorized. Admin ID not found.",
+        },
+        { status: 401 }
+      );
+    }
     const body: carDataRequestBody = await req.json();
     const {
-      //   adminId,
       carName,
       fuelType,
       transmission,
@@ -40,9 +49,8 @@ export const POST = async (req: NextRequest) => {
       carType,
       modelYear,
       doors,
-      //   hasAC,
       //   imageUrl,
-      //   purpose,
+      purpose,
     } = body;
 
     console.log("this is car data body ===========>", body);
@@ -60,9 +68,9 @@ export const POST = async (req: NextRequest) => {
       !registrationNumber ||
       !carType ||
       !modelYear ||
-      !doors
+      !doors ||
+      !purpose
       // !hasAC ||
-      //   !purpose
     ) {
       return NextResponse.json(
         {
@@ -75,23 +83,22 @@ export const POST = async (req: NextRequest) => {
 
     const carData = await prisma.car.create({
       data: {
-        // adminId: null,
-        carName: body.carName,
-        fuelType: body.fuelType,
-        transmission: body.transmission,
-        mileage: body.mileage,
-        topSpeed: body.topSpeed,
-        price: body.price,
-        color: body.color,
-        engineCapacity: body.engineCapacity,
-        seatingCapacity: body.seatingCapacity,
-        registrationNumber: body.registrationNumber,
-        carType: body.carType,
-        modelYear: body.modelYear,
-        doors: body.doors,
-        // hasAC: null,
+        adminId: session?.user?.id,
+        carName: carName,
+        fuelType: fuelType,
+        transmission: transmission,
+        mileage: mileage,
+        topSpeed: topSpeed,
+        price: price,
+        color: color,
+        engineCapacity: engineCapacity,
+        seatingCapacity: seatingCapacity,
+        registrationNumber: registrationNumber,
+        carType: carType,
+        modelYear: modelYear,
+        doors: doors,
         // imageUrl: null,
-        // purpose: null,
+        purpose: purpose,
       },
     });
 

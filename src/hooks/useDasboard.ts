@@ -17,7 +17,6 @@ const useDasboard = () => {
   const [carType, setCarType] = useState("");
   const [modelYear, setModelYear] = useState("");
   const [doors, setDoors] = useState("");
-  const [hasAC, setHasAC] = useState(false);
   const [purpose, setPurpose] = useState("RENT");
 
   const dispatch = useAppDispatch();
@@ -40,7 +39,7 @@ const useDasboard = () => {
       modelYear,
       doors,
       // hasAC,
-      // purpose,
+      purpose,
     };
 
     try {
@@ -80,8 +79,7 @@ const useDasboard = () => {
     setModelYear,
     doors,
     setDoors,
-    hasAC,
-    setHasAC,
+
     purpose,
     setPurpose,
     handleCarData,

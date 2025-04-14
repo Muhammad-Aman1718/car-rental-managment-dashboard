@@ -1,6 +1,7 @@
 import React from "react";
 import CarDataFormInput from "./inputs/CarDataFormInput";
 import useDasboard from "@/hooks/useDasboard";
+import Loader from "./Loader";
 
 interface CarDataFormPropsTypes {
   onClick?: () => void;
@@ -8,8 +9,6 @@ interface CarDataFormPropsTypes {
 
 const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
   const {
-    openForm,
-    setOpenForm,
     carName,
     setCarName,
     fuelType,
@@ -39,6 +38,7 @@ const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
     purpose,
     setPurpose,
     handleCarData,
+    loading,
   } = useDasboard();
   return (
     <div className=" dark:bg-[#242731] overflow-y-auto mx-auto p-6 bg-white shadow-xl rounded-xl ">
@@ -153,7 +153,7 @@ const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
             name="carType"
             placeholder="Enter your Car Type"
             className="w-full border p-2 rounded"
-            required
+            required={true}
           />
           <CarDataFormInput
             value={modelYear}
@@ -181,8 +181,11 @@ const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
             name="purpose"
             value={purpose}
             onChange={(e) => setPurpose(e.target.value)}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded outline-none dark:bg-[#242731] dark:text-white "
           >
+            <option value="" disabled hidden>
+              Select your car purpose
+            </option>
             <option value="RENT">Rent</option>
             <option value="SELL">Sell</option>
           </select>
@@ -194,7 +197,7 @@ const CarDataForm: React.FC<CarDataFormPropsTypes> = ({ onClick }) => {
             type="submit"
             className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
           >
-            Submit
+            {loading ? <Loader /> : `Submit`}
           </button>
           <button
             onClick={onClick}

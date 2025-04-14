@@ -3,7 +3,6 @@ import axiosInstance from "@/lib/axiosInstance";
 import { AxiosError } from "axios";
 
 export interface CarDataRequestBody {
-  //   adminId: string;
   carName: string;
   fuelType: string;
   transmission: string;
@@ -17,9 +16,8 @@ export interface CarDataRequestBody {
   carType: string;
   modelYear: string;
   doors: string;
-  //   hasAC: boolean;
   //   imageUrl: string;
-  //   purpose: string;
+  purpose: string;
 }
 
 export const carData = createAsyncThunk(

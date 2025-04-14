@@ -1,5 +1,6 @@
 import { carData } from "@/store/slices/carData";
-import { useAppDispatch } from "@/store/store";
+import { useAppDispatch, useAppSelector } from "@/store/store";
+import { showToast } from "@/utils/showToast";
 import { useState } from "react";
 
 const useDasboard = () => {
@@ -17,13 +18,35 @@ const useDasboard = () => {
   const [carType, setCarType] = useState("");
   const [modelYear, setModelYear] = useState("");
   const [doors, setDoors] = useState("");
-  const [purpose, setPurpose] = useState("RENT");
+  const [purpose, setPurpose] = useState("");
 
   const dispatch = useAppDispatch();
+  const loading = useAppSelector((state) => state.carDataReducer.loading);
+
+  const handleOpen = () => {
+    setOpenForm(!openForm);
+  };
 
   const handleCarData = async () => {
-    console.log("handle car data is click");
-
+    if (
+      !carName ||
+      !fuelType ||
+      !transmission ||
+      !mileage ||
+      !topSpeed ||
+      !price ||
+      !color ||
+      !engineCapacity ||
+      !seatingCapacity ||
+      !registrationNumber ||
+      !carType ||
+      !modelYear ||
+      !doors ||
+      !purpose
+    ) {
+      showToast("error", "All fields are requried!");
+      return;
+    }
     const payload = {
       carName,
       fuelType,
@@ -38,13 +61,26 @@ const useDasboard = () => {
       carType,
       modelYear,
       doors,
-      // hasAC,
       purpose,
     };
 
     try {
       await dispatch(carData(payload)).unwrap();
       console.log("Car data submitted successfully");
+      setCarName("");
+      setFuelType("");
+      setTransmission("");
+      setMileage("");
+      setTopSpeed("");
+      setPrice("");
+      setColor("");
+      setEngineCapacity("");
+      setSeatingCapacity("");
+      setRegistrationNumber("");
+      setCarType("");
+      setModelYear("");
+      setDoors("");
+      setPurpose("");
     } catch (error) {
       console.error("Error submitting car data:", error);
     }
@@ -52,7 +88,7 @@ const useDasboard = () => {
 
   return {
     openForm,
-    setOpenForm,
+    handleOpen,
     carName,
     setCarName,
     fuelType,
@@ -79,10 +115,10 @@ const useDasboard = () => {
     setModelYear,
     doors,
     setDoors,
-
     purpose,
     setPurpose,
     handleCarData,
+    loading,
   };
 };
 

@@ -87,12 +87,12 @@ const Dashboard = () => {
         </div>
       )}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[30px]">
-        {/* <PerformanceCard
+        <PerformanceCard
           className1="bg-primary"
           className2="text-white"
           heading="Energy"
           src={IMAGES.PERFORMANCE_CARD_IMG_1}
-        /> */}
+        />
         <PerformanceCard
           className1="bg-white"
           className2="text-[#242731]"

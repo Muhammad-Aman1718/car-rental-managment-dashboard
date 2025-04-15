@@ -74,7 +74,7 @@ const Dashboard = () => {
     <div className="">
       <div className="flex justify-between items-center dark:bg-[#242731] bg-white dark:text-white my-[30px] p-[20px] rounded-xl ">
         <h2 className="text-[#242731] text-[24px] font-bold dark:text-white ">
-          Add Car details and update also
+          Add Car details and update car
         </h2>
         <div className="flex gap-x-5">
           <Button title="Add Car" onClick={handleOpen} />

@@ -3,19 +3,19 @@ import axiosInstance from "@/lib/axiosInstance";
 import { AxiosError } from "axios";
 import { carDataTypes } from "@/types/types";
 
-// export const getAllCarsData = createAsyncThunk("allCarsData/get", async () => {
-//   try {
-//     const response = await axiosInstance.get("carData");
-//     console.log("this is get all cars get slice =====> ", response.data);
-//     return response.data;
-//   } catch (error) {
-//     const errorAxios = error as AxiosError;
-//     const errorMessage =
-//       (errorAxios.response?.data as { message?: string })?.message ||
-//       "Something went wrong!";
-//     throw new Error(errorMessage);
-//   }
-// });
+export const getAllCarsData = createAsyncThunk("allCarsData/get", async () => {
+  try {
+    const response = await axiosInstance.get("carData");
+    console.log("this is get all cars get slice =====> ", response.data);
+    return response.data;
+  } catch (error) {
+    const errorAxios = error as AxiosError;
+    const errorMessage =
+      (errorAxios.response?.data as { message?: string })?.message ||
+      "Something went wrong!";
+    throw new Error(errorMessage);
+  }
+});
 
 export const carData = createAsyncThunk(
   "carData/post",

@@ -14,7 +14,9 @@ export const GET = async (req: NextRequest) => {
         { status: 400 }
       );
     }
-    const allCarsData = await prisma.car.findMany();
+    const allCarsData = await prisma.car.findMany({
+      where: { adminId: session.user.id },
+    });
 
     return NextResponse.json({
       success: true,

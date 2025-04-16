@@ -70,7 +70,6 @@ export const POST = async (req: NextRequest) => {
       !modelYear ||
       !doors ||
       !purpose
-      // !hasAC ||
     ) {
       return NextResponse.json(
         {
@@ -108,13 +107,53 @@ export const POST = async (req: NextRequest) => {
       car: carData,
     });
   } catch (error) {
-    const errorAxois = error as AxiosError;
+    const errorAxios = error as AxiosError;
     return NextResponse.json({
       success: false,
       message: "Something went wrong",
-      error: errorAxois.message || "Unknown error",
+      error: errorAxios.message || "Unknown error",
     });
   } finally {
     await prisma.$disconnect();
+  }
+};
+
+export const PUT = async (req: NextRequest) => {
+  try {
+    const body: carDataRequestBody = await req.json();
+    const {
+      carName,
+      fuelType,
+      transmission,
+      mileage,
+      topSpeed,
+      price,
+      color,
+      engineCapacity,
+      seatingCapacity,
+      registrationNumber,
+      carType,
+      modelYear,
+      doors,
+      //   imageUrl,
+      purpose,
+    } = body;
+
+    const carData = await prisma.car.update({
+      where:{}
+    })
+
+    return NextResponse.json({
+      success: true,
+      message: "Car data saved successfully",
+      car: carData,
+    });
+  } catch (error) {
+    const errorAxios = error as AxiosError;
+    return NextResponse.json({
+      success: false,
+      message: "Something went wrong",
+      error: errorAxios.message || "Unknown error",
+    });
   }
 };

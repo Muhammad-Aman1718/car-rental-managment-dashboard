@@ -7,6 +7,13 @@ import { carDataTypes } from "@/types/types";
 
 export const GET = async (req: NextRequest) => {
   try {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      return NextResponse.json(
+        { success: false, message: "Seesion not found" },
+        { status: 400 }
+      );
+    }
     const allCarsData = await prisma.car.findMany();
 
     return NextResponse.json({

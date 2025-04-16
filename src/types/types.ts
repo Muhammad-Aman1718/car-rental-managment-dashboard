@@ -12,3 +12,21 @@ export interface UserData {
   gender?: string | null;
   profilePic?: string | null;
 }
+
+export interface carDataTypes {
+  carName: string;
+  fuelType: string;
+  transmission: string;
+  mileage: string;
+  topSpeed: string;
+  price: string;
+  color: string;
+  engineCapacity: string;
+  seatingCapacity: string;
+  registrationNumber: string;
+  carType: string;
+  modelYear: string;
+  doors: string;
+  //   imageUrl: string;
+  purpose: string;
+}

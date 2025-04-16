@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axiosInstance from "@/lib/axiosInstance";
 import { AxiosError } from "axios";
+import { carDataTypes } from "@/types/types";
 
 export interface CarDataRequestBody {
   carName: string;
@@ -39,15 +40,15 @@ export const carData = createAsyncThunk(
 );
 
 interface carDataState {
+  carData: carDataTypes[];
   loading: boolean;
   error: string | null;
-  success: boolean;
 }
 
 const initialState: carDataState = {
+  carData: [],
   loading: false,
   error: null,
-  success: false,
 };
 
 const carDataSlice = createSlice({
@@ -59,11 +60,9 @@ const carDataSlice = createSlice({
       .addCase(carData.pending, (state) => {
         state.loading = true;
         state.error = null;
-        state.success = false;
       })
       .addCase(carData.fulfilled, (state) => {
         state.loading = false;
-        state.success = true;
       })
       .addCase(carData.rejected, (state, action) => {
         state.loading = false;

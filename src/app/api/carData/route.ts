@@ -3,24 +3,16 @@ import { prisma } from "@/config/prisma";
 import { getServerSession } from "next-auth";
 import { AxiosError } from "axios";
 import authOptions from "@/lib/auth";
+import { carDataTypes } from "@/types/types";
 
-interface carDataRequestBody {
-  carName: string;
-  fuelType: string;
-  transmission: string;
-  mileage: string;
-  topSpeed: string;
-  price: string;
-  color: string;
-  engineCapacity: string;
-  seatingCapacity: string;
-  registrationNumber: string;
-  carType: string;
-  modelYear: string;
-  doors: string;
-  //   imageUrl: string;
-  purpose: string;
-}
+export const GET = async (req: NextRequest) => {
+  try {
+    const allCarsData = await prisma.car.findMany({});
+  } catch (error) {
+    const errorAxios = error as AxiosError;
+    console.log("this is the api error ====> ", errorAxios);
+  }
+};
 
 export const POST = async (req: NextRequest) => {
   try {
@@ -34,7 +26,7 @@ export const POST = async (req: NextRequest) => {
         { status: 401 }
       );
     }
-    const body: carDataRequestBody = await req.json();
+    const body: carDataTypes = await req.json();
     const {
       carName,
       fuelType,
@@ -118,42 +110,42 @@ export const POST = async (req: NextRequest) => {
   }
 };
 
-export const PUT = async (req: NextRequest) => {
-  try {
-    const body: carDataRequestBody = await req.json();
-    const {
-      carName,
-      fuelType,
-      transmission,
-      mileage,
-      topSpeed,
-      price,
-      color,
-      engineCapacity,
-      seatingCapacity,
-      registrationNumber,
-      carType,
-      modelYear,
-      doors,
-      //   imageUrl,
-      purpose,
-    } = body;
+// export const PUT = async (req: NextRequest) => {
+//   try {
+//     const body: carDataRequestBody = await req.json();
+//     const {
+//       carName,
+//       fuelType,
+//       transmission,
+//       mileage,
+//       topSpeed,
+//       price,
+//       color,
+//       engineCapacity,
+//       seatingCapacity,
+//       registrationNumber,
+//       carType,
+//       modelYear,
+//       doors,
+//       //   imageUrl,
+//       purpose,
+//     } = body;
 
-    const carData = await prisma.car.update({
-      where:{}
-    })
+//     const carData = await prisma.car.update({
+//       where:{}
+//     })
 
-    return NextResponse.json({
-      success: true,
-      message: "Car data saved successfully",
-      car: carData,
-    });
-  } catch (error) {
-    const errorAxios = error as AxiosError;
-    return NextResponse.json({
-      success: false,
-      message: "Something went wrong",
-      error: errorAxios.message || "Unknown error",
-    });
-  }
-};
+//     return NextResponse.json({
+//       success: true,
+//       message: "Car data saved successfully",
+//       car: carData,
+//     });
+//   } catch (error) {
+//     const errorAxios = error as AxiosError;
+//     return NextResponse.json({
+//       success: false,
+//       message: "Something went wrong",
+//       error: errorAxios.message || "Unknown error",
+//     });
+//   }
+// };

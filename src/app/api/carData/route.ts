@@ -7,7 +7,13 @@ import { carDataTypes } from "@/types/types";
 
 export const GET = async (req: NextRequest) => {
   try {
-    const allCarsData = await prisma.car.findMany({});
+    const allCarsData = await prisma.car.findMany();
+
+    return NextResponse.json({
+      success: true,
+      message: "All data of cars is get",
+      allCarsData: allCarsData,
+    });
   } catch (error) {
     const errorAxios = error as AxiosError;
     console.log("this is the api error ====> ", errorAxios);

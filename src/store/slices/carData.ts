@@ -3,27 +3,23 @@ import axiosInstance from "@/lib/axiosInstance";
 import { AxiosError } from "axios";
 import { carDataTypes } from "@/types/types";
 
-export interface CarDataRequestBody {
-  carName: string;
-  fuelType: string;
-  transmission: string;
-  mileage: string;
-  topSpeed: string;
-  price: string;
-  color: string;
-  engineCapacity: string;
-  seatingCapacity: string;
-  registrationNumber: string;
-  carType: string;
-  modelYear: string;
-  doors: string;
-  //   imageUrl: string;
-  purpose: string;
-}
+export const getAllCarsData = createAsyncThunk("allCarsData/get", async () => {
+  try {
+    const response = await axiosInstance.get("carData");
+    console.log("this is get all cars get slice =====> ", response.data);
+    return response.data;
+  } catch (error) {
+    const errorAxios = error as AxiosError;
+    const errorMessage =
+      (errorAxios.response?.data as { message?: string })?.message ||
+      "Something went wrong!";
+    throw new Error(errorMessage);
+  }
+});
 
 export const carData = createAsyncThunk(
   "carData/post",
-  async (carData: CarDataRequestBody) => {
+  async (carData: carDataTypes) => {
     try {
       const response = await axiosInstance.post("carData", carData);
       console.log("this is response on slice =========> ", response.data);
@@ -67,6 +63,16 @@ const carDataSlice = createSlice({
       .addCase(carData.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to post car data";
+      })
+      .addCase(getAllCarsData.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getAllCarsData.fulfilled, (state, action) => {
+        state.loading = false;
+        state.carData = action.payload;
+      })
+      .addCase(getAllCarsData.rejected, (state, action) => {
+        state.loading = false;
       });
   },
 });

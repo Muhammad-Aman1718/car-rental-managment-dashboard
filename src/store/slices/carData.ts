@@ -7,7 +7,7 @@ export const getAllCarsData = createAsyncThunk("allCarsData/get", async () => {
   try {
     const response = await axiosInstance.get("carData");
     console.log("this is get all cars get slice =====> ", response.data);
-    return response.data;
+    return response.data.data;
   } catch (error) {
     const errorAxios = error as AxiosError;
     const errorMessage =

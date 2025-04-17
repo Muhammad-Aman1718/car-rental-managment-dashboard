@@ -3,6 +3,7 @@ import Image from "next/image";
 // import { SlHeart } from "react-icons/sl";
 // import { LuUserRound } from "react-icons/lu";
 import BookingCar from "../../../public/assets/bookingImgs/bookingCar.png";
+import useBooking from "@/hooks/useBooking";
 // import SquareArrow from "../../../public/assets/bookingImgs/icon.png";
 
 // const BookingCarCard = () => {
@@ -53,7 +54,9 @@ import BookingCar from "../../../public/assets/bookingImgs/bookingCar.png";
 
 // export default BookingCarCard;
 
-const CarCard = () => {
+const BookingCarCard = () => {
+  // const { carData } = useBooking();
+
   return (
     <div className="w-full max-w-md bg-white shadow-xl rounded-2xl overflow-hidden">
       <Image
@@ -81,4 +84,4 @@ const CarCard = () => {
   );
 };
 
-export default CarCard;
+export default BookingCarCard;

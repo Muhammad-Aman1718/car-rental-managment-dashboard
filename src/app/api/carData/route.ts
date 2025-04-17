@@ -21,7 +21,7 @@ export const GET = async (req: NextRequest) => {
     return NextResponse.json({
       success: true,
       message: "All data of cars is get",
-      allCarsData: allCarsData,
+      data: allCarsData,
     });
   } catch (error) {
     const errorAxios = error as AxiosError;

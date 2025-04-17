@@ -1,3 +1,4 @@
+"use client";
 // import React from "react";
 // import FilterBtn from "@/components/booking/FilterBtn";
 // import { RxDashboard } from "react-icons/rx";
@@ -52,8 +53,11 @@ import FilterBtn from "@/components/booking/FilterBtn";
 import { RxDashboard } from "react-icons/rx";
 import { VscSettings } from "react-icons/vsc";
 import BookingCarCard from "@/components/booking/BookingCarCard";
+import useBooking from "@/hooks/useBooking";
 
-const Booking = async () => {
+const Booking = () => {
+  const { carData } = useBooking();
+
   return (
     <div className="px-4 max-sm:px-2 lg:px-8">
       <h1 className="mt-5 dark:text-white text-[#242731] text-[30px] font-bold leading-[39.06px]">
@@ -81,8 +85,8 @@ const Booking = async () => {
 
       {/* Booking Cards - Responsive Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        {Array.from({ length: 15 }, (_, index) => (
-          <BookingCarCard key={index} />
+        {carData.map((index) => (
+          <BookingCarCard />
         ))}
       </div>
     </div>

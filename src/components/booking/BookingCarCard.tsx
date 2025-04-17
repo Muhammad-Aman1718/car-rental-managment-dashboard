@@ -53,14 +53,14 @@ import BookingCar from "../../../public/assets/bookingImgs/bookingCar.png";
 
 // export default BookingCarCard;
 
-export default function CarCard() {
+const CarCard = () => {
   return (
     <div className="w-full max-w-md bg-white shadow-xl rounded-2xl overflow-hidden">
-        <Image
-          src={BookingCar}
-          alt="Car image"
-          // className="w-full h-full object-cover"
-        />
+      <Image
+        src={BookingCar}
+        alt="Car image"
+        // className="w-full h-full object-cover"
+      />
       <div className="p-4 space-y-3">
         <h2 className="text-xl font-bold">Toyota Corolla </h2>
         <p className="text-sm text-gray-600">Year: 2022</p>
@@ -79,4 +79,6 @@ export default function CarCard() {
       </div>
     </div>
   );
-}
+};
+
+export default CarCard;

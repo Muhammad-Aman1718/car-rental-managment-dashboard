@@ -22,7 +22,10 @@ export const carData = createAsyncThunk(
   async (carData: carDataTypes) => {
     try {
       const response = await axiosInstance.post("carData", carData);
-      console.log("this is response on slice =========> ", response.data);
+      console.log(
+        "this is response on slice post car data =========> ",
+        response.data
+      );
 
       return response.data;
     } catch (error) {

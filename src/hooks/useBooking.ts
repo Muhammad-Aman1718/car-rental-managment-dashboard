@@ -5,14 +5,14 @@ import { useAppDispatch, useAppSelector } from "@/store/store";
 const useBooking = () => {
   const dispatch = useAppDispatch();
   const carData = useAppSelector((state) => state.carDataReducer.carData);
+  const loading = useAppSelector((state) => state.carDataReducer.loading);
 
   useEffect(() => {
     dispatch(getAllCarsData());
   }, []);
-  console.log("this is hook carData", carData);
-
   return {
     carData,
+    loading,
   };
 };
 

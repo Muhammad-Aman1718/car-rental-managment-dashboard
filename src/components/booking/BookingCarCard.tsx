@@ -1,9 +1,14 @@
 import Image from "next/image";
+import BookingCar from "../../../public/assets/bookingImgs/bookingCar.png";
+import useBooking from "@/hooks/useBooking";
+
+interface BookingCarCardPropsTypes {
+  car?: string;
+  index?: string;
+}
 // import React from "react";
 // import { SlHeart } from "react-icons/sl";
 // import { LuUserRound } from "react-icons/lu";
-import BookingCar from "../../../public/assets/bookingImgs/bookingCar.png";
-import useBooking from "@/hooks/useBooking";
 // import SquareArrow from "../../../public/assets/bookingImgs/icon.png";
 
 // const BookingCarCard = () => {
@@ -54,9 +59,7 @@ import useBooking from "@/hooks/useBooking";
 
 // export default BookingCarCard;
 
-const BookingCarCard = () => {
-  // const { carData } = useBooking();
-
+const BookingCarCard: React.FC<BookingCarCardPropsTypes> = ({ index, car }) => {
   return (
     <div className="w-full max-w-md bg-white shadow-xl rounded-2xl overflow-hidden">
       <Image
@@ -65,7 +68,7 @@ const BookingCarCard = () => {
         // className="w-full h-full object-cover"
       />
       <div className="p-4 space-y-3">
-        <h2 className="text-xl font-bold">Toyota Corolla </h2>
+        <h2 className="text-xl font-bold">Toyota Corolla</h2>
         <p className="text-sm text-gray-600">Year: 2022</p>
         <p className="text-sm text-gray-600">Mileage: 18 km/l</p>
         <p className="text-sm text-gray-600">Top Speed: 180 km/h</p>

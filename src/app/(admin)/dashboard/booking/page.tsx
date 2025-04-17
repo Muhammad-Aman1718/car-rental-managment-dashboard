@@ -54,9 +54,10 @@ import { RxDashboard } from "react-icons/rx";
 import { VscSettings } from "react-icons/vsc";
 import BookingCarCard from "@/components/booking/BookingCarCard";
 import useBooking from "@/hooks/useBooking";
+import Loader from "@/components/Loader";
 
 const Booking = () => {
-  const { carData } = useBooking();
+  const { carData, loading } = useBooking();
 
   return (
     <div className="px-4 max-sm:px-2 lg:px-8">
@@ -84,11 +85,15 @@ const Booking = () => {
       </div>
 
       {/* Booking Cards - Responsive Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        {carData.map((data, index) => (
-          <BookingCarCard index={index} car={data} />
-        ))}
-      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          {carData.map((data, index) => (
+            <BookingCarCard key={index} car={data} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

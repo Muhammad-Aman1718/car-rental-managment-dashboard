@@ -4,12 +4,16 @@ import { useAppDispatch, useAppSelector } from "@/store/store";
 
 const useBooking = () => {
   const dispatch = useAppDispatch();
-  const carData = useAppSelector((state) => state.carDataReducer.carData);
-  const loading = useAppSelector((state) => state.carDataReducer.loading);
+
+  const { carData, loading } = useAppSelector((state) => state.carDataReducer);
 
   useEffect(() => {
-    dispatch(getAllCarsData());
-  }, []);
+    // Sirf tabhi fetch karo jab carData empty ho
+    if (carData.length === 0 && !loading) {
+      dispatch(getAllCarsData());
+    }
+  }, [dispatch, carData.length, loading]);
+
   return {
     carData,
     loading,

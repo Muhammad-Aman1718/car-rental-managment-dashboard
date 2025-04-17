@@ -5,7 +5,6 @@ import { carDataTypes } from "@/types/types";
 
 interface BookingCarCardPropsTypes {
   car?: carDataTypes;
-  index?: number;
 }
 // import React from "react";
 // import { SlHeart } from "react-icons/sl";
@@ -60,12 +59,9 @@ interface BookingCarCardPropsTypes {
 
 // export default BookingCarCard;
 
-const BookingCarCard: React.FC<BookingCarCardPropsTypes> = ({ index, car }) => {
+const BookingCarCard: React.FC<BookingCarCardPropsTypes> = ({ car }) => {
   return (
-    <div
-      className="w-full max-w-md dark:bg-[#242731] bg-white shadow-xl rounded-2xl overflow-hidden"
-      key={index}
-    >
+    <div className="w-full max-w-md dark:bg-[#242731] bg-white shadow-xl rounded-2xl overflow-hidden">
       <Image
         src={BookingCar}
         alt="Car image"

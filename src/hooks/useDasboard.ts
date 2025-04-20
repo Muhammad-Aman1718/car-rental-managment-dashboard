@@ -1,5 +1,6 @@
 import { carData } from "@/store/slices/carData";
 import { useAppDispatch, useAppSelector } from "@/store/store";
+import { carDataTypes } from "@/types/types";
 import { showToast } from "@/utils/showToast";
 import { useState } from "react";
 
@@ -47,7 +48,7 @@ const useDasboard = () => {
       showToast("error", "All fields are requried!");
       return;
     }
-    const payload = {
+    const payload: carDataTypes = {
       carName,
       fuelType,
       transmission,

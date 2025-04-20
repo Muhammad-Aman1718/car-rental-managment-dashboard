@@ -14,7 +14,7 @@ export interface UserData {
 }
 
 export interface carDataTypes {
-  id: string;
+  id?: string;
   carName: string;
   fuelType: string;
   transmission: string;

@@ -17,7 +17,7 @@ const CarDetails = () => {
 
         {/* Car Details */}
         <div className="space-y-4 text-base">
-          {/* <p>
+          <p>
             <strong className="text-[#A162F7]">Fuel Type:</strong> fdsa{" "}
           </p>
           <p>
@@ -28,7 +28,7 @@ const CarDetails = () => {
           </p>
           <p>
             <strong className="text-[#A162F7]">Top Speed:</strong> fdsa
-          </p> */}
+          </p>
           <p>
             <strong className="text-[#A162F7]">Engine Capacity:</strong> fdsa
           </p>

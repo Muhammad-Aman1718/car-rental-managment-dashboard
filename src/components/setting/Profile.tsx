@@ -22,7 +22,6 @@ const Profile = () => {
     gender,
     setGender,
     userData,
-    loading,
     handleUpdateData,
   } = useProfile();
 

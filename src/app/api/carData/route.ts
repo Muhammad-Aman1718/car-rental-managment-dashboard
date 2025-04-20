@@ -5,7 +5,7 @@ import { AxiosError } from "axios";
 import authOptions from "@/lib/auth";
 import { carDataTypes } from "@/types/types";
 
-export const GET = async (req: NextRequest) => {
+export const GET = async () => {
   try {
     const session = await getServerSession(authOptions);
     if (!session) {

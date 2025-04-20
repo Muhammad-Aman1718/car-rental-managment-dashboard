@@ -16,7 +16,7 @@ const useProfile = () => {
 
   useEffect(() => {
     dispatch(getUsersData());
-  }, []);
+  }, [dispatch]);
 
   const handleUpdateData = async () => {
     const updatedData: Record<string, string> = {};

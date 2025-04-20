@@ -1,44 +1,23 @@
-"use client";
-import {
-  decrement,
-  increment,
-  incrementByAmmount,
-} from "@/store/slices/counterSlice";
-import { useAppDispatch, useAppSelector } from "@/store/store";
+import React from "react";
+import HeadingLogo from "../../public/assets/home/Heading.png";
+import { IoReorderTwoOutline } from "react-icons/io5";
+import Image from "next/image";
 import Link from "next/link";
-// import { prisma } from "@/utils/prisma";
 
-function Home() {
-  const dispatch = useAppDispatch();
-  const value = useAppSelector((state) => state.countReducer.value);
-
+const Home = () => {
   return (
-    <div className="p-4 border rounded-lg shadow-md w-64">
-      <h2 className="text-xl font-bold">Counter: {value} </h2>
-      <div className="flex gap-2 mt-4">
-        <button
-          className="px-3 py-1 bg-blue-500 text-white rounded"
-          onClick={() => dispatch(increment())}
-        >
-          +1
-        </button>
-        <button
-          className="px-3 py-1 bg-red-500 text-white rounded"
-          onClick={() => dispatch(decrement())}
-        >
-          -1
-        </button>
-        <button
-          className="px-3 py-1 bg-green-500 text-white rounded"
-          onClick={() => dispatch(incrementByAmmount(5))}
-        >
-          +5
-        </button>
-      </div>
-      <Link href="/auth/signIn">
-        <button>click to go sign-in page</button>
-      </Link>
+    <div className="bg-[#0F0F0F]">
+      <header className="border w-[1216px]  text-white">
+        <nav>
+          <IoReorderTwoOutline />
+          <Image src={HeadingLogo} alt="Heading does not show " />
+          <Link href={`/auth/signUp`}>
+            <button className="">Login/Register</button>
+          </Link>
+        </nav>
+      </header>
     </div>
   );
-}
+};
+
 export default Home;

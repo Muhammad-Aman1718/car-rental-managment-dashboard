@@ -14,9 +14,11 @@ export const GET = async (req: NextRequest) => {
         { status: 400 }
       );
     }
-    const allCarsData = await prisma.car.findMany({
-      where: { adminId: session.user.id },
-    });
+
+    const allCarsData =
+      session?.user.role === "ADMIN"
+        ? await prisma.car.findMany({ where: { adminId: session.user.id } })
+        : await prisma.car.findMany();
 
     return NextResponse.json({
       success: true,
@@ -26,6 +28,15 @@ export const GET = async (req: NextRequest) => {
   } catch (error) {
     const errorAxios = error as AxiosError;
     console.log("this is the api error ====> ", errorAxios);
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Something went wrong",
+        error: errorAxios.message,
+      },
+      { status: 500 }
+    );
   }
 };
 

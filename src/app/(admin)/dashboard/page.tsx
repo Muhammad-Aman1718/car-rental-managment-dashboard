@@ -4,7 +4,7 @@ import PerformanceCard from "@/components/dashboard/PerformanceCard";
 import StatisticsCard from "@/components/dashboard/StatisticsCard";
 import RecommendCard from "@/components/dashboard/RecommendCard";
 import { IMAGES } from "@/constants/images";
-import Button from "@/components/dashboard/Button";
+import DataButton from "@/components/dashboard/Button";
 import CarDataForm from "@/components/carDataForm";
 import useDasboard from "@/hooks/useDasboard";
 
@@ -18,8 +18,8 @@ const Dashboard = () => {
           Add Car details and update car
         </h2>
         <div className="flex gap-x-5">
-          <Button title="Add Car" onClick={handleOpen} />
-          <Button title="Update Car" />
+          <DataButton title="Add Car" onClick={handleOpen} />
+          <DataButton title="Update Car" />
         </div>
       </div>
       {openForm && (

@@ -1,52 +1,6 @@
 "use client";
-// import React from "react";
-// import FilterBtn from "@/components/booking/FilterBtn";
-// import { RxDashboard } from "react-icons/rx";
-// import { VscSettings } from "react-icons/vsc";
-// import BookingCarCard from "@/components/booking/BookingCarCard";
+// /dashoard 
 
-// const Booking = () => {
-//   return (
-//     <div>
-//       <h1 className=" mt-5 leading-[39.06px] text-[#242731] text-[30px] font-bold ">
-//         Booking
-//       </h1>
-//       <div className="flex items-center justify-between mt-[30px] ">
-//         <div className="flex items-center gap-x-4 ">
-//           <FilterBtn heading="New" />
-//           <FilterBtn heading="Toyota" />
-//         </div>
-//         <div className="flex items-center gap-x-4  ">
-//           <span className="bg-white h-11 w-11 grid place-items-center rounded-[30px] ">
-//             <RxDashboard className="w-6 h-6 text-[#777E90] " />
-//           </span>
-//           <span className="bg-[#A162F7] h-11 w-11 grid place-items-center rounded-[30px]   ">
-//             <VscSettings className="w-6 h-6 text-white " />
-//           </span>
-//         </div>
-//       </div>
-//       <div className="grid grid-cols-3 gap-6 mt-[30px] ">
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//         <BookingCarCard />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Booking;
 
 import React from "react";
 import FilterBtn from "@/components/booking/FilterBtn";

@@ -1,20 +1,41 @@
 import React from "react";
 import HeadingLogo from "../../public/assets/home/Heading.png";
 import { IoReorderTwoOutline } from "react-icons/io5";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
+
 import Image from "next/image";
 import Link from "next/link";
 
 const Home = () => {
   return (
-    <div className="bg-[#0F0F0F]">
-      <header className="border w-[1216px]  text-white">
-        <nav>
-          <IoReorderTwoOutline />
+    <div className=" bg-[#0F0F0F]">
+      <header className="border mx-auto w-[1216px]  text-white">
+        <nav className="flex items-center justify-between ">
+          <IoReorderTwoOutline className="w-5 h-5 " />
           <Image src={HeadingLogo} alt="Heading does not show " />
           <Link href={`/auth/signUp`}>
             <button className="">Login/Register</button>
           </Link>
         </nav>
+        <div className="flex flex-col items-start w-full mt-[117px] mb-10 ">
+          <h1 className="text-white text-[64px] leading-[120%] font-bold space-[60px] ">
+            Discover the world on <br /> wheels with our car
+            <br /> rental service
+          </h1>
+          <p className="text-[18px] text-white leading-[160%] font-normal  ">
+            Choose from a wide range of cars that fit your style and budget.{" "}
+            <br />
+            Experience the freedom of the open road with our reliable and <br />
+            efficient rental service.
+          </p>
+          <span className=" h-[2px]  "></span>
+          <div className=" flex items-center gap-x-4 ">
+            <div className=" bg-white p-[6px] rounded-3xl ">
+              <MdOutlineArrowForwardIos className=" text-black w-[18px] h-[18px]  " />
+            </div>
+            <h3 className=" text-[18px] ">Contact us</h3>
+          </div>
+        </div>
       </header>
     </div>
   );

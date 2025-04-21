@@ -8,7 +8,7 @@ import Container from "@/components/home/Container";
 const Home = () => {
   return (
     <div className=" bg-[#0F0F0F]">
-      <Container className=" border  text-white">
+      <Container className=" border text-white">
         <nav className="flex items-center justify-between my-[22px] ">
           <IoReorderTwoOutline className="w-5 h-5 " />
           <Image src={HeadingLogo} alt="Heading does not show " />
@@ -37,6 +37,9 @@ const Home = () => {
             <h3 className=" text-[18px] ">Contact us</h3>
           </div>
         </div>
+      </Container>
+      <Container>
+        
       </Container>
     </div>
   );

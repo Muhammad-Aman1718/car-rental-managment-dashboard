@@ -5,6 +5,7 @@ import HeadingLogo from "../../public/assets/home/Heading.png";
 import { IoReorderTwoOutline } from "react-icons/io5";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import MainContainer from "@/components/home/MainContainer";
+import FindVehicleInput from "@/components/inputs/FindVehicleInput";
 
 const Home = () => {
   return (
@@ -39,7 +40,9 @@ const Home = () => {
           </div>
         </div>
       </MainContainer>
-      <MainContainer className=""></MainContainer>
+      <MainContainer className="bg-white ">
+        <FindVehicleInput />
+      </MainContainer>
     </div>
   );
 };

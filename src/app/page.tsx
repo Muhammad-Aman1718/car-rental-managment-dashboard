@@ -4,11 +4,12 @@ import Link from "next/link";
 import HeadingLogo from "../../public/assets/home/Heading.png";
 import { IoReorderTwoOutline } from "react-icons/io5";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
-import Container from "@/components/home/Container";
+import MainContainer from "@/components/home/MainContainer";
+
 const Home = () => {
   return (
     <div className=" bg-[#0F0F0F]">
-      <Container className=" border text-white">
+      <MainContainer className=" border text-white">
         <nav className="flex items-center justify-between my-[22px] ">
           <IoReorderTwoOutline className="w-5 h-5 " />
           <Image src={HeadingLogo} alt="Heading does not show " />
@@ -37,10 +38,8 @@ const Home = () => {
             <h3 className=" text-[18px] ">Contact us</h3>
           </div>
         </div>
-      </Container>
-      <Container>
-        
-      </Container>
+      </MainContainer>
+      <MainContainer className=""></MainContainer>
     </div>
   );
 };

@@ -5,10 +5,10 @@ interface ContainerProps {
   className?: string;
 }
 
-const Container: React.FC<ContainerProps> = ({ children, className }) => {
+const MainContainer: React.FC<ContainerProps> = ({ children, className }) => {
   return (
     <div className={` mx-auto max-w-[1216px] ${className}`}>{children}</div>
   );
 };
 
-export default Container;
+export default MainContainer;

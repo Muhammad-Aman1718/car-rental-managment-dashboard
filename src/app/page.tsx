@@ -14,23 +14,23 @@ const Home = () => {
           <IoReorderTwoOutline className="w-5 h-5 " />
           <Image src={HeadingLogo} alt="Heading does not show " />
           <Link href={`/auth/signUp`}>
-            <button className="border border-white rounded-[48px] px-5 py-2  ">
+            <button className="border border-white rounded-[48px] px-5 py-2 font-semibold border-opacity-50 ">
               Login/Register
             </button>
           </Link>
         </nav>
         <div className="flex flex-col w-full mt-[117px] mb-10 ">
-          <h1 className="text-white text-[64px] leading-[120%] font-bold  ">
+          <h1 className="text-white text-[64px] leading-[120%] font-bold mb-10  ">
             Discover the world on <br /> wheels with our car
             <br /> rental service
           </h1>
-          <p className="text-[18px] text-white leading-[160%] font-normal  ">
+          <p className="text-[18px] text-white leading-[160%] font-normal mb-6 ">
             Choose from a wide range of cars that fit your style and budget.
             <br />
             Experience the freedom of the open road with our reliable and <br />
             efficient rental service.
           </p>
-          <span className=" h-[2px] max-w-[528px] bg-white opacity-[0.2] "></span>
+          <span className=" h-[2px] max-w-[528px] bg-white opacity-[0.2] mb-[18px] "></span>
           <div className=" flex items-center gap-x-4 ">
             <div className=" bg-white p-[6px] rounded-3xl ">
               <MdOutlineArrowForwardIos className=" text-black w-[18px] h-[18px]  " />

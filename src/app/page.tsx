@@ -4,6 +4,8 @@ import Link from "next/link";
 import HeadingLogo from "../../public/assets/home/Heading.png";
 import { IoReorderTwoOutline } from "react-icons/io5";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
+import { IoLocationOutline } from "react-icons/io5";
+import { CiCalendar } from "react-icons/ci";
 import MainContainer from "@/components/home/MainContainer";
 import FindVehicleInput from "@/components/inputs/FindVehicleInput";
 
@@ -44,8 +46,28 @@ const Home = () => {
         </MainContainer>
       </div>
       <MainContainer className=" flex items-center gap-x-4 rounded-[16px] px-6 py-[30px] opacity-90 bg-white shadow-[0_8px_8px_-4px_#101828]  ">
-        <FindVehicleInput />
-        <FindVehicleInput />
+        <FindVehicleInput
+          title="Pick-up Location"
+          placeholder="Search a Location"
+          icon={<IoLocationOutline className="w-5 h-5 text-black  " />}
+        />
+        <FindVehicleInput
+          title="Pick-up date"
+          placeholder="12/12/2023"
+          icon={<CiCalendar className="w-5 h-5 text-black   " />}
+        />
+
+        <FindVehicleInput
+          title="Pick-up Location"
+          placeholder="Search a Location"
+          icon={<IoLocationOutline className="w-5 h-5 text-black  " />}
+        />
+        <FindVehicleInput
+          title="Pick-up date"
+          placeholder="12/12/2023"
+          icon={<CiCalendar className="w-5 h-5 text-black   " />}
+        />
+        
       </MainContainer>
     </div>
   );

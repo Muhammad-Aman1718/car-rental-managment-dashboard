@@ -9,7 +9,7 @@ import FindVehicleInput from "@/components/inputs/FindVehicleInput";
 
 const Home = () => {
   return (
-    <div>
+    <div className="  h-[3000px] ">
       <div className=" bg-[#0F0F0F]">
         <MainContainer className=" border text-white">
           <nav className="flex items-center justify-between my-[22px] ">

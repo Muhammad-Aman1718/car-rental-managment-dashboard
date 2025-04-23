@@ -20,7 +20,18 @@ const RentCategorySection: React.FC<RentCategorySectionPropsTypes> = ({}) => {
           icon={<IoArrowForward className=" w-5 h-5 " />}
         />
       </div>
-      <div className=" grid ">
+      <div className=" grid grid-cols-[repeat(auto-fit,minmax(186px,1fr))] gap-5 ">
+        <RentCategorySectionCard />
+        <RentCategorySectionCard />
+        <RentCategorySectionCard />
+        <RentCategorySectionCard />
+        <RentCategorySectionCard />
+        <RentCategorySectionCard />
+        <RentCategorySectionCard />
+        <RentCategorySectionCard />
+        <RentCategorySectionCard />
+        <RentCategorySectionCard />
+        <RentCategorySectionCard />
         <RentCategorySectionCard />
       </div>
     </div>

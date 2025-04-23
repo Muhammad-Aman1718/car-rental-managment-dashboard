@@ -6,13 +6,15 @@ import { IoReorderTwoOutline } from "react-icons/io5";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 import { CiCalendar } from "react-icons/ci";
+import { IoArrowForward } from "react-icons/io5";
 import MainContainer from "@/components/home/MainContainer";
 import FindVehicleInput from "@/components/inputs/FindVehicleInput";
+import ArrowBtn from "@/components/home/ArrowBtn";
 
 const Home = () => {
   return (
     <div className="  h-[3000px] ">
-      <div className=" bg-[#0F0F0F]">
+      <div className=" bg-[#0F0F0F] relative z-10 ">
         <MainContainer className=" border text-white">
           <nav className="flex items-center justify-between my-[22px] ">
             <IoReorderTwoOutline className="w-5 h-5 " />
@@ -45,29 +47,39 @@ const Home = () => {
           </div>
         </MainContainer>
       </div>
-      <MainContainer className=" flex items-center gap-x-4 rounded-[16px] px-6 py-[30px] opacity-90 bg-white shadow-[0_8px_8px_-4px_#101828]  ">
+      <MainContainer className="relative top-[-70px] z-50 flex items-center gap-x-4 rounded-[16px] px-6 py-[30px] bg-opacity-90 bg-white shadow-[0_8px_8px_-4px_#101828]  ">
         <FindVehicleInput
+          className=" w-[283px] "
           title="Pick-up Location"
           placeholder="Search a Location"
           icon={<IoLocationOutline className="w-5 h-5 text-black  " />}
         />
         <FindVehicleInput
+          className=" w-[180px] flex-row-reverse "
+          inputClassName=" w-[110px] "
           title="Pick-up date"
           placeholder="12/12/2023"
           icon={<CiCalendar className="w-5 h-5 text-black   " />}
         />
 
         <FindVehicleInput
+          className="w-[283px]"
           title="Pick-up Location"
           placeholder="Search a Location"
           icon={<IoLocationOutline className="w-5 h-5 text-black  " />}
         />
         <FindVehicleInput
+          className=" w-[180px] flex-row-reverse "
+          inputClassName=" w-[110px] "
           title="Pick-up date"
           placeholder="12/12/2023"
           icon={<CiCalendar className="w-5 h-5 text-black   " />}
         />
-        
+        <ArrowBtn
+          className=" px-6 py-4 text-[16px] bg-[#242731] text-white rounded-[64px] "
+          btnTitle="Find a Vehicle"
+          icon={<IoArrowForward className=" w-[18px] h-[18px] " />}
+        />
       </MainContainer>
     </div>
   );

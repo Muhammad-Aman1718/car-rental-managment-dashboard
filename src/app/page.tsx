@@ -84,6 +84,7 @@ const Home = () => {
       </MainContainer>
       <MainContainer>
         <RentCategorySection />
+        <RentCategorySection />
       </MainContainer>
     </div>
   );

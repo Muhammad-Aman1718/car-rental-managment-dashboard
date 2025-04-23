@@ -10,13 +10,14 @@ import { IoArrowForward } from "react-icons/io5";
 import MainContainer from "@/components/home/MainContainer";
 import FindVehicleInput from "@/components/inputs/FindVehicleInput";
 import ArrowBtn from "@/components/home/ArrowBtn";
+import RentCategorySection from "@/components/home/RentCategorySection";
 
 const Home = () => {
   return (
     <div className="  h-[3000px] ">
       <div className=" h-[833px] bg-[#0F0F0F] relative z-10 ">
-        <MainContainer className="text-white">
-          <nav className="flex items-center justify-between my-[22px] ">
+        <MainContainer className="text-white py-[22px] ">
+          <nav className="flex items-center justify-between ">
             <IoReorderTwoOutline className="w-5 h-5 " />
             <Image src={HeadingLogo} alt="Heading does not show " />
             <Link href={`/auth/signUp`}>
@@ -80,6 +81,9 @@ const Home = () => {
           btnTitle="Find a Vehicle"
           icon={<IoArrowForward className=" w-[18px] h-[18px] " />}
         />
+      </MainContainer>
+      <MainContainer>
+        <RentCategorySection />
       </MainContainer>
     </div>
   );

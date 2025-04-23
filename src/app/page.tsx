@@ -47,15 +47,15 @@ const Home = () => {
           </div>
         </MainContainer>
       </div>
-      <MainContainer className="relative top-[-70px] z-50 flex items-center gap-x-4 rounded-[16px] px-6 py-[30px] bg-opacity-90 bg-white shadow-[0_8px_8px_-4px_#101828]  ">
+      <MainContainer className="relative top-[-70px] z-50 flex items-end gap-x-4 rounded-[16px] px-6 py-[30px] bg-opacity-90 bg-white shadow-[0_8px_8px_-4px_#101828]  ">
         <FindVehicleInput
-          className=" w-[283px] "
+          className=" w-[283px] bg-white "
           title="Pick-up Location"
           placeholder="Search a Location"
           icon={<IoLocationOutline className="w-5 h-5 text-black  " />}
         />
         <FindVehicleInput
-          className=" w-[180px] flex-row-reverse "
+          className=" w-[180px] bg-white flex-row-reverse "
           inputClassName=" w-[110px] "
           title="Pick-up date"
           placeholder="12/12/2023"
@@ -63,13 +63,13 @@ const Home = () => {
         />
 
         <FindVehicleInput
-          className="w-[283px]"
+          className="w-[283px] bg-white "
           title="Pick-up Location"
           placeholder="Search a Location"
           icon={<IoLocationOutline className="w-5 h-5 text-black  " />}
         />
         <FindVehicleInput
-          className=" w-[180px] flex-row-reverse "
+          className=" w-[180px] bg-white flex-row-reverse "
           inputClassName=" w-[110px] "
           title="Pick-up date"
           placeholder="12/12/2023"

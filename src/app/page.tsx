@@ -116,7 +116,7 @@ const Home = () => {
           icon11={<SiAudi className=" w-[54.85714340209961px] h-[36px]  " />}
           icon12={<SiKia className=" w-[54.85714340209961px] h-[36px]  " />}
         />
-        <RentCategorySection />
+        <RentCategorySection title="Rent by body type" />
       </MainContainer>
     </div>
   );

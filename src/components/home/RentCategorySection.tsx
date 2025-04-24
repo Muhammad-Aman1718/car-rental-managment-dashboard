@@ -36,8 +36,8 @@ const RentCategorySection: React.FC<RentCategorySectionPropsTypes> = ({
   icon12,
 }) => {
   return (
-    <div>
-      <div className="flex justify-between items-center ">
+    <div className="my-[64px]">
+      <div className="flex justify-between items-center mb-6 ">
         <h1 className=" text-[24px] leading-[130%] font-bold tracking-[-2px] ">
           {title}
         </h1>

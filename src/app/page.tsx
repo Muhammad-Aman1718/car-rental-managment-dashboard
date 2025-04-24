@@ -25,6 +25,7 @@ import MainContainer from "@/components/home/MainContainer";
 import FindVehicleInput from "@/components/inputs/FindVehicleInput";
 import ArrowBtn from "@/components/home/ArrowBtn";
 import RentCategorySection from "@/components/home/RentCategorySection";
+import CatogoriesBtn from "@/components/home/CatogoriesBtn";
 
 const Home = () => {
   return (
@@ -118,6 +119,28 @@ const Home = () => {
         />
         <RentCategorySection title="Rent by body type" />
       </MainContainer>
+
+      <div className=" bg-[#F5F5F5] py-[100px] ">
+        <MainContainer className=" bg-[#F5F5F5]  ">
+          <div className=" text-center  ">
+            <h1 className="text-[48px] leading-[130%] text-[#0F0F0F] font-bold tracking-[-2px] mb-6">
+              Our Impressive Collection of Cars
+            </h1>
+            <p className=" text-[18px] text-[#0F0F0F] leading-[160%] tracking-[-1px] text-center mb-12   ">
+              Ranging from elegant sedans to powerful sports cars, all carefully
+              selected to provide our <br /> customers with the ultimate driving
+              experience.
+            </p>
+            <div className=" flex items-center justify-center gap-x-4  ">
+              <CatogoriesBtn btnTitle="Popular Car" />
+              <CatogoriesBtn btnTitle="Luxury Car" />
+              <CatogoriesBtn btnTitle="Vintage Car" />
+              <CatogoriesBtn btnTitle="Family Car" />
+              <CatogoriesBtn btnTitle="Off-Road Car" />
+            </div>
+          </div>
+        </MainContainer>
+      </div>
     </div>
   );
 };

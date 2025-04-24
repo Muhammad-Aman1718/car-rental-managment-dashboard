@@ -7,6 +7,20 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 import { CiCalendar } from "react-icons/ci";
 import { IoArrowForward } from "react-icons/io5";
+//  brands icon
+import { SiToyota } from "react-icons/si";
+import { SiFord } from "react-icons/si";
+import { SiTesla } from "react-icons/si";
+import { SiVolkswagen } from "react-icons/si";
+import { SiHonda } from "react-icons/si";
+import { SiNissan } from "react-icons/si";
+import { SiChevrolet } from "react-icons/si";
+import { SiBmw } from "react-icons/si";
+import { SiMercedes } from "react-icons/si";
+import { SiHyundai } from "react-icons/si";
+import { SiAudi } from "react-icons/si";
+import { SiKia } from "react-icons/si";
+
 import MainContainer from "@/components/home/MainContainer";
 import FindVehicleInput from "@/components/inputs/FindVehicleInput";
 import ArrowBtn from "@/components/home/ArrowBtn";
@@ -83,7 +97,25 @@ const Home = () => {
         />
       </MainContainer>
       <MainContainer>
-        <RentCategorySection />
+        <RentCategorySection
+          title="Rent by Brands"
+          icon1={<SiToyota className=" w-[54.85714340209961px] h-[36px]  " />}
+          icon2={<SiFord className=" w-[54.85714340209961px] h-[36px]  " />}
+          icon3={<SiTesla className=" w-[54.85714340209961px] h-[36px]  " />}
+          icon4={
+            <SiVolkswagen className=" w-[54.85714340209961px] h-[36px]  " />
+          }
+          icon5={<SiHonda className=" w-[54.85714340209961px] h-[36px]  " />}
+          icon6={<SiNissan className=" w-[54.85714340209961px] h-[36px]  " />}
+          icon7={
+            <SiChevrolet className=" w-[54.85714340209961px] h-[36px]  " />
+          }
+          icon8={<SiBmw className=" w-[54.85714340209961px] h-[36px]  " />}
+          icon9={<SiMercedes className=" w-[54.85714340209961px] h-[36px]  " />}
+          icon10={<SiHyundai className=" w-[54.85714340209961px] h-[36px]  " />}
+          icon11={<SiAudi className=" w-[54.85714340209961px] h-[36px]  " />}
+          icon12={<SiKia className=" w-[54.85714340209961px] h-[36px]  " />}
+        />
         <RentCategorySection />
       </MainContainer>
     </div>

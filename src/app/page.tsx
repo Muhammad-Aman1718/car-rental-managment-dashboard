@@ -121,8 +121,8 @@ const Home = () => {
         <RentCategorySection title="Rent by body type" />
       </MainContainer>
 
-      <div className=" bg-[#F5F5F5] py-[100px] ">
-        <MainContainer className=" bg-[#F5F5F5]  ">
+      <div className=" bg-[#F5F5F5] py-[100px]  ">
+        <MainContainer className=" bg-[#F5F5F5] flex flex-col items-center">
           <div className=" text-center  ">
             <h1 className="text-[48px] leading-[130%] text-[#0F0F0F] font-bold tracking-[-2px] mb-6">
               Our Impressive Collection of Cars
@@ -140,9 +140,16 @@ const Home = () => {
               <CatogoriesBtn btnTitle="Off-Road Car" />
             </div>
           </div>
-          <div>
+          <div className=" grid grid-cols-[repeat(auto-fit,minmax(186px,1fr))] gap-[32px] w-full my-[64px] ">
+            <CarCard />
+            <CarCard />
             <CarCard />
           </div>
+          <ArrowBtn
+            className=" bg-[#242731] text-white py-4 px-10 rounded-[64px] flex items-center justify-center gap-x-2  "
+            btnTitle="See all Cars"
+            icon={<IoArrowForward />}
+          />
         </MainContainer>
       </div>
     </div>

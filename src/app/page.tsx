@@ -30,7 +30,7 @@ import CarCard from "@/components/home/CarCard";
 
 const Home = () => {
   return (
-    <div className="  h-[3000px] ">
+    <div className="  h-[4000px] ">
       <div className=" h-[833px] bg-[#0F0F0F] relative z-10 ">
         <MainContainer className="text-white py-[22px] ">
           <nav className="flex items-center justify-between ">
@@ -158,21 +158,21 @@ const Home = () => {
             What Our Customers Say
           </h1>
           <div className=" flex items-center gap-x-4 ">
-            <span className="  border-2 border-[#C0C0C0] p-5 rounded-full ">
-              <IoArrowBack className=" w-6 h-6  text-[#C0C0C0] " />
+            <span className=" group border-2 border-[#C0C0C0] p-5 rounded-full hover:bg-[#242731]  ">
+              <IoArrowBack className=" w-6 h-6  text-[#C0C0C0] group-hover:text-white " />
             </span>
-            <span className="  border-2 border-[#C0C0C0] p-5 rounded-full ">
-              <IoArrowForward className=" w-6 h-6  text-[#C0C0C0] " />
+            <span className=" group border-2 border-[#C0C0C0] p-5 rounded-full  hover:bg-[#242731] hover:text-white ">
+              <IoArrowForward className=" w-6 h-6  text-[#C0C0C0] group-hover:text-white  " />
             </span>
           </div>
         </div>
-        <p>
-        &apos;I was really impressed with the level of service I received from this
-          car rental company. The process was smooth and easy, and the car I
-          rented was in excellent condition. The staff was friendly and helpful,
-          and I felt well taken care of throughout my rental period. I would
-          definitely recommend this company to anyone looking for a premium car
-          rental experience.&apos;
+        <p className="text-[32px] text-[#0F0F0F] leading-[150%] tracking-[-2px] font-semibold opacity-80  ">
+          &quot;I was really impressed with the level of service I received from
+          this car rental company. The process was smooth and easy, and the car
+          I rented was in excellent condition. The staff was friendly and
+          helpful, and I felt well taken care of throughout my rental period. I
+          would definitely recommend this company to anyone looking for a
+          premium car rental experience.&quot;
         </p>
       </MainContainer>
     </div>

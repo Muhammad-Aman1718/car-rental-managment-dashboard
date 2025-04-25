@@ -40,4 +40,5 @@ export const IMAGES = {
   GRAPH: "/assets/assets/graph.png",
   GOOGLE_BTN: "/assets/auth/googleLogo.png",
   FACEBOOK_BTN: "/assets/auth/facebookLogo.png",
+  CARCARDIMG1 : "/assets/home/carImg1.png"
 };

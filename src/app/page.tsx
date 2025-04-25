@@ -26,6 +26,7 @@ import FindVehicleInput from "@/components/inputs/FindVehicleInput";
 import ArrowBtn from "@/components/home/ArrowBtn";
 import RentCategorySection from "@/components/home/RentCategorySection";
 import CatogoriesBtn from "@/components/home/CatogoriesBtn";
+import CarCard from "@/components/home/CarCard";
 
 const Home = () => {
   return (
@@ -138,6 +139,9 @@ const Home = () => {
               <CatogoriesBtn btnTitle="Family Car" />
               <CatogoriesBtn btnTitle="Off-Road Car" />
             </div>
+          </div>
+          <div>
+            <CarCard />
           </div>
         </MainContainer>
       </div>

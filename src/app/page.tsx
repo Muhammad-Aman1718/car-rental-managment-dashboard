@@ -7,6 +7,8 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 import { CiCalendar } from "react-icons/ci";
 import { IoArrowForward } from "react-icons/io5";
+import { BiLogoApple, BiLogoPlayStore } from "react-icons/bi";
+
 //  brands icon
 import { SiToyota } from "react-icons/si";
 import { SiFord } from "react-icons/si";
@@ -188,14 +190,48 @@ const Home = () => {
         </div>
       </MainContainer>
       <footer className=" bg-[#242731]  ">
-        <MainContainer className="text-white ">
-          <div>
-            <h1>Download our mobile app</h1>
-            <p>
+        <MainContainer className=" py-[85px] text-white flex items-center justify-around ">
+          <div className=" max-w-[488px] ">
+            <h1 className=" text-[36px] leading-[46px] font-bold mb-[20px] ">
+              Download our mobile app
+            </h1>
+            <p className="leading-[26px] text-white opacity-80  ">
               Get exclusive access to car rentals with our mobile app. Download
               now and experience convenience on the go.
             </p>
           </div>
+
+          <div className=" flex items-center gap-x-5 ">
+            <button className="py-3 px-5 flex gap-x-3 items-center rounded-[73px] bg-white  ">
+              <BiLogoApple className="text-[#242731] w-10 h-10 " />
+              <div className="flex flex-col items-start ">
+                <h6 className="text-[#242731] opacity-60 text-[12px] font-semibold mb-[-6px] text-nowrap ">
+                  DOWNLOAD ON THE
+                </h6>
+                <h3 className="text-[#242731] text-[24px] font-medium text-nowrap ">
+                  App Store
+                </h3>
+              </div>
+            </button>
+            <button className="py-3 px-5 flex gap-x-3 items-center rounded-[73px] bg-white  ">
+              <BiLogoPlayStore className="text-[#242731] w-10 h-10 " />
+              <div className="flex flex-col items-start ">
+                <h6 className="text-[#242731] opacity-60 text-[12px] font-semibold mb-[-6px] text-nowrap  ">
+                  GET IT ON
+                </h6>
+                <h3 className="text-[#242731] text-[24px] font-medium text-nowrap ">
+                  Google Play
+                </h3>
+              </div>
+            </button>
+          </div>
+        </MainContainer>
+
+        <hr className="opacity-50  text-white  " />
+        <MainContainer>
+          <div></div>
+          <div></div>
+          <div></div>
         </MainContainer>
       </footer>
     </div>

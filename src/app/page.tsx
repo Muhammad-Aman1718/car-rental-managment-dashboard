@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import HeadingLogo from "../../public/assets/home/Heading.png";
-import { IoReorderTwoOutline } from "react-icons/io5";
+import { IoArrowBack, IoReorderTwoOutline } from "react-icons/io5";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 import { CiCalendar } from "react-icons/ci";
@@ -152,6 +152,29 @@ const Home = () => {
           />
         </MainContainer>
       </div>
+      <MainContainer>
+        <div className=" flex items-center justify-between  ">
+          <h1 className="text-[40px] text-[#0F0F0F] tracking-[-2px] leading-[130%] font-bold   ">
+            What Our Customers Say
+          </h1>
+          <div className=" flex items-center gap-x-4 ">
+            <span className="  border-2 border-[#C0C0C0] p-5 rounded-full ">
+              <IoArrowBack className=" w-6 h-6  text-[#C0C0C0] " />
+            </span>
+            <span className="  border-2 border-[#C0C0C0] p-5 rounded-full ">
+              <IoArrowForward className=" w-6 h-6  text-[#C0C0C0] " />
+            </span>
+          </div>
+        </div>
+        <p>
+        &apos;I was really impressed with the level of service I received from this
+          car rental company. The process was smooth and easy, and the car I
+          rented was in excellent condition. The staff was friendly and helpful,
+          and I felt well taken care of throughout my rental period. I would
+          definitely recommend this company to anyone looking for a premium car
+          rental experience.&apos;
+        </p>
+      </MainContainer>
     </div>
   );
 };

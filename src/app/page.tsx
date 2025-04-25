@@ -27,6 +27,7 @@ import ArrowBtn from "@/components/home/ArrowBtn";
 import RentCategorySection from "@/components/home/RentCategorySection";
 import CatogoriesBtn from "@/components/home/CatogoriesBtn";
 import CarCard from "@/components/home/CarCard";
+import CustomerImg from "../../public/assets/home/customer.png";
 
 const Home = () => {
   return (
@@ -152,7 +153,7 @@ const Home = () => {
           />
         </MainContainer>
       </div>
-      <MainContainer>
+      <MainContainer className=" py-[120px] flex flex-col gap-y-[64px] ">
         <div className=" flex items-center justify-between  ">
           <h1 className="text-[40px] text-[#0F0F0F] tracking-[-2px] leading-[130%] font-bold   ">
             What Our Customers Say
@@ -174,7 +175,29 @@ const Home = () => {
           would definitely recommend this company to anyone looking for a
           premium car rental experience.&quot;
         </p>
+        <div className=" flex items-center gap-x-6 ">
+          <Image src={CustomerImg} alt="customer img does not show" />
+          <div>
+            <h3 className="text-[24px] text-[#0F0F0F] leading-[150%] tracking-[-2px] font-bold  ">
+              Lokman Hossain
+            </h3>
+            <h5 className="text-[20px] leading-[150%] text-[#737373] tracking-[-2px]  ">
+              From <span className="font-semibold ">Texas</span>
+            </h5>
+          </div>
+        </div>
       </MainContainer>
+      <footer className=" bg-[#242731]  ">
+        <MainContainer className="text-white ">
+          <div>
+            <h1>Download our mobile app</h1>
+            <p>
+              Get exclusive access to car rentals with our mobile app. Download
+              now and experience convenience on the go.
+            </p>
+          </div>
+        </MainContainer>
+      </footer>
     </div>
   );
 };

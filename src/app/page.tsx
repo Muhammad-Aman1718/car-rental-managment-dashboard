@@ -8,6 +8,10 @@ import { IoLocationOutline } from "react-icons/io5";
 import { CiCalendar } from "react-icons/ci";
 import { IoArrowForward } from "react-icons/io5";
 import { BiLogoApple, BiLogoPlayStore } from "react-icons/bi";
+import { IoLogoInstagram } from "react-icons/io";
+import { PiDribbbleLogoLight } from "react-icons/pi";
+import { VscTwitter } from "react-icons/vsc";
+import { PiYoutubeLogoFill } from "react-icons/pi";
 
 //  brands icon
 import { SiToyota } from "react-icons/si";
@@ -30,6 +34,7 @@ import RentCategorySection from "@/components/home/RentCategorySection";
 import CatogoriesBtn from "@/components/home/CatogoriesBtn";
 import CarCard from "@/components/home/CarCard";
 import CustomerImg from "../../public/assets/home/customer.png";
+import { IMAGES } from "@/constants/images";
 
 const Home = () => {
   return (
@@ -228,10 +233,41 @@ const Home = () => {
         </MainContainer>
 
         <hr className="opacity-50  text-white  " />
-        <MainContainer>
-          <div></div>
-          <div></div>
-          <div></div>
+        <MainContainer className=" flex items-center h-[115px] ">
+          <Image
+            src={HeadingLogo}
+            alt="logo does not show"
+            // width={300}
+            // height={300}
+          />
+          <div className="flex items-center  ">
+            <h4 className="text-[#D9DBE1] text-[14px] leading-[24px]  ">
+              Rent
+            </h4>
+            <h4 className="text-[#D9DBE1] text-[14px] leading-[24px]  ">
+              Share
+            </h4>
+            <h4 className="text-[#D9DBE1] text-[14px] leading-[24px]  ">
+              About us
+            </h4>
+            <h4 className="text-[#D9DBE1] text-[14px] leading-[24px]  ">
+              Contact
+            </h4>
+          </div>
+          <div className="flex  ">
+            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-white bg-opacity-10  ">
+              <IoLogoInstagram className="text-white  " />
+            </span>
+            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-white bg-opacity-10  ">
+              <PiDribbbleLogoLight className="text-white  " />
+            </span>
+            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-white bg-opacity-10  ">
+              <VscTwitter className="text-white  " />
+            </span>
+            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-white bg-opacity-10  ">
+              <PiYoutubeLogoFill className="text-white  " />
+            </span>
+          </div>
         </MainContainer>
       </footer>
     </div>

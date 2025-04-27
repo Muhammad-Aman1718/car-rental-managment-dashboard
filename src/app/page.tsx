@@ -144,7 +144,7 @@ const Home = () => {
               selected to provide our <br /> customers with the ultimate driving
               experience.
             </p>
-            <div className=" flex items-center justify-center gap-x-4  ">
+            <div className=" flex items-center justify-center gap-x-4 max-md:hidden ">
               <CatogoriesBtn btnTitle="Popular Car" />
               <CatogoriesBtn btnTitle="Luxury Car" />
               <CatogoriesBtn btnTitle="Vintage Car" />

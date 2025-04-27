@@ -34,7 +34,6 @@ import RentCategorySection from "@/components/home/RentCategorySection";
 import CatogoriesBtn from "@/components/home/CatogoriesBtn";
 import CarCard from "@/components/home/CarCard";
 import CustomerImg from "../../public/assets/home/customer.png";
-import { IMAGES } from "@/constants/images";
 
 const Home = () => {
   return (
@@ -72,7 +71,7 @@ const Home = () => {
           </div>
         </MainContainer>
       </div>
-      <MainContainer className="relative top-[-70px] z-50 flex items-end gap-x-4 rounded-[16px] px-6 py-[30px] bg-opacity-90 bg-white shadow-[0_8px_8px_-4px_#101828]  ">
+      <MainContainer className="relative top-[-70px] z-50 flex items-end justify-around rounded-[16px] px-6 py-[30px] bg-opacity-90 bg-white shadow-[0_8px_8px_-4px_#101828]  ">
         <FindVehicleInput
           className=" w-[283px] bg-white "
           title="Pick-up Location"
@@ -101,7 +100,7 @@ const Home = () => {
           icon={<CiCalendar className="w-5 h-5 text-black   " />}
         />
         <ArrowBtn
-          className=" px-6 py-4 text-[16px] bg-[#242731] text-white rounded-[64px] "
+          className=" px-6 py-4 text-[16px] bg-[#242731] flex items-center gap-x-2 text-nowrap text-white rounded-[64px] "
           btnTitle="Find a Vehicle"
           icon={<IoArrowForward className=" w-[18px] h-[18px] " />}
         />
@@ -233,14 +232,14 @@ const Home = () => {
         </MainContainer>
 
         <hr className="opacity-50  text-white  " />
-        <MainContainer className=" flex items-center h-[115px] ">
+        <MainContainer className=" flex items-center justify-between h-[115px] ">
           <Image
             src={HeadingLogo}
             alt="logo does not show"
             // width={300}
             // height={300}
           />
-          <div className="flex items-center  ">
+          <div className="flex items-center  gap-x-10 ">
             <h4 className="text-[#D9DBE1] text-[14px] leading-[24px]  ">
               Rent
             </h4>
@@ -254,7 +253,7 @@ const Home = () => {
               Contact
             </h4>
           </div>
-          <div className="flex  ">
+          <div className="flex items-center gap-x-4 ">
             <span className="w-6 h-6 flex items-center justify-center rounded-full bg-white bg-opacity-10  ">
               <IoLogoInstagram className="text-white  " />
             </span>

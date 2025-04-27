@@ -133,7 +133,7 @@ const Home = () => {
         <RentCategorySection title="Rent by body type" />
       </MainContainer>
 
-      <div className=" bg-[#F5F5F5] py-[100px]  ">
+      <div className=" bg-[#F5F5F5] py-[100px] max-md:py-[40px] ">
         <MainContainer className=" bg-[#F5F5F5] flex flex-col items-center">
           <div className=" text-center  ">
             <h1 className="text-[48px] leading-[130%] text-[#0F0F0F] font-bold tracking-[-2px] mb-6">
@@ -164,12 +164,12 @@ const Home = () => {
           />
         </MainContainer>
       </div>
-      <MainContainer className=" py-[120px] flex flex-col gap-y-[64px] ">
+      <MainContainer className=" py-[120px] max-md:py-[40px] flex flex-col gap-y-[64px] ">
         <div className=" flex items-center justify-between  ">
-          <h1 className="text-[40px] text-[#0F0F0F] tracking-[-2px] leading-[130%] font-bold   ">
+          <h1 className="text-[40px] text-[#0F0F0F] max-xs:text-center tracking-[-2px] leading-[130%] font-bold   ">
             What Our Customers Say
           </h1>
-          <div className=" flex items-center gap-x-4 ">
+          <div className=" flex items-center gap-x-4 max-xs:hidden  ">
             <span className=" group border-2 border-[#C0C0C0] p-5 rounded-full hover:bg-[#242731]  ">
               <IoArrowBack className=" w-6 h-6  text-[#C0C0C0] group-hover:text-white " />
             </span>
@@ -178,7 +178,7 @@ const Home = () => {
             </span>
           </div>
         </div>
-        <p className="text-[32px] text-[#0F0F0F] leading-[150%] tracking-[-2px] font-semibold opacity-80  ">
+        <p className="text-[32px] text-[#0F0F0F] leading-[150%] tracking-[-2px] font-semibold opacity-80 max-xs:text-center ">
           &quot;I was really impressed with the level of service I received from
           this car rental company. The process was smooth and easy, and the car
           I rented was in excellent condition. The staff was friendly and
@@ -198,9 +198,10 @@ const Home = () => {
           </div>
         </div>
       </MainContainer>
+
       <footer className=" bg-[#242731]  ">
-        <MainContainer className=" py-[85px] text-white flex items-center justify-around ">
-          <div className=" max-w-[488px] ">
+        <MainContainer className=" py-[85px] max-md:py-[40px] text-white flex items-center justify-around gap-x-[20px] max-md:gap-y-[20px] max-md:flex-col max-md:items-center  ">
+          <div className=" max-w-[488px] text-center ">
             <h1 className=" text-[36px] leading-[46px] font-bold mb-[20px] ">
               Download our mobile app
             </h1>
@@ -210,7 +211,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className=" flex items-center gap-x-5 ">
+          <div className=" flex items-center gap-x-5 max-sm:flex-col max-md:gap-y-[20px] ">
             <button className="py-3 px-5 flex gap-x-3 items-center rounded-[73px] bg-white  ">
               <BiLogoApple className="text-[#242731] w-10 h-10 " />
               <div className="flex flex-col items-start ">
@@ -237,7 +238,7 @@ const Home = () => {
         </MainContainer>
 
         <hr className="opacity-50  text-white  " />
-        <MainContainer className=" flex items-center justify-between h-[115px] ">
+        <MainContainer className=" flex items-center justify-between h-[115px] max-md:flex-col max-md:h-auto max-md:gap-y-[20px] max-md:py-[20px] ">
           <Image
             src={HeadingLogo}
             alt="logo does not show"
@@ -251,7 +252,7 @@ const Home = () => {
             <h4 className="text-[#D9DBE1] text-[14px] leading-[24px]  ">
               Share
             </h4>
-            <h4 className="text-[#D9DBE1] text-[14px] leading-[24px]  ">
+            <h4 className="text-[#D9DBE1] text-[14px] leading-[24px] text-nowrap ">
               About us
             </h4>
             <h4 className="text-[#D9DBE1] text-[14px] leading-[24px]  ">

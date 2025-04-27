@@ -37,28 +37,29 @@ import CustomerImg from "../../public/assets/home/customer.png";
 
 const Home = () => {
   return (
-    <div className="  h-[4000px] ">
-      <div className=" h-[833px] bg-[#0F0F0F] relative z-10 ">
+    <div className=" ">
+      <div className=" h-[833px] max-sm:h-auto bg-[#0F0F0F] relative z-10 ">
         <MainContainer className="text-white py-[22px] ">
           <nav className="flex items-center justify-between ">
             <IoReorderTwoOutline className="w-5 h-5 " />
-            <Image src={HeadingLogo} alt="Heading does not show " />
+            <Image
+              src={HeadingLogo}
+              alt="Heading does not show "
+              className=" max-sm:hidden "
+            />
             <Link href={`/auth/signUp`}>
-              <button className="border border-white rounded-[48px] px-5 py-2 font-semibold border-opacity-50 ">
+              <button className="border border-white rounded-[48px] px-5 py-2 font-semibold border-opacity-50 max-sm:text-[12px] ">
                 Login/Register
               </button>
             </Link>
           </nav>
-          <div className="flex flex-col w-full mt-[117px] mb-10 ">
-            <h1 className="text-white text-[64px] leading-[120%] font-bold mb-10  ">
-              Discover the world on <br /> wheels with our car
-              <br /> rental service
+          <div className="flex flex-col w-full mt-[117px] max-sm:mt-[40px] mb-10 ">
+            <h1 className="text-white text-[64px] leading-[120%] font-bold mb-10 md:w-[650px] max-md:text-[40px]  ">
+              Discover the world on wheels with our car rental service
             </h1>
-            <p className="text-[18px] text-white leading-[160%] font-normal mb-6 ">
+            <p className="text-[18px] text-white leading-[160%] font-normal mb-6 md:w-[650px] ">
               Choose from a wide range of cars that fit your style and budget.
-              <br />
               Experience the freedom of the open road with our reliable and{" "}
-              <br />
               efficient rental service.
             </p>
             <span className=" h-[2px] max-w-[528px] bg-white opacity-[0.2] mb-[18px] "></span>
@@ -71,7 +72,7 @@ const Home = () => {
           </div>
         </MainContainer>
       </div>
-      <MainContainer className="relative top-[-70px] z-50 flex items-end gap-4 max-xl:max-w-[] rounded-[16px] px-6 py-[30px] bg-opacity-90 bg-white shadow-[0_8px_8px_-4px_#101828] max-xl:flex-col max-xl:items-start  ">
+      <MainContainer className="relative top-[-70px] z-50 flex items-end gap-4 max-xl:max-w-[] rounded-[16px] px-6 py-[30px] bg-opacity-90 bg-white shadow-[0_8px_8px_-4px_#101828] max-xl:flex-col max-xl:items-start max-sm:hidden ">
         <div className=" flex items-center gap-x-4">
           <FindVehicleInput
             className=" w-[283px] bg-white "

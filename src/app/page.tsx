@@ -242,8 +242,6 @@ const Home = () => {
           <Image
             src={HeadingLogo}
             alt="logo does not show"
-            // width={300}
-            // height={300}
           />
           <div className="flex items-center  gap-x-10 ">
             <h4 className="text-[#D9DBE1] text-[14px] leading-[24px]  ">

@@ -239,7 +239,7 @@ const Home = () => {
 
         <hr className="opacity-50  text-white  " />
         <MainContainer className=" flex items-center justify-between h-[115px] max-md:flex-col max-md:h-auto max-md:gap-y-[20px] max-md:py-[20px] ">
-          <Image src={HeadingLogo} alt="logo does not show" />
+          {/* <Image src={HeadingLogo} alt="logo does not show" /> */}
           <div className="flex items-center  gap-x-10 ">
             <h4 className="text-[#D9DBE1] text-[14px] leading-[24px]  ">
               Rent

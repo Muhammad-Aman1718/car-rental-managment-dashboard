@@ -5,11 +5,12 @@ import StatisticsCard from "@/components/dashboard/StatisticsCard";
 import RecommendCard from "@/components/dashboard/RecommendCard";
 import { IMAGES } from "@/constants/images";
 import DataButton from "@/components/dashboard/DashboardButton";
-import CarDataForm from "@/components/carDataForm";
-import useDasboard from "@/hooks/useDasboard";
+// import CarDataForm from "@/components/carDataForm";
+import useAddCar from "@/hooks/useAddCar";
+import Link from "next/link";
 
 const Dashboard = () => {
-  const { openForm, handleOpen } = useDasboard();
+  const { openForm, handleOpen } = useAddCar();
 
   return (
     <div className="">
@@ -18,15 +19,10 @@ const Dashboard = () => {
           Add Car details and update car
         </h2>
         <div className="flex gap-x-5">
-          <DataButton title="Add Car" onClick={handleOpen} />
+        <Link href="addCar" >  <DataButton title="Add Car" onClick={handleOpen} /></Link>
           <DataButton title="Update Car" />
         </div>
       </div>
-      {openForm && (
-        <div className="absolute  w-full min-w-[300px] max-w-[800px]">
-          <CarDataForm onClick={handleOpen} />
-        </div>
-      )}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[30px]">
         <PerformanceCard
           className1="bg-primary"

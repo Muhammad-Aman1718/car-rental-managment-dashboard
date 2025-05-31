@@ -4,7 +4,6 @@ import InputField from "@/components/auth/InputField";
 import AuthButton from "@/components/AuthButton";
 import useSignUp from "@/hooks/auth/useSignUp";
 import Link from "next/link";
-import { IMAGES } from "@/constants/images";
 
 const SignUp = () => {
   const {
@@ -25,7 +24,7 @@ const SignUp = () => {
   } = useSignUp();
 
   return (
-    <div className="dark:bg-[#1F2128] p-2 ">
+    <div className="dark:bg-[#1F2128] p-20 max-sm:p-4  ">
       <div className=" max-w-[510px] min-w-[250px] mx-auto ">
         <h1 className="dark:text-white   text-[#242731] text-[30px] leading-[39.06px] font-bold mb-4 ">
           Get&apos;s started
@@ -36,20 +35,6 @@ const SignUp = () => {
             <span className="text-[#a162f7] underline ">Sign in</span>
           </Link>
         </p>
-        <div className="flex items-center gap-[14px] max-xs:flex-col ">
-          <AuthButton
-            className="border border-[#E6E8EC] dark:border-[#323745] rounded-lg dark:bg-[#1F2128] bg-white flex-1  py-5 flex items-center  justify-center gap-x-3 w-full "
-            titleClassName="dark:text-[#E0E4E7] text-[#242731] leading-[20.83px] font-medium text-nowrap"
-            src={IMAGES.GOOGLE_BTN}
-            title="Sign-in with Google"
-          />
-          <AuthButton
-            className="border border-[#E6E8EC] dark:border-none rounded-lg  bg-[#4776D0] flex-1 py-5 flex items-center justify-center gap-x-3 w-full"
-            titleClassName="dark:text-[#E0E4E7] text-white text-[#242731] leading-[20.83px] font-medium text-nowrap"
-            src={IMAGES.FACEBOOK_BTN}
-            title="Sign-in with Facebook"
-          />
-        </div>
         <div className=" flex items-center gap-x-[14px] py-6 ">
           <span className="flex dark:bg-[#2C303D] bg-[#E6E8EC] h-[1px] flex-1 "></span>
           <span className="dark:text-[#E0E4E7] text-[#777E90] leading-[27px] text-[18px] font-medium ">
@@ -150,7 +135,6 @@ const SignUp = () => {
         <AuthButton
           onClick={handleSignUp}
           title="Sign up"
-          imgSrcClassName="hidden"
           className=" bg-[#A162F7] py-[18px] w-full rounded-[10px] mt-[6px] text-[#FFFAF7] leading-[24.2px] font-bold text-[20px]"
           isChecked={loading}
         />

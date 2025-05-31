@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector, useStore } from "react-redux";
-import counterSlice from "@/store/slices/counterSlice";
 import auth from "@/store/slices/auth";
 import userDataSlice from "@/store/slices/userData";
 import carData from "./slices/carData";
@@ -11,7 +10,6 @@ export const makeStore = () => {
       authReducer: auth,
       userDataReducer: userDataSlice,
       carDataReducer: carData,
-      countReducer: counterSlice,
     },
   });
 };

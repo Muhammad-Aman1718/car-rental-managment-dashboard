@@ -4,7 +4,7 @@ import { carDataTypes } from "@/types/types";
 import { showToast } from "@/utils/showToast";
 import { useState } from "react";
 
-const useDasboard = () => {
+const useAddCar = () => {
   const [openForm, setOpenForm] = useState(false);
   const [carName, setCarName] = useState("");
   const [fuelType, setFuelType] = useState("");
@@ -124,4 +124,4 @@ const useDasboard = () => {
   };
 };
 
-export default useDasboard;
+export default useAddCar;

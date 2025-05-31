@@ -29,8 +29,7 @@ export const POST = async (req: NextRequest) => {
       return NextResponse.json(
         {
           success: false,
-          message:
-            "This user is already exist.",
+          message: "This user is already exist.",
         },
         { status: 400 }
       );

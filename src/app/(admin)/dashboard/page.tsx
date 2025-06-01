@@ -19,8 +19,9 @@ const Dashboard = () => {
           Add Car details and update car
         </h2>
         <div className="flex gap-x-5">
-        <Link href="dashboard/addCar" >  <DataButton title="Add Car" onClick={handleOpen} /></Link>
-          <DataButton title="Update Car" />
+          <Link href="dashboard/addCar">
+            <DataButton title="Add Car" onClick={handleOpen} />
+          </Link>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[30px]">

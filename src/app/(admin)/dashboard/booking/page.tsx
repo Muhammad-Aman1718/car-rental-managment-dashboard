@@ -1,6 +1,5 @@
 "use client";
-// /dashoard 
-
+// /dashoard
 
 import React from "react";
 import FilterBtn from "@/components/booking/FilterBtn";
@@ -39,6 +38,7 @@ const Booking = () => {
       </div>
 
       {/* Booking Cards - Responsive Grid */}
+
       {loading ? (
         <Loader />
       ) : (

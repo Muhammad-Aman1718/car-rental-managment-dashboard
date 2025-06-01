@@ -3,10 +3,10 @@ import axiosInstance from "@/lib/axiosInstance";
 import { AxiosError } from "axios";
 import { carDataTypes } from "@/types/types";
 
-
-
 export const getAllCarsData = createAsyncThunk("allCarsData/get", async () => {
   try {
+    console.log("this is get data thunk");
+
     const response = await axiosInstance.get("carData");
     console.log("this is get all cars get slice =====> ", response.data);
     return response.data.data;
@@ -15,6 +15,8 @@ export const getAllCarsData = createAsyncThunk("allCarsData/get", async () => {
     const errorMessage =
       (errorAxios.response?.data as { message?: string })?.message ||
       "Something went wrong!";
+    console.error("this is axios error");
+
     throw new Error(errorMessage);
   }
 });

@@ -3,12 +3,13 @@ import { prisma } from "@/config/prisma";
 import { getServerSession } from "next-auth";
 import { AxiosError } from "axios";
 import authOptions from "@/lib/auth";
-import { carDataTypes } from "@/types/types";
 import cloudinary from "@/lib/cloudinary";
 
 export const GET = async () => {
   try {
     const session = await getServerSession(authOptions);
+    console.log("this is get session", session);
+
     if (!session) {
       return NextResponse.json(
         { success: false, message: "Seesion not found" },
@@ -16,10 +17,14 @@ export const GET = async () => {
       );
     }
 
+    console.log("this is get session pass");
+
     const allCarsData =
       session?.user.role === "ADMIN"
-        ? await prisma.car.findMany({ where: { adminId: session.user.id } })
+        ? await prisma.car.findMany({ where: { adminId: session?.user.id } })
         : await prisma.car.findMany();
+
+    console.log("this is all carData", allCarsData);
 
     return NextResponse.json({
       success: true,
@@ -28,15 +33,15 @@ export const GET = async () => {
     });
   } catch (error) {
     const errorAxios = error as AxiosError;
-    console.log("this is the api error ====> ", errorAxios);
+    // console.error("this is the api error ====> ", errorAxios);
 
     return NextResponse.json(
       {
         success: false,
         message: "Something went wrong",
         error: errorAxios.message,
-      },
-      { status: 500 }
+      }
+      // { status: 500 }
     );
   }
 };
@@ -93,8 +98,6 @@ export const POST = async (req: NextRequest) => {
     const doors = formData.get("doors") as string;
     const purpose = formData.get("purpose") as string;
     const image = formData.get("image") as File;
-
-    // console.log("this is car data body ===========>", body);
 
     if (
       !carName ||

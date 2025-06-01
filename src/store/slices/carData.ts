@@ -3,6 +3,8 @@ import axiosInstance from "@/lib/axiosInstance";
 import { AxiosError } from "axios";
 import { carDataTypes } from "@/types/types";
 
+
+
 export const getAllCarsData = createAsyncThunk("allCarsData/get", async () => {
   try {
     const response = await axiosInstance.get("carData");
@@ -19,9 +21,12 @@ export const getAllCarsData = createAsyncThunk("allCarsData/get", async () => {
 
 export const carData = createAsyncThunk(
   "carData/post",
-  async (carData: carDataTypes) => {
+  async (carData: FormData) => {
     try {
-      const response = await axiosInstance.post("carData", carData);
+      const response = await axiosInstance.post("carData", carData, {
+        headers: { "Content-Type": "multipart/form-data" },
+        timeout: 100000,
+      });
       console.log(
         "this is response on slice post car data =========> ",
         response.data

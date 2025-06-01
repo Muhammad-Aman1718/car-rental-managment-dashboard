@@ -19,7 +19,7 @@ const Dashboard = () => {
           Add Car details and update car
         </h2>
         <div className="flex gap-x-5">
-        <Link href="addCar" >  <DataButton title="Add Car" onClick={handleOpen} /></Link>
+        <Link href="dashboard/addCar" >  <DataButton title="Add Car" onClick={handleOpen} /></Link>
           <DataButton title="Update Car" />
         </div>
       </div>

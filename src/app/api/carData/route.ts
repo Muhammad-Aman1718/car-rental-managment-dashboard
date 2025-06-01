@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { AxiosError } from "axios";
 import authOptions from "@/lib/auth";
 import { carDataTypes } from "@/types/types";
+import cloudinary from "@/lib/cloudinary";
 
 export const GET = async () => {
   try {
@@ -40,6 +41,29 @@ export const GET = async () => {
   }
 };
 
+async function uploadFile(file: File): Promise<string> {
+  const bytes = await file.arrayBuffer();
+  const buffer = Buffer.from(bytes);
+
+  return new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+      { folder: "uploads" },
+      (error, result) => {
+        if (error) {
+          console.error("Cloudinary upload error:", error); // ✅ Better logging
+          reject(error);
+        } else if (result?.secure_url) {
+          resolve(result.secure_url);
+        } else {
+          reject(new Error("Upload failed without error message"));
+        }
+      }
+    );
+
+    stream.end(buffer); // Ensure buffer is properly ended
+  });
+}
+
 export const POST = async (req: NextRequest) => {
   try {
     const session = await getServerSession(authOptions);
@@ -52,26 +76,25 @@ export const POST = async (req: NextRequest) => {
         { status: 401 }
       );
     }
-    const body: carDataTypes = await req.json();
-    const {
-      carName,
-      fuelType,
-      transmission,
-      mileage,
-      topSpeed,
-      price,
-      color,
-      engineCapacity,
-      seatingCapacity,
-      registrationNumber,
-      carType,
-      modelYear,
-      doors,
-      //   imageUrl,
-      purpose,
-    } = body;
+    const formData = await req.formData();
 
-    console.log("this is car data body ===========>", body);
+    const carName = formData.get("carName") as string;
+    const fuelType = formData.get("fuelType") as string;
+    const transmission = formData.get("transmission") as string;
+    const mileage = formData.get("mileage") as string;
+    const topSpeed = formData.get("topSpeed") as string;
+    const price = formData.get("price") as string;
+    const color = formData.get("color") as string;
+    const engineCapacity = formData.get("engineCapacity") as string;
+    const seatingCapacity = formData.get("seatingCapacity") as string;
+    const registrationNumber = formData.get("registrationNumber") as string;
+    const carType = formData.get("carType") as string;
+    const modelYear = formData.get("modelYear") as string;
+    const doors = formData.get("doors") as string;
+    const purpose = formData.get("purpose") as string;
+    const image = formData.get("image") as File;
+
+    // console.log("this is car data body ===========>", body);
 
     if (
       !carName ||
@@ -87,7 +110,8 @@ export const POST = async (req: NextRequest) => {
       !carType ||
       !modelYear ||
       !doors ||
-      !purpose
+      !purpose ||
+      !image
     ) {
       return NextResponse.json(
         {
@@ -97,6 +121,8 @@ export const POST = async (req: NextRequest) => {
         { status: 400 }
       );
     }
+
+    const imageUrl = await uploadFile(image);
 
     const carData = await prisma.car.create({
       data: {
@@ -114,7 +140,7 @@ export const POST = async (req: NextRequest) => {
         carType: carType,
         modelYear: modelYear,
         doors: doors,
-        // imageUrl: null,
+        imageUrl: imageUrl,
         purpose: purpose,
       },
     });
@@ -135,43 +161,3 @@ export const POST = async (req: NextRequest) => {
     await prisma.$disconnect();
   }
 };
-
-// export const PUT = async (req: NextRequest) => {
-//   try {
-//     const body: carDataRequestBody = await req.json();
-//     const {
-//       carName,
-//       fuelType,
-//       transmission,
-//       mileage,
-//       topSpeed,
-//       price,
-//       color,
-//       engineCapacity,
-//       seatingCapacity,
-//       registrationNumber,
-//       carType,
-//       modelYear,
-//       doors,
-//       //   imageUrl,
-//       purpose,
-//     } = body;
-
-//     const carData = await prisma.car.update({
-//       where:{}
-//     })
-
-//     return NextResponse.json({
-//       success: true,
-//       message: "Car data saved successfully",
-//       car: carData,
-//     });
-//   } catch (error) {
-//     const errorAxios = error as AxiosError;
-//     return NextResponse.json({
-//       success: false,
-//       message: "Something went wrong",
-//       error: errorAxios.message || "Unknown error",
-//     });
-//   }
-// };

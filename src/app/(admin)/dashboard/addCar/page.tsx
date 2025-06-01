@@ -1,8 +1,9 @@
-"use client"
+"use client";
+import React from "react";
 import CarDataFormInput from "@/components/inputs/CarDataFormInput";
 import Loader from "@/components/Loader";
 import useAddCar from "@/hooks/useAddCar";
-import React from "react";
+import { BsUpload } from "react-icons/bs";
 
 interface AddCarPropsTypes {
   onClick?: () => void;
@@ -40,6 +41,8 @@ const AddCar: React.FC<AddCarPropsTypes> = ({ onClick }) => {
     setPurpose,
     handleCarData,
     loading,
+    handleImageChange,
+    image,
   } = useAddCar();
   return (
     <div className=" dark:bg-[#242731] overflow-y-auto mx-auto p-6 bg-white shadow-xl rounded-xl ">
@@ -190,6 +193,35 @@ const AddCar: React.FC<AddCarPropsTypes> = ({ onClick }) => {
             <option value="RENT">Rent</option>
             <option value="SELL">Sell</option>
           </select>
+        </div>
+
+        <div className="w-full max-w-sm mx-auto">
+          <label className="block mb-2 text-sm font-medium text-gray-700">
+            Upload Image
+          </label>
+
+          <div className="relative">
+            <input
+              type="file"
+              name="image"
+              id="image"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="hidden"
+            />
+
+            <label
+              htmlFor="image"
+              className="flex items-center justify-center w-full h-24 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 hover:bg-blue-50 transition-colors"
+            >
+              <div className="text-center">
+                <BsUpload className="w-6 h-6 text-gray-400 mx-auto mb-2" />
+                <span className="text-sm text-gray-600">
+                  {image ? image.name : "Click to upload"}
+                </span>
+              </div>
+            </label>
+          </div>
         </div>
 
         <div className="flex gap-x-4">

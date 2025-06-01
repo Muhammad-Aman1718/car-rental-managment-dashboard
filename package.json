@@ -19,6 +19,7 @@
     "axios": "^1.7.9",
     "bcryptjs": "^3.0.2",
     "chart.js": "^4.4.8",
+    "cloudinary": "^2.6.1",
     "fullcalendar": "^6.1.15",
     "mongodb": "^6.13.0",
     "next": "15.1.6",

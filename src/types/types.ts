@@ -28,6 +28,6 @@ export interface carDataTypes {
   carType: string;
   modelYear: string;
   doors: string;
-  //   imageUrl: string;
+  imageUrl: string;
   purpose: string;
 }

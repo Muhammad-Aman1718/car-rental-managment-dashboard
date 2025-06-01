@@ -20,12 +20,20 @@ const useAddCar = () => {
   const [modelYear, setModelYear] = useState("");
   const [doors, setDoors] = useState("");
   const [purpose, setPurpose] = useState("");
+  const [image, setImage] = useState<File | null>(null);
 
   const dispatch = useAppDispatch();
   const loading = useAppSelector((state) => state.carDataReducer.loading);
 
   const handleOpen = () => {
     setOpenForm(!openForm);
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setImage(file);
+    }
   };
 
   const handleCarData = async () => {
@@ -48,27 +56,47 @@ const useAddCar = () => {
       showToast("error", "All fields are requried!");
       return;
     }
-    const payload: carDataTypes = {
-      carName,
-      fuelType,
-      transmission,
-      mileage,
-      topSpeed,
-      price,
-      color,
-      engineCapacity,
-      seatingCapacity,
-      registrationNumber,
-      carType,
-      modelYear,
-      doors,
-      purpose,
+
+    if (!image) {
+      showToast("error", "Please upload an image");
+    }
+
+    const buildFormData = () => {
+      console.log("build form is run ======> ");
+
+      const formData = new FormData();
+
+      // Append text fields
+      formData.append("carName", carName);
+      formData.append("fuelType", fuelType);
+      formData.append("transmission", transmission);
+      formData.append("mileage", mileage);
+      formData.append("topSpeed", topSpeed);
+      formData.append("price", price);
+      formData.append("color", color);
+      formData.append("engineCapacity", engineCapacity);
+      formData.append("seatingCapacity", seatingCapacity);
+      formData.append("registrationNumber", registrationNumber);
+      formData.append("carType", carType);
+      formData.append("modelYear", modelYear);
+      formData.append("doors", doors);
+      formData.append("purpose", purpose);
+
+      // Append files
+      if (image) formData.append("image", image);
+
+      console.log("build form is run ======> ", formData);
+      return formData;
     };
 
+    const formData = buildFormData();
 
     try {
-      await dispatch(carData(payload)).unwrap();
+      await dispatch(carData(formData)).unwrap();
       console.log("Car data submitted successfully");
+
+      showToast("success", "Car data submitted successfully");
+
       setCarName("");
       setFuelType("");
       setTransmission("");
@@ -83,6 +111,7 @@ const useAddCar = () => {
       setModelYear("");
       setDoors("");
       setPurpose("");
+      setImage(null);
     } catch (error) {
       console.error("Error submitting car data:", error);
     }
@@ -121,6 +150,8 @@ const useAddCar = () => {
     setPurpose,
     handleCarData,
     loading,
+    handleImageChange,
+    image,
   };
 };
 

@@ -1,47 +1,3 @@
-// import { signIn } from "next-auth/react";
-// import { useRouter } from "next/navigation";
-// import { useState } from "react";
-
-// const useSignIn = () => {
-//   const router = useRouter();
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [error, setError] = useState("");
-
-//   const handleSubmit = async () => {
-//     try {
-//       console.log("Button was clicked");
-
-//       const res = await signIn("credentials", {
-//         email,
-//         password,
-//         redirect: false,
-//       });
-//       console.log("this is res ========>", res);
-
-//       if (res?.error) {
-//         setError("Invalid credential");
-//         return;
-//       }
-
-//       router.replace("/dashboard");
-//     } catch (error) {
-//       console.log("Error", error);
-//     }
-//   };
-//   return {
-//     email,
-//     setEmail,
-//     password,
-//     setPassword,
-//     error,
-//     setError,
-//     handleSubmit,
-//   };
-// };
-
-// export default useSignIn;
-
 import { showToast } from "@/utils/showToast";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -89,7 +45,6 @@ const useSignIn = () => {
         redirect: false,
       });
 
-
       if (res?.error) {
         showToast("error", "Please, Enter your correct user name and password");
         setLoading(false);
@@ -99,8 +54,7 @@ const useSignIn = () => {
       router.push("/dashboard");
       showToast("success", "User sign-in successfully");
     } catch (error) {
-      console.log("Error", error);
-      setLoading(false); 
+      setLoading(false);
     }
   };
 

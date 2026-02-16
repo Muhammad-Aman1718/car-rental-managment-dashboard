@@ -62,7 +62,6 @@ const useAddCar = () => {
     }
 
     const buildFormData = () => {
-      console.log("build form is run ======> ");
 
       const formData = new FormData();
 
@@ -84,8 +83,6 @@ const useAddCar = () => {
 
       // Append files
       if (image) formData.append("image", image);
-
-      console.log("build form is run ======> ", formData);
       return formData;
     };
 
@@ -93,7 +90,6 @@ const useAddCar = () => {
 
     try {
       await dispatch(carData(formData)).unwrap();
-      console.log("Car data submitted successfully");
 
       showToast("success", "Car data submitted successfully");
 

@@ -8,7 +8,6 @@ import cloudinary from "@/lib/cloudinary";
 export const GET = async () => {
   try {
     const session = await getServerSession(authOptions);
-    console.log("this is get session", session);
 
     if (!session) {
       return NextResponse.json(
@@ -17,14 +16,12 @@ export const GET = async () => {
       );
     }
 
-    console.log("this is get session pass");
 
     const allCarsData =
       session?.user.role === "ADMIN"
         ? await prisma.car.findMany({ where: { adminId: session?.user.id } })
         : await prisma.car.findMany();
 
-    console.log("this is all carData", allCarsData);
 
     return NextResponse.json({
       success: true,

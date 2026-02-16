@@ -5,10 +5,7 @@ import { carDataTypes } from "@/types/types";
 
 export const getAllCarsData = createAsyncThunk("allCarsData/get", async () => {
   try {
-    console.log("this is get data thunk");
-
     const response = await axiosInstance.get("carData");
-    console.log("this is get all cars get slice =====> ", response.data);
     return response.data.data;
   } catch (error) {
     const errorAxios = error as AxiosError;
@@ -29,10 +26,6 @@ export const carData = createAsyncThunk(
         headers: { "Content-Type": "multipart/form-data" },
         timeout: 100000,
       });
-      console.log(
-        "this is response on slice post car data =========> ",
-        response.data
-      );
 
       return response.data;
     } catch (error) {
@@ -42,7 +35,7 @@ export const carData = createAsyncThunk(
         "Something went wrong!";
       throw new Error(errorMessage);
     }
-  }
+  },
 );
 
 interface carDataState {

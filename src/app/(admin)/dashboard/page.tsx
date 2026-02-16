@@ -10,7 +10,7 @@ import useAddCar from "@/hooks/useAddCar";
 import Link from "next/link";
 
 const Dashboard = () => {
-  const { openForm, handleOpen } = useAddCar();
+  const { handleOpen } = useAddCar();
 
   return (
     <div className="">

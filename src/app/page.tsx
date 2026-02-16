@@ -13,7 +13,6 @@ import { PiDribbbleLogoLight } from "react-icons/pi";
 import { VscTwitter } from "react-icons/vsc";
 import { PiYoutubeLogoFill } from "react-icons/pi";
 
-//  brands icon
 import { SiToyota } from "react-icons/si";
 import { SiFord } from "react-icons/si";
 import { SiTesla } from "react-icons/si";

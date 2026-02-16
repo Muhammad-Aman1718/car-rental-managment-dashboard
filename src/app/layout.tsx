@@ -8,8 +8,8 @@ import { ToastContainer } from "react-toastify";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "700"], // jitne weight chahiye specify karein
-  variable: "--font-dm-sans", // CSS variable ka naam
+  weight: ["400", "500", "700"],
+  variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {

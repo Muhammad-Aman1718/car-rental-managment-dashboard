@@ -4,7 +4,6 @@ import { IoArrowForward } from "react-icons/io5";
 import RentCategorySectionCard from "./RentCategorySectionCard";
 
 interface RentCategorySectionPropsTypes {
-  //   childern?: React.ReactNode;
   title?: string;
   icon1?: JSX.Element;
   icon2?: JSX.Element;

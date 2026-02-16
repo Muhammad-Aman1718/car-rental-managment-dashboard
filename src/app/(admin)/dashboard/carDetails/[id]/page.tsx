@@ -1,5 +1,4 @@
 "use client";
-// app/(admin)/dashboard/carDetails/[id]/[page.tsx]
 import React from "react";
 import { useParams } from "next/navigation";
 import useBooking from "@/hooks/useBooking";
@@ -19,15 +18,6 @@ const CarDetails = () => {
       <h1 className="text-3xl font-bold text-[#A162F7] mb-6">{car?.carName}</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 bg-white shadow-lg rounded-xl p-6">
-        {/* Image */}
-        {/* <div className="w-full">
-          <Image
-            src={carImage}
-            alt={car.carName}
-            className="w-full h-auto rounded-lg object-cover"
-          />
-        </div> */}
-
         {/* Car Details */}
         <div className="space-y-4 text-base">
           <p>

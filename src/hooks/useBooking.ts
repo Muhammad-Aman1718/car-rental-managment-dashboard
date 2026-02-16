@@ -8,7 +8,6 @@ const useBooking = () => {
   const { carData, loading } = useAppSelector((state) => state.carDataReducer);
 
   useEffect(() => {
-    // Sirf tabhi fetch karo jab carData empty ho
     if (carData.length === 0 && !loading) {
       dispatch(getAllCarsData());
     }

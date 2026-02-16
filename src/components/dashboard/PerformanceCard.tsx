@@ -37,9 +37,6 @@ const PerformanceCard: React.FC<PerformanceCardPropsTypes> = ({
       <Image
         src={pieChart}
         alt="pie chart does not show"
-        // width={30}
-        // height={30}
-        // className="object-cover"
       />
     </div>
   );

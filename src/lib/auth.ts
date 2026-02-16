@@ -45,17 +45,7 @@ const authOptions: AuthOptions = {
       },
     }),
   ],
-  // cookies: {
-  //   sessionToken: {
-  //     name: `next-auth.session-token`, //    `__Secure-next-auth.session-token`      in production time
-  //     options: {
-  //       httpOnly: true,
-  //       sameSite: "lax",
-  //       path: "/",
-  //       secure: false, //     process.env.NODE_ENV === "production" // Ye automatically false ho jayega
-  //     },
-  //   },
-  // },
+
   pages: {
     signIn: "/auth/signIn",
   },

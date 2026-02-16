@@ -7,7 +7,7 @@ import { BsUpload } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 
 const AddCar = () => {
-  const router = useRouter(); // Initialize router
+  const router = useRouter();
   const {
     carName,
     setCarName,

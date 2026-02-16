@@ -1,4 +1,3 @@
-// middleware.ts
 import { getToken } from "next-auth/jwt";
 import { NextResponse, type NextRequest } from "next/server";
 
@@ -6,12 +5,10 @@ export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const token = await getToken({ req: request });
 
-  // Dashboard protection
   if (pathname.startsWith("/dashboard") && !token) {
     return NextResponse.redirect(new URL("/auth/signIn", request.url));
   }
 
-  // Auth pages protection (if logged in)
   if (
     (pathname === "/auth/signIn" ||
       pathname === "/auth/signUp" ||

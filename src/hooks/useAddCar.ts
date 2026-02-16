@@ -62,10 +62,8 @@ const useAddCar = () => {
     }
 
     const buildFormData = () => {
-
       const formData = new FormData();
 
-      // Append text fields
       formData.append("carName", carName);
       formData.append("fuelType", fuelType);
       formData.append("transmission", transmission);
@@ -81,7 +79,6 @@ const useAddCar = () => {
       formData.append("doors", doors);
       formData.append("purpose", purpose);
 
-      // Append files
       if (image) formData.append("image", image);
       return formData;
     };

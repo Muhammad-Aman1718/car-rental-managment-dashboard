@@ -1,4 +1,4 @@
-"use client"; // Next.js App Router me client-side logic ke liye
+"use client";
 
 import { createContext, useEffect, useState, useContext } from "react";
 
@@ -11,7 +11,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    // System default detect karo
     const systemPrefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;

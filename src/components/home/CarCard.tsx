@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-// import { IMAGES } from "@/constants/images";
 import CarCardImg1 from "../../../public/assets/home/carImg1.png";
 import { BsSpeedometer2 } from "react-icons/bs";
 import { TbManualGearbox } from "react-icons/tb";
@@ -11,12 +10,9 @@ const CarCard = () => {
   return (
     <div className="border border-[#0000001A] flex flex-col items-center bg-white rounded-[24px] max-w-[384px] ">
       <Image
-        // src={IMAGES.CARCARDIMG1}
         src={CarCardImg1}
         alt="CARCARDIMG1 does not show"
-        className="px-2 pt-2  "
-        // width={123}
-        // height={444}
+        className="px-2 pt-2 "
       />
 
       <div className=" p-6 flex flex-col items-start w-full ">

@@ -16,12 +16,10 @@ export const GET = async () => {
       );
     }
 
-
     const allCarsData =
       session?.user.role === "ADMIN"
         ? await prisma.car.findMany({ where: { adminId: session?.user.id } })
         : await prisma.car.findMany();
-
 
     return NextResponse.json({
       success: true,
@@ -30,16 +28,12 @@ export const GET = async () => {
     });
   } catch (error) {
     const errorAxios = error as AxiosError;
-    // console.error("this is the api error ====> ", errorAxios);
 
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Something went wrong",
-        error: errorAxios.message,
-      }
-      // { status: 500 }
-    );
+    return NextResponse.json({
+      success: false,
+      message: "Something went wrong",
+      error: errorAxios.message,
+    });
   }
 };
 
@@ -52,7 +46,7 @@ async function uploadFile(file: File): Promise<string> {
       { folder: "uploads" },
       (error, result) => {
         if (error) {
-          console.error("Cloudinary upload error:", error); // ✅ Better logging
+          console.error("Cloudinary upload error:", error);
           reject(error);
         } else if (result?.secure_url) {
           resolve(result.secure_url);
@@ -62,7 +56,7 @@ async function uploadFile(file: File): Promise<string> {
       }
     );
 
-    stream.end(buffer); // Ensure buffer is properly ended
+    stream.end(buffer);
   });
 }
 

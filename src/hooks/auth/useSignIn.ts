@@ -21,22 +21,6 @@ const useSignIn = () => {
       return;
     }
 
-    // if (
-    //   !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) ||
-    //   !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-    //     password
-    //   )
-    // ) {
-    //   showToast(
-    //     "error",
-
-    //     !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
-    //       ? "Please enter a valid email address!"
-    //       : "Password must be at least 8 characters long, contain uppercase, lowercase, number, and a special character!"
-    //   );
-    //   return;
-    // }
-
     try {
       setLoading(true);
       const res = await signIn("credentials", {

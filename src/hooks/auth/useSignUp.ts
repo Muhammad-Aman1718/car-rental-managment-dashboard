@@ -27,27 +27,6 @@ const useSignUp = () => {
       showToast("error", "Please, check the remember me");
       return;
     }
-    // setIsRoleOpen(true);
-    // if (
-    //   !/^[A-Za-z]+$/.test(firstName) ||
-    //   !/^[A-Za-z]+$/.test(lastName) ||
-    //   !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) ||
-    //   !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-    //     password
-    //   )
-    // ) {
-    //   showToast(
-    //     "error",
-    //     !/^[A-Za-z]+$/.test(firstName)
-    //       ? "First name should only contain alphabets!"
-    //       : !/^[A-Za-z]+$/.test(lastName)
-    //       ? "Last name should only contain alphabets!"
-    //       : !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
-    //       ? "Please enter a valid email address!"
-    //       : "Password must be at least 8 characters long, contain uppercase, lowercase, number, and a special character!"
-    //   );
-    //   return;
-    // }
 
     const user = { firstName, lastName, email, password, selectedRole };
 
@@ -63,9 +42,8 @@ const useSignUp = () => {
       const axiosError = error as AxiosError;
       let errorMessage = "Something went wrong. Please try again.";
 
-      // API error response ko check karna
       if (axiosError?.message) {
-        errorMessage = axiosError.message; // Jo bhi API se message aaye
+        errorMessage = axiosError.message; 
       }
 
       showToast("error", errorMessage);

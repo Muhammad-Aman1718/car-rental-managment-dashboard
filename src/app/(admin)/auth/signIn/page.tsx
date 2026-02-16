@@ -18,8 +18,8 @@ const SignIn = () => {
   } = useSignIn();
 
   return (
-    <div className="h-screen dark:bg-[#1F2128] border p-20 max-sm:p-4  ">
-      <div className="border max-w-[510px] min-w-[250px] m-auto ">
+    <div className="h-screen dark:bg-[#1F2128] p-20 max-sm:p-4  ">
+      <div className="max-w-[510px] min-w-[250px] m-auto ">
         <h1 className="dark:text-white text-[#242731] text-[30px] leading-[39.06px] font-bold mb-4 ">
           Get&apos;s started
         </h1>

@@ -4,12 +4,10 @@ import CarDataFormInput from "@/components/inputs/CarDataFormInput";
 import Loader from "@/components/Loader";
 import useAddCar from "@/hooks/useAddCar";
 import { BsUpload } from "react-icons/bs";
+import { useRouter } from "next/navigation";
 
-interface AddCarPropsTypes {
-  onClick?: () => void;
-}
-
-const AddCar: React.FC<AddCarPropsTypes> = ({ onClick }) => {
+const AddCar = () => {
+  const router = useRouter(); // Initialize router
   const {
     carName,
     setCarName,
@@ -233,7 +231,7 @@ const AddCar: React.FC<AddCarPropsTypes> = ({ onClick }) => {
             {loading ? <Loader /> : `Submit`}
           </button>
           <button
-            onClick={onClick}
+            onClick={() => router.back()}
             className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
           >
             Cancel

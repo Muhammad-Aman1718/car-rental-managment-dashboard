@@ -12,7 +12,7 @@ const useBooking = () => {
     if (carData.length === 0 && !loading) {
       dispatch(getAllCarsData());
     }
-  }, []);
+  }, [carData.length, dispatch, loading]);
 
   return {
     carData,

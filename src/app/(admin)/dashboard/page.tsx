@@ -5,7 +5,6 @@ import StatisticsCard from "@/components/dashboard/StatisticsCard";
 import RecommendCard from "@/components/dashboard/RecommendCard";
 import { IMAGES } from "@/constants/images";
 import DataButton from "@/components/dashboard/DashboardButton";
-// import CarDataForm from "@/components/carDataForm";
 import useAddCar from "@/hooks/useAddCar";
 import Link from "next/link";
 
